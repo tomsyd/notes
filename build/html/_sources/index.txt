@@ -10,10 +10,7 @@ Kid's activities
 ----------------
 
 .. toctree::
-   :caption: Table of Contents
    :maxdepth: 2
-   :numbered:
-   :titlesonly:
 
    kid/minecraft
    kid/pygame
@@ -23,10 +20,7 @@ Hardware
 --------
 
 .. toctree::
-   :caption: Table of Contents
    :maxdepth: 2
-   :numbered:
-   :titlesonly:
 
    hardware/raspberrypi
    hardware/arduino
@@ -35,10 +29,7 @@ Manual
 ------
 
 .. toctree::
-   :caption: Table of Contents
-   :maxdepth: 2
-   :numbered:
-   :titlesonly:
+   :maxdepth: 3
    
    manual/linux
    manual/python
