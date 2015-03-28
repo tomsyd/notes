@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Raspberry Pi &mdash; technotes 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="technotes 1 documentation" href="../index.html"/>
+        <link rel="next" title="&lt;no title&gt;" href="arduino.html"/>
+        <link rel="prev" title="&lt;no title&gt;" href="../kid/scratch.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> technotes</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../kid/minecraft.html">Minecraft Pi Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kid/minecraft.html#display-the-player-s-position">Display the player&#8217;s position</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#default-settings">Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#short-cuts">Short-cuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-keyboard">Setup Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities-softwares">Utilities / Softwares</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">technotes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Raspberry Pi</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/hardware/raspberrypi.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="raspberry-pi">
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="default-settings">
+<h2>Default settings<a class="headerlink" href="#default-settings" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>login</td>
+<td><strong>pi</strong></td>
+</tr>
+<tr class="row-even"><td>password</td>
+<td><strong>raspberry</strong></td>
+</tr>
+<tr class="row-odd"><td>hostname</td>
+<td><strong>raspberrypi</strong></td>
+</tr>
+<tr class="row-even"><td>keyboard</td>
+<td>UK</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config">
+<h3>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo raspi-config
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-x-server">
+<h3>Start X server<a class="headerlink" href="#start-x-server" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>startx
+</pre></div>
+</div>
+</div>
+<div class="section" id="reboot">
+<h3>Reboot<a class="headerlink" href="#reboot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="shutdown">
+<h3>Shutdown<a class="headerlink" href="#shutdown" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo shutdown -h now
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-datetime">
+<h3>Change datetime<a class="headerlink" href="#change-datetime" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo date --set<span class="o">=</span><span class="s2">&quot;Sun Nov 18 1:55:16 EDT 2012&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<h3>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get upgrade
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="information">
+<h2>Information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="check-os-version">
+<h3>Check OS version<a class="headerlink" href="#check-os-version" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat /proc/version
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-board-version">
+<h3>Check board version<a class="headerlink" href="#check-board-version" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat /proc/cpuinfo
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-network-interface-and-associated-ip-addresses">
+<h3>Display network interface and associated IP addresses<a class="headerlink" href="#display-network-interface-and-associated-ip-addresses" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ifconfig
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="short-cuts">
+<h2>Short-cuts<a class="headerlink" href="#short-cuts" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Ctrl</strong> + <strong>C</strong></td>
+<td>kill currently running program</td>
+</tr>
+<tr class="row-even"><td><strong>Ctrl</strong> + <strong>D</strong></td>
+<td>exit shell</td>
+</tr>
+<tr class="row-odd"><td><strong>Ctrl</strong> + <strong>A</strong></td>
+<td>move cursor to the beginning of the line</td>
+</tr>
+<tr class="row-even"><td><strong>Ctrl</strong> + <strong>E</strong></td>
+<td>move cursor to the end of the line</td>
+</tr>
+<tr class="row-odd"><td><strong>Ctrl</strong> + <strong>Alt</strong> + <strong>Backspace</strong></td>
+<td>[optional] terminate the X server</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="setup-keyboard">
+<h2>Setup Keyboard<a class="headerlink" href="#setup-keyboard" title="Permalink to this headline">¶</a></h2>
+<p>The default keyboard is UK. Let&#8217;s change it to AU keyboard.</p>
+<p>The trick is that Australia is not listed in the country list for the keyboard, we need to setup a US keyboard instead.</p>
+<div class="section" id="change-the-keyboard-config">
+<h3>Change the keyboard config<a class="headerlink" href="#change-the-keyboard-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo vi /etc/default/keyboard
+</pre></div>
+</div>
+<div class="highlight-text"><div class="highlight"><pre>XKBMODEL =&quot;pc105&quot;
+XKBLAYOUT=&quot;us&quot;
+XKBVARIANT=&quot;&quot;
+XKBOPTIONS=&quot;&quot;
+
+BACKSPACE=&quot;guess&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="then-run-the-following-commands-and-reboot">
+<h3>Then run the following commands and reboot<a class="headerlink" href="#then-run-the-following-commands-and-reboot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo setxkbmap -layout us
+<span class="nv">$ </span>sudo udevadm trigger --subsysstem-match<span class="o">=</span>input --action<span class="o">=</span>change
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="utilities-softwares">
+<h2>Utilities / Softwares<a class="headerlink" href="#utilities-softwares" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="raspi-config-tool">
+<h3>raspi-config tool<a class="headerlink" href="#raspi-config-tool" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install raspi-config
+</pre></div>
+</div>
+</div>
+<div class="section" id="minecraft">
+<h3>Minecraft<a class="headerlink" href="#minecraft" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install minecraft-pi
+</pre></div>
+</div>
+</div>
+<div class="section" id="screenshot-scrot">
+<h3>Screenshot : scrot<a class="headerlink" href="#screenshot-scrot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install scrot
+</pre></div>
+</div>
+</div>
+<div class="section" id="mercurial">
+<h3>Mercurial<a class="headerlink" href="#mercurial" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install mercurial
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="arduino.html" class="btn btn-neutral float-right" title="&lt;no title&gt;">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../kid/scratch.html" class="btn btn-neutral" title="&lt;no title&gt;"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Tom JIANG.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

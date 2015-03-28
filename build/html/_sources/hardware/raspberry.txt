@@ -1,0 +1,21 @@
+Raspberry Pi
+============
+
+Default settings
+----------------
+
+======== =========
+login    pi
+======== =========
+password raspberry
+======== =========
+
+Basic commands
+--------------
+
+Config
+^^^^^^
+
+.. highlight:: sh
+
+	sudo raspi-config
