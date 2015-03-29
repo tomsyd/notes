@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Tom's documentation!
-===============================
+TechNotes by **tom@jiang.fr**
+=============================
 
 Kid's activities
 ----------------
@@ -25,11 +25,19 @@ Hardware
    hardware/raspberrypi
    hardware/arduino
 
-Manual
+System
 ------
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    
-   manual/linux
-   manual/python
+   system/linux
+   system/windows
+
+Programming language
+--------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   language/python
