@@ -6,8 +6,8 @@
 TechNotes by **tom@jiang.fr**
 =============================
 
-Kid's activities
-----------------
+Kid's activity
+--------------
 
 .. toctree::
    :maxdepth: 2
@@ -34,10 +34,21 @@ System
    system/linux
    system/windows
 
+Editor
+------
+
+.. toctree::
+   :maxdepth: 2
+   
+   editor/vim
+   editor/joe
+   editor/nano
+
 Programming language
 --------------------
 
 .. toctree::
    :maxdepth: 2
 
+   language/shell
    language/python

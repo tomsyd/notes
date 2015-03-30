@@ -315,6 +315,66 @@
 </td></tr></table></div>
 <p>Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).</p>
 </div>
+<div class="section" id="build-a-house-then-a-street">
+<h3>Build a house, then a street<a class="headerlink" href="#build-a-house-then-a-street" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mcpi</span> <span class="kn">import</span> <span class="n">minecraft</span><span class="p">,</span> <span class="n">block</span>
+
+<span class="n">mc</span> <span class="o">=</span> <span class="n">minecraft</span><span class="o">.</span><span class="n">Minecraft</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="n">SIZE</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">def</span> <span class="nf">house</span><span class="p">():</span>
+    <span class="n">midx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">SIZE</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">midy</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">SIZE</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span>     <span class="n">x</span><span class="p">,</span>       <span class="n">y</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span>  <span class="n">x</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>  <span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>  <span class="n">z</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">COBBLESTONE</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span>   <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>     <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>        <span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="c"># left window</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span>   <span class="n">x</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span>  <span class="n">midx</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="n">midy</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span>       <span class="n">z</span><span class="p">,</span>      <span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="c"># right window</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span><span class="n">midx</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="n">midy</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span>       <span class="n">z</span><span class="p">,</span>      <span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="c"># door</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span><span class="n">midx</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>       <span class="n">y</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span>  <span class="n">midx</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span>    <span class="n">midy</span><span class="p">,</span>       <span class="n">z</span><span class="p">,</span>  <span class="n">block</span><span class="o">.</span><span class="n">DOOR_WOOD</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span>     <span class="n">x</span><span class="p">,</span>  <span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span>  <span class="n">x</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>  <span class="n">y</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>  <span class="n">z</span><span class="o">+</span><span class="n">SIZE</span><span class="p">,</span>       <span class="n">block</span><span class="o">.</span><span class="n">SNOW</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span>   <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>     <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>     <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="n">SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>       <span class="n">block</span><span class="o">.</span><span class="n">WOOL</span><span class="o">.</span><span class="n">id</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+
+<span class="c"># build a house</span>
+<span class="n">house</span><span class="p">()</span>
+
+<span class="c"># build a street</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">house</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">SIZE</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 </div>
 </div>
 

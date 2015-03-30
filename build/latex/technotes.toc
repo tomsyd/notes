@@ -8,34 +8,36 @@
 \contentsline {subsubsection}{Teleport (change the player's position)}{1}{subsubsection*.5}
 \contentsline {subsubsection}{Build a huge block of activated TNTs}{2}{subsubsection*.6}
 \contentsline {subsubsection}{Put a flower on the path}{2}{subsubsection*.7}
-\contentsline {section}{\numberline {1.2}Pygame}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}List of pygame programs}{2}{subsection.1.2.1}
-\contentsline {subsubsection}{Draw a circle}{2}{subsubsection*.8}
-\contentsline {subsubsection}{Draw circles based on mouse move / position}{3}{subsubsection*.9}
-\contentsline {section}{\numberline {1.3}Scratch}{3}{section.1.3}
+\contentsline {subsubsection}{Clear space with input size}{2}{subsubsection*.8}
+\contentsline {subsubsection}{Build a house, then a street}{3}{subsubsection*.9}
+\contentsline {section}{\numberline {1.2}Pygame}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}List of pygame programs}{3}{subsection.1.2.1}
+\contentsline {subsubsection}{Draw a circle}{3}{subsubsection*.10}
+\contentsline {subsubsection}{Draw circles based on mouse move / position}{4}{subsubsection*.11}
+\contentsline {section}{\numberline {1.3}Scratch}{4}{section.1.3}
 \contentsline {chapter}{\numberline {2}Hardware}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Raspberry Pi}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Default settings}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Basic commands}{5}{subsection.2.1.2}
-\contentsline {subsubsection}{Config}{5}{subsubsection*.10}
-\contentsline {subsubsection}{Start X server}{5}{subsubsection*.11}
-\contentsline {subsubsection}{Reboot}{5}{subsubsection*.12}
-\contentsline {subsubsection}{Shutdown}{5}{subsubsection*.13}
-\contentsline {subsubsection}{Change datetime}{5}{subsubsection*.14}
-\contentsline {subsubsection}{Update}{6}{subsubsection*.15}
+\contentsline {subsubsection}{Config}{5}{subsubsection*.12}
+\contentsline {subsubsection}{Start X server}{5}{subsubsection*.13}
+\contentsline {subsubsection}{Reboot}{5}{subsubsection*.14}
+\contentsline {subsubsection}{Shutdown}{5}{subsubsection*.15}
+\contentsline {subsubsection}{Change datetime}{5}{subsubsection*.16}
+\contentsline {subsubsection}{Update}{6}{subsubsection*.17}
 \contentsline {subsection}{\numberline {2.1.3}Information}{6}{subsection.2.1.3}
-\contentsline {subsubsection}{Check OS version}{6}{subsubsection*.16}
-\contentsline {subsubsection}{Check board version}{6}{subsubsection*.17}
-\contentsline {subsubsection}{Display network interface and associated IP addresses}{6}{subsubsection*.18}
+\contentsline {subsubsection}{Check OS version}{6}{subsubsection*.18}
+\contentsline {subsubsection}{Check board version}{6}{subsubsection*.19}
+\contentsline {subsubsection}{Display network interface and associated IP addresses}{6}{subsubsection*.20}
 \contentsline {subsection}{\numberline {2.1.4}Short-cuts}{6}{subsection.2.1.4}
 \contentsline {subsection}{\numberline {2.1.5}Setup Keyboard}{6}{subsection.2.1.5}
-\contentsline {subsubsection}{Change the keyboard config}{6}{subsubsection*.19}
-\contentsline {subsubsection}{Then run the following commands and reboot}{7}{subsubsection*.20}
+\contentsline {subsubsection}{Change the keyboard config}{6}{subsubsection*.21}
+\contentsline {subsubsection}{Then run the following commands and reboot}{7}{subsubsection*.22}
 \contentsline {subsection}{\numberline {2.1.6}Utilities / Softwares}{7}{subsection.2.1.6}
-\contentsline {subsubsection}{raspi-config tool}{7}{subsubsection*.21}
-\contentsline {subsubsection}{Minecraft}{7}{subsubsection*.22}
-\contentsline {subsubsection}{Screenshot : scrot}{7}{subsubsection*.23}
-\contentsline {subsubsection}{Mercurial}{7}{subsubsection*.24}
+\contentsline {subsubsection}{raspi-config tool}{7}{subsubsection*.23}
+\contentsline {subsubsection}{Minecraft}{7}{subsubsection*.24}
+\contentsline {subsubsection}{Screenshot : scrot}{7}{subsubsection*.25}
+\contentsline {subsubsection}{Mercurial}{7}{subsubsection*.26}
 \contentsline {section}{\numberline {2.2}Arduino}{7}{section.2.2}
 \contentsline {chapter}{\numberline {3}System}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Linux}{9}{section.3.1}

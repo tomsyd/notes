@@ -19,7 +19,7 @@
 
 
 \title{technotes Documentation}
-\date{March 28, 2015}
+\date{March 30, 2015}
 \release{1}
 \author{Tom JIANG}
 \newcommand{\sphinxlogo}{}
@@ -293,6 +293,58 @@ We will leave a flower when we are on a block of grass. Otherwise we will change
     \PYG{k}{else}\PYG{p}{:}
         \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{n}{grass}\PYG{p}{)}
     \PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.1}\PYG{p}{)}
+\end{Verbatim}
+
+
+\subsubsection{Clear space with input size}
+\label{kid/minecraft:clear-space-with-input-size}
+We will clear space for a given \textbf{size}. To do so, we will build a cube of \textbf{size} x \textbf{size} x \textbf{size} blocks, filled with the AIR block.
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{from} \PYG{n+nn}{mcpi} \PYG{k+kn}{import} \PYG{n}{minecraft}\PYG{p}{,} \PYG{n}{block}
+
+\PYG{n}{mc} \PYG{o}{=} \PYG{n}{minecraft}\PYG{o}{.}\PYG{n}{Minecraft}\PYG{o}{.}\PYG{n}{create}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{size} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{raw\PYGZus{}input}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{size of area to clear? }\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{if} \PYG{n}{size} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{n}{x}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+\end{Verbatim}
+
+Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
+
+
+\subsubsection{Build a house, then a street}
+\label{kid/minecraft:build-a-house-then-a-street}
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{from} \PYG{n+nn}{mcpi} \PYG{k+kn}{import} \PYG{n}{minecraft}\PYG{p}{,} \PYG{n}{block}
+
+\PYG{n}{mc} \PYG{o}{=} \PYG{n}{minecraft}\PYG{o}{.}\PYG{n}{Minecraft}\PYG{o}{.}\PYG{n}{create}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{SIZE} \PYG{o}{=} \PYG{l+m+mi}{20}
+
+\PYG{k}{def} \PYG{n+nf}{house}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{midx} \PYG{o}{=} \PYG{n}{x} \PYG{o}{+} \PYG{n}{SIZE}\PYG{o}{/}\PYG{l+m+mi}{2}
+    \PYG{n}{midy} \PYG{o}{=} \PYG{n}{y} \PYG{o}{+} \PYG{n}{SIZE}\PYG{o}{/}\PYG{l+m+mi}{2}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}     \PYG{n}{x}\PYG{p}{,}       \PYG{n}{y}\PYG{p}{,}  \PYG{n}{z}\PYG{p}{,}  \PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}  \PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}  \PYG{n}{z}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{COBBLESTONE}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}   \PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}     \PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}        \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{c}{\PYGZsh{} left window}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}   \PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,}  \PYG{n}{z}\PYG{p}{,}  \PYG{n}{midx}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,}  \PYG{n}{midy}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{,}       \PYG{n}{z}\PYG{p}{,}      \PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{c}{\PYGZsh{} right window}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}\PYG{n}{midx}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,}  \PYG{n}{z}\PYG{p}{,}\PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,}  \PYG{n}{midy}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{,}       \PYG{n}{z}\PYG{p}{,}      \PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{c}{\PYGZsh{} door}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}\PYG{n}{midx}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,}       \PYG{n}{y}\PYG{p}{,}  \PYG{n}{z}\PYG{p}{,}  \PYG{n}{midx}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{,}    \PYG{n}{midy}\PYG{p}{,}       \PYG{n}{z}\PYG{p}{,}  \PYG{n}{block}\PYG{o}{.}\PYG{n}{DOOR\PYGZus{}WOOD}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}     \PYG{n}{x}\PYG{p}{,}  \PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}  \PYG{n}{z}\PYG{p}{,}  \PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}  \PYG{n}{y}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}  \PYG{n}{z}\PYG{o}{+}\PYG{n}{SIZE}\PYG{p}{,}       \PYG{n}{block}\PYG{o}{.}\PYG{n}{SNOW}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}   \PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}     \PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}     \PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{n}{SIZE}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}       \PYG{n}{block}\PYG{o}{.}\PYG{n}{WOOL}\PYG{o}{.}\PYG{n}{id}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{)}
+
+\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c}{\PYGZsh{} build a house}
+\PYG{n}{house}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c}{\PYGZsh{} build a street}
+\PYG{k}{for} \PYG{n}{h} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{house}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{x}\PYG{o}{+}\PYG{n}{SIZE}
 \end{Verbatim}
 
 

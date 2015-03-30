@@ -133,3 +133,37 @@ We will clear space for a given **size**. To do so, we will build a cube of **si
 
 Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
 
+Build a house, then a street
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+   :linenos:
+
+   from mcpi import minecraft, block
+   
+   mc = minecraft.Minecraft.create()
+   SIZE = 20
+   
+   def house():
+       midx = x + SIZE/2
+       midy = y + SIZE/2
+       mc.setBlocks(     x,       y,  z,  x+SIZE,  y+SIZE,  z+SIZE,block.COBBLESTONE.id)
+       mc.setBlocks(   x+1,     y+1,z+1,x+SIZE-1,y+SIZE-1,z+SIZE-1,        block.AIR.id)
+       # left window
+       mc.setBlocks(   x+3,y+SIZE-3,  z,  midx-3,  midy+3,       z,      block.GLASS.id)
+       # right window
+       mc.setBlocks(midx+3,y+SIZE-3,  z,x+SIZE-3,  midy+3,       z,      block.GLASS.id)
+       # door
+       mc.setBlocks(midx-3,       y,  z,  midx+3,    midy,       z,  block.DOOR_WOOD.id)
+       mc.setBlocks(     x,  y+SIZE,  z,  x+SIZE,  y+SIZE,  z+SIZE,       block.SNOW.id)
+       mc.setBlocks(   x+1,     y+1,z+1,x+SIZE-1,     y+1,z+SIZE-1,       block.WOOL.id,7)
+   
+   x,y,z = mc.player.getTilePos()
+   
+   # build a house
+   house()
+   
+   # build a street
+   for h in range(5):
+       house()
+       x = x+SIZE
