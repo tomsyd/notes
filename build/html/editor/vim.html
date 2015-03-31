@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VIM (Vi IMproved) &mdash; technotes 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="technotes 1 documentation" href="../index.html"/>
+        <link rel="next" title="Joe" href="joe.html"/>
+        <link rel="prev" title="Windows" href="../system/windows.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> technotes</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../kid/minecraft.html">Minecraft Pi Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kid/minecraft.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kid/minecraft.html#list-of-python-programs">List of python programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kid/pygame.html">Pygame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kid/pygame.html#list-of-pygame-programs">List of pygame programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kid/scratch.html">Scratch</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/raspberrypi.html">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#default-settings">Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#short-cuts">Short-cuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#setup-keyboard">Setup Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/raspberrypi.html#utilities-softwares">Utilities / Softwares</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">VIM (Vi IMproved)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="joe.html">Joe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nano.html">Nano</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">technotes</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>VIM (Vi IMproved)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/editor/vim.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="vim-vi-improved">
+<h1>VIM (Vi IMproved)<a class="headerlink" href="#vim-vi-improved" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="read-only-use-wq-to-force-the-modification">
+<h3>Read only (use <strong>:wq!</strong> to force the modification)<a class="headerlink" href="#read-only-use-wq-to-force-the-modification" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vim -R file
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-shell-commands">
+<h3>Running shell commands<a class="headerlink" href="#running-shell-commands" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>!command
+</pre></div>
+</div>
+<p>e.g. <strong>!ls</strong> will launch <strong>ls</strong></p>
+<p>if you wants to go directly to shell without quitting from VI editor you can go by executing <strong>!sh</strong> / <strong>!bash</strong> / <strong>!ksh</strong> from VI and then come back to VI editor by just executing command <strong>exit</strong> from shell.
+for Cygwin, <strong>!bash</strong> and <strong>exit</strong> seems to be the best choice</p>
+</div>
+<div class="section" id="launch-vim-from-command-line">
+<h3>Launch VIM from command line<a class="headerlink" href="#launch-vim-from-command-line" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vi file.txt                        open and edit file file.txt
+<span class="nv">$ </span>vi file1.txt file2.txt file3.txt   open several files
+<span class="nv">$ </span>vi +25 file.txt                    edit from the 25th line
+<span class="nv">$ </span>vi + file.txt                      edit at the end of file
+<span class="nv">$ </span>vi +/text file.txt                 edit from the first line containing the word <span class="nb">test</span>
+<span class="nv">$ </span>vi -r file.txt                     restore a crashed file
+<span class="nv">$ </span>view file.txt                      vi in <span class="nb">read</span>-only mode
+<span class="nv">$ </span>vimtutor                           VIM tutorial
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-and-quiting-commands">
+<h3>Saving and quiting commands<a class="headerlink" href="#saving-and-quiting-commands" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>:w            save the current file (before quit)
+:w file.txt   save the modified file with another file name (even if the file was opened in read-only mode)
+:wq           save and quit
+ZZ            save and quit
+:q!           quit without saving
+:wq!          save change in the current file opened in read-only mode, and then quit
+:w!           save change in the current file opened in read-only mode
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-history-and-help">
+<h3>Checking history and help<a class="headerlink" href="#checking-history-and-help" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>:history        vim commands history
+:help           all helps
+:help command   help on one command
+</pre></div>
+</div>
+</div>
+<div class="section" id="recording-and-replaying-commands">
+<h3>Recording and replaying commands<a class="headerlink" href="#recording-and-replaying-commands" title="Permalink to this headline">¶</a></h3>
+<p>Recoding in vim or VI editor can be done by using <strong>q</strong> and the executing recorded comment by using <strong>q&#64;1</strong></p>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>Here are the major VIM editor options</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="93%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>:set nu</td>
+<td>This will display line number in front of each line quite useful if you want line by line information.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>You can turn it off by executing <strong>set nonu</strong>. Remember for turning it off put &#8220;no&#8221; in front of option, like here option is &#8220;nu&#8221; so for turning it off use &#8220;nonu&#8221;.</td>
+</tr>
+<tr class="row-odd"><td>:set nonu</td>
+<td>removing line number display</td>
+</tr>
+<tr class="row-even"><td>:set hlsearch</td>
+<td>This will highlight the matching word when we do search in VI editor, quite useful but if you find it annoying or not able to see sometime due to your color scheme you can turn it off by executing <strong>set nohlsearch</strong>.</td>
+</tr>
+<tr class="row-odd"><td>:set wrap</td>
+<td>If your file has contains some long lines and you want them to wrap use this option, if its already on and you just don&#8217;t want them to wrap use <strong>set nowrap</strong>.</td>
+</tr>
+<tr class="row-even"><td>:colorscheme</td>
+<td>color scheme is used to change color of VIM editor, my favorite color scheme is murphy so if you want to change color scheme of VI editor you can do by executing <strong>colorscheme murphy</strong>.</td>
+</tr>
+<tr class="row-odd"><td>:syntax on</td>
+<td>syntax can be turn on and off based on your need, if it&#8217;s on it will display color syntax for .xml, .html and .perl files.</td>
+</tr>
+<tr class="row-even"><td>:set ignorecase</td>
+<td>This VI editor option allows you do case insensitive search because if it&#8217;s set VI will not distinguish between two words which are just differ in case.</td>
+</tr>
+<tr class="row-odd"><td>:set smartcase</td>
+<td>Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="joe.html" class="btn btn-neutral float-right" title="Joe">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../system/windows.html" class="btn btn-neutral" title="Windows"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2015, tom@jiang.fr.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
