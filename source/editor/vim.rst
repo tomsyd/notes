@@ -88,3 +88,135 @@ Here are the major VIM editor options
 +-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :set smartcase  | Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.                                                                                               |
 +-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Navigation
+----------
+
+Here are some navigating commands
+
++---------+----------------------------------+
+| gg      | goes to start of file            |
++---------+----------------------------------+
+| shift g | goes to end of file              |
++---------+----------------------------------+
+| 0       | goes to beginning of the line    |
++---------+----------------------------------+
+| $       | goes to end of the line          |
++---------+----------------------------------+
+| nG      | goes to nth line                 |
++---------+----------------------------------+
+| :n      | another way of going to nth line |
++---------+----------------------------------+
+
+Editing
+-------
+
+Editing commands
+^^^^^^^^^^^^^^^^
+
++----------+------------------------------------+
+| yy       | equivalent to cut also called yank |
++----------+------------------------------------+
+| p        | paste below line                   |
++----------+------------------------------------+
+| Shift p  | paste above line                   |
++----------+------------------------------------+
+| dd       | deletes the current line           |
++----------+------------------------------------+
+| 5dd      | deletes 5 lines                    |
++----------+------------------------------------+
+| u        | undo last change                   |
++----------+------------------------------------+
+| Ctrl + R | Re do last change                  |
++----------+------------------------------------+
+
+Copy (or cut) / paste (without strange indent)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. move the mouse pointer to the beginning of your desired copy text
+2. type 'v' (visual) for Visual mode, then using mouse pointer move to the end of selected text
+3. type 'y' (yank) for Copy or 'd' (delete) for Cut
+4. move to your paste location, then type 'p' (paste)
+
+Tabulation
+^^^^^^^^^^
+
+1. define TAB as 2 spaces
+
+::
+
+   :set tabstop=2 shiftwidth=2 expandtab
+
+2. replace TAB by 4 spaces
+
+::
+
+   :%s/\t/    /g
+
+Multi-files, multi-windows
+--------------------------
+
+Opening multi-files / another file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ vim file1 file2 file3 ...
+
+::
+
+   :n        edit next file among multi-files (with respect to the order given in the command line)
+   :wn       save the modification and edit the next file
+   :n!       edit the next file without saving the ongoing modification
+   :e        reload the current file
+   :e file   load file in the current window
+
+
+Multi-windows
+^^^^^^^^^^^^^
+
+::
+
+   :sp(lit) file   split horizontally the window and load file in the splitted window
+   :vsplit file    split vertically the window and load file in the splitted window
+   :vs             vertically split window
+   CTRL + w + w    switch among all (sub-)windows
+   :q              close the current (sub-)window
+
+Search and Replace
+------------------
+
+Searching commands
+^^^^^^^^^^^^^^^^^^
+
+::
+
+   /Exception   will search for word "Exception" from top to bottom and stop when it got first match, to go to next match type  "n" and for coming back to previous match press "Shift + N"
+   ?Exception   will search for word "Exception" from bottom to top and stop when it got first match, to go to next match type  "n" and for coming back to previous match press "Shift + N", remember for next match it will go towards top of file.
+
+Find and replace
+^^^^^^^^^^^^^^^^
+
+::
+
+   :%s/Old/New/g     This is an example of global search it will replace all occurrence of word "Old" in file with word "New". Its also equivalent to following command ": 0,$ s/Old/New/g" which actually tells that search from fist to last line.
+   :%s/Old/New/gc    This is similar to first command but with the introduction of "c" it will ask for confirmation
+   :%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation. to make it case Sensitive use "I"
+
+Substitution
+^^^^^^^^^^^^
+
+Substitution is very useful when working with text. Below you have some example. For more information, you could check the link : http://vim.wikia.com/wiki/Search_and_replace
+
+::
+
+   :s/abc/def/           change the first 'abc' of the line to 'def'
+   :s/abc/def/g          change all 'abc' of the line to 'def'
+   :%s/abc/def/g         change all 'abc' of all lines to 'def'
+   :%s/\<abc\>/def/g     change all words 'abc' of all lines to 'def'
+   :%s/\<abc\>/def/gI    change all words 'abc' (case sensitive) of all lines to 'def'
+   :%s/\<abc\>/def/gci   change all words 'abc' (case insensitive) of all lines to 'def', ask for confirmation
+   :5,10s/abc/def/g      change all 'abc' to 'def', from line 5 to line 10 inclusive
+   :.,+5s/abc/def/g      change all 'abc' to 'def', for the current line and the 5 next lines
+   :.,$s/abc/def/g       change all 'abc' to 'def', from the current line to the last line
+   :g/^a/s/abc/def/g     change all 'abc' to 'def', for each line starting with 'a'

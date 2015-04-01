@@ -52,3 +52,12 @@ Programming language
 
    language/shell
    language/python
+
+Mathmatics
+----------
+
+.. toctree::
+   :maxdepth: 2
+
+   math/algebra
+   math/geometry

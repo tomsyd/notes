@@ -19,7 +19,7 @@
 
 
 \title{technotes Documentation}
-\date{March 30, 2015}
+\date{April 01, 2015}
 \release{1}
 \author{Tom JIANG}
 \newcommand{\sphinxlogo}{}
@@ -130,8 +130,8 @@
 
 
 
-\chapter{Kid's activities}
-\label{index:technotes-by-tom-jiang-fr}\label{index:kid-s-activities}
+\chapter{Kid's activity}
+\label{index:technotes-by-tom-jiang-fr}\label{index:kid-s-activity}
 
 \section{Minecraft Pi Edition}
 \label{kid/minecraft::doc}\label{kid/minecraft:minecraft-pi-edition}
@@ -635,8 +635,298 @@ BACKSPACE=\PYGZdq{}guess\PYGZdq{}
 \textbf{Ctrl} + select local and wireless connections, right click \textbf{Bridge Connections}
 
 
+\chapter{Editor}
+\label{index:editor}
+
+\section{VIM (Vi IMproved)}
+\label{editor/vim:vim-vi-improved}\label{editor/vim::doc}
+
+\subsection{Basic commands}
+\label{editor/vim:basic-commands}
+
+\subsubsection{Read only (use \textbf{:wq!} to force the modification)}
+\label{editor/vim:read-only-use-wq-to-force-the-modification}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }vim \PYGZhy{}R file
+\end{Verbatim}
+
+
+\subsubsection{Running shell commands}
+\label{editor/vim:running-shell-commands}
+\begin{Verbatim}[commandchars=\\\{\}]
+!command
+\end{Verbatim}
+
+e.g. \textbf{!ls} will launch \textbf{ls}
+
+if you wants to go directly to shell without quitting from VI editor you can go by executing \textbf{!sh} / \textbf{!bash} / \textbf{!ksh} from VI and then come back to VI editor by just executing command \textbf{exit} from shell.
+for Cygwin, \textbf{!bash} and \textbf{exit} seems to be the best choice
+
+
+\subsubsection{Launch VIM from command line}
+\label{editor/vim:launch-vim-from-command-line}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }vi file.txt                        open and edit file file.txt
+\PYG{n+nv}{\PYGZdl{} }vi file1.txt file2.txt file3.txt   open several files
+\PYG{n+nv}{\PYGZdl{} }vi +25 file.txt                    edit from the 25th line
+\PYG{n+nv}{\PYGZdl{} }vi + file.txt                      edit at the end of file
+\PYG{n+nv}{\PYGZdl{} }vi +/text file.txt                 edit from the first line containing the word \PYG{n+nb}{test}
+\PYG{n+nv}{\PYGZdl{} }vi \PYGZhy{}r file.txt                     restore a crashed file
+\PYG{n+nv}{\PYGZdl{} }view file.txt                      vi in \PYG{n+nb}{read}\PYGZhy{}only mode
+\PYG{n+nv}{\PYGZdl{} }vimtutor                           VIM tutorial
+\end{Verbatim}
+
+
+\subsubsection{Saving and quiting commands}
+\label{editor/vim:saving-and-quiting-commands}
+\begin{Verbatim}[commandchars=\\\{\}]
+:w            save the current file (before quit)
+:w file.txt   save the modified file with another file name (even if the file was opened in read\PYGZhy{}only mode)
+:wq           save and quit
+ZZ            save and quit
+:q!           quit without saving
+:wq!          save change in the current file opened in read\PYGZhy{}only mode, and then quit
+:w!           save change in the current file opened in read\PYGZhy{}only mode
+\end{Verbatim}
+
+
+\subsubsection{Checking history and help}
+\label{editor/vim:checking-history-and-help}
+\begin{Verbatim}[commandchars=\\\{\}]
+:history        vim commands history
+:help           all helps
+:help command   help on one command
+\end{Verbatim}
+
+
+\subsubsection{Recording and replaying commands}
+\label{editor/vim:recording-and-replaying-commands}
+Recoding in vim or VI editor can be done by using \textbf{q} and the executing recorded comment by using \textbf{q@1}
+
+
+\subsection{Options}
+\label{editor/vim:options}
+Here are the major VIM editor options
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+:set nu
+ & 
+This will display line number in front of each line quite useful if you want line by line information.
+\\
+\hline & 
+You can turn it off by executing \textbf{set nonu}. Remember for turning it off put ``no'' in front of option, like here option is ``nu'' so for turning it off use ``nonu''.
+\\
+\hline
+:set nonu
+ & 
+removing line number display
+\\
+\hline
+:set hlsearch
+ & 
+This will highlight the matching word when we do search in VI editor, quite useful but if you find it annoying or not able to see sometime due to your color scheme you can turn it off by executing \textbf{set nohlsearch}.
+\\
+\hline
+:set wrap
+ & 
+If your file has contains some long lines and you want them to wrap use this option, if its already on and you just don't want them to wrap use \textbf{set nowrap}.
+\\
+\hline
+:colorscheme
+ & 
+color scheme is used to change color of VIM editor, my favorite color scheme is murphy so if you want to change color scheme of VI editor you can do by executing \textbf{colorscheme murphy}.
+\\
+\hline
+:syntax on
+ & 
+syntax can be turn on and off based on your need, if it's on it will display color syntax for .xml, .html and .perl files.
+\\
+\hline
+:set ignorecase
+ & 
+This VI editor option allows you do case insensitive search because if it's set VI will not distinguish between two words which are just differ in case.
+\\
+\hline
+:set smartcase
+ & 
+Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Navigation}
+\label{editor/vim:navigation}
+Here are some navigating commands
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+gg
+ & 
+goes to start of file
+\\
+\hline
+shift g
+ & 
+goes to end of file
+\\
+\hline
+0
+ & 
+goes to beginning of the line
+\\
+\hline
+\$
+ & 
+goes to end of the line
+\\
+\hline
+nG
+ & 
+goes to nth line
+\\
+\hline
+:n
+ & 
+another way of going to nth line
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Editing}
+\label{editor/vim:editing}
+
+\subsubsection{Editing commands}
+\label{editor/vim:editing-commands}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+yy
+ & 
+equivalent to cut also called yank
+\\
+\hline
+p
+ & 
+paste below line
+\\
+\hline
+Shift p
+ & 
+paste above line
+\\
+\hline
+dd
+ & 
+deletes the current line
+\\
+\hline
+5dd
+ & 
+deletes 5 lines
+\\
+\hline
+u
+ & 
+undo last change
+\\
+\hline
+Ctrl + R
+ & 
+Re do last change
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Copy (or cut) / paste (without strange indent)}
+\label{editor/vim:copy-or-cut-paste-without-strange-indent}\begin{enumerate}
+\item {} 
+move the mouse pointer to the beginning of your desired copy text
+
+\item {} 
+type `v' (visual) for Visual mode, then using mouse pointer move to the end of selected text
+
+\item {} 
+type `y' (yank) for Copy or `d' (delete) for Cut
+
+\item {} 
+move to your paste location, then type `p' (paste)
+
+\end{enumerate}
+
+
+\subsubsection{Tabulation}
+\label{editor/vim:tabulation}\begin{enumerate}
+\item {} 
+define TAB as 2 spaces
+
+\end{enumerate}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+:set tabstop=2 shiftwidth=2 expandtab
+\end{Verbatim}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item {} 
+replace TAB by 4 spaces
+
+\end{enumerate}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+:\PYGZpc{}s/\PYGZbs{}t/    /g
+\end{Verbatim}
+
+
+\subsection{Multi-files, multi-windows}
+\label{editor/vim:multi-files-multi-windows}
+
+\subsubsection{Opening multi-files / another file}
+\label{editor/vim:opening-multi-files-another-file}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }vim file1 file2 file3 ...
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+:n        edit next file among multi\PYGZhy{}files (with respect to the order given in the command line)
+:wn       save the modification and edit the next file
+:n!       edit the next file without saving the ongoing modification
+:e        reload the current file
+:e file   load file in the current window
+\end{Verbatim}
+
+
+\subsubsection{Multi-windows}
+\label{editor/vim:multi-windows}
+\begin{Verbatim}[commandchars=\\\{\}]
+:sp(lit) file   split horizontally the window and load file in the splitted window
+:vsplit file    split vertically the window and load file in the splitted window
+:vs             vertically split window
+CTRL + w + w    switch among all (sub\PYGZhy{})windows
+:q              close the current (sub\PYGZhy{})window
+\end{Verbatim}
+
+Since Pythagoras, we know that \(a^2 + b^2 = c^2\).
+\begin{gather}
+\begin{split}(a + b)^2  &=  (a + b)(a + b) \\
+           &=  a^2 + 2ab + b^2\end{split}\notag
+\end{gather}
+
+\section{Joe}
+\label{editor/joe::doc}\label{editor/joe:joe}
+
+\section{Nano}
+\label{editor/nano::doc}\label{editor/nano:nano}
+
 \chapter{Programming language}
 \label{index:programming-language}
+
+\section{Shell}
+\label{language/shell:shell}\label{language/shell::doc}
 
 \section{Python}
 \label{language/python:python}\label{language/python::doc}

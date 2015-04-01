@@ -98,6 +98,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">VIM (Vi IMproved)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-files-multi-windows">Multi-files, multi-windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search-and-replace">Search and Replace</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joe.html">Joe</a></li>
@@ -106,6 +110,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/geometry.html">Geometry</a></li>
 </ul>
 
           
@@ -236,6 +244,155 @@ ZZ            save and quit
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<p>Here are some navigating commands</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>gg</td>
+<td>goes to start of file</td>
+</tr>
+<tr class="row-even"><td>shift g</td>
+<td>goes to end of file</td>
+</tr>
+<tr class="row-odd"><td>0</td>
+<td>goes to beginning of the line</td>
+</tr>
+<tr class="row-even"><td>$</td>
+<td>goes to end of the line</td>
+</tr>
+<tr class="row-odd"><td>nG</td>
+<td>goes to nth line</td>
+</tr>
+<tr class="row-even"><td>:n</td>
+<td>another way of going to nth line</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="editing">
+<h2>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="editing-commands">
+<h3>Editing commands<a class="headerlink" href="#editing-commands" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>yy</td>
+<td>equivalent to cut also called yank</td>
+</tr>
+<tr class="row-even"><td>p</td>
+<td>paste below line</td>
+</tr>
+<tr class="row-odd"><td>Shift p</td>
+<td>paste above line</td>
+</tr>
+<tr class="row-even"><td>dd</td>
+<td>deletes the current line</td>
+</tr>
+<tr class="row-odd"><td>5dd</td>
+<td>deletes 5 lines</td>
+</tr>
+<tr class="row-even"><td>u</td>
+<td>undo last change</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + R</td>
+<td>Re do last change</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="copy-or-cut-paste-without-strange-indent">
+<h3>Copy (or cut) / paste (without strange indent)<a class="headerlink" href="#copy-or-cut-paste-without-strange-indent" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>move the mouse pointer to the beginning of your desired copy text</li>
+<li>type &#8216;v&#8217; (visual) for Visual mode, then using mouse pointer move to the end of selected text</li>
+<li>type &#8216;y&#8217; (yank) for Copy or &#8216;d&#8217; (delete) for Cut</li>
+<li>move to your paste location, then type &#8216;p&#8217; (paste)</li>
+</ol>
+</div>
+<div class="section" id="tabulation">
+<h3>Tabulation<a class="headerlink" href="#tabulation" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>define TAB as 2 spaces</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>:set tabstop=2 shiftwidth=2 expandtab
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>replace TAB by 4 spaces</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre>:%s/\t/    /g
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="multi-files-multi-windows">
+<h2>Multi-files, multi-windows<a class="headerlink" href="#multi-files-multi-windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="opening-multi-files-another-file">
+<h3>Opening multi-files / another file<a class="headerlink" href="#opening-multi-files-another-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vim file1 file2 file3 ...
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>:n        edit next file among multi-files (with respect to the order given in the command line)
+:wn       save the modification and edit the next file
+:n!       edit the next file without saving the ongoing modification
+:e        reload the current file
+:e file   load file in the current window
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-windows">
+<h3>Multi-windows<a class="headerlink" href="#multi-windows" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>:sp(lit) file   split horizontally the window and load file in the splitted window
+:vsplit file    split vertically the window and load file in the splitted window
+:vs             vertically split window
+CTRL + w + w    switch among all (sub-)windows
+:q              close the current (sub-)window
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="search-and-replace">
+<h2>Search and Replace<a class="headerlink" href="#search-and-replace" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="searching-commands">
+<h3>Searching commands<a class="headerlink" href="#searching-commands" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>/Exception   will search for word &quot;Exception&quot; from top to bottom and stop when it got first match, to go to next match type  &quot;n&quot; and for coming back to previous match press &quot;Shift + N&quot;
+?Exception   will search for word &quot;Exception&quot; from bottom to top and stop when it got first match, to go to next match type  &quot;n&quot; and for coming back to previous match press &quot;Shift + N&quot;, remember for next match it will go towards top of file.
+</pre></div>
+</div>
+</div>
+<div class="section" id="find-and-replace">
+<h3>Find and replace<a class="headerlink" href="#find-and-replace" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>:%s/Old/New/g     This is an example of global search it will replace all occurrence of word &quot;Old&quot; in file with word &quot;New&quot;. Its also equivalent to following command &quot;: 0,$ s/Old/New/g&quot; which actually tells that search from fist to last line.
+:%s/Old/New/gc    This is similar to first command but with the introduction of &quot;c&quot; it will ask for confirmation
+:%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation. to make it case Sensitive use &quot;I&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="substitution">
+<h3>Substitution<a class="headerlink" href="#substitution" title="Permalink to this headline">¶</a></h3>
+<p>Substitution is very useful when working with text. Below you have some example. For more information, you could check the link : <a class="reference external" href="http://vim.wikia.com/wiki/Search_and_replace">http://vim.wikia.com/wiki/Search_and_replace</a></p>
+<div class="highlight-python"><div class="highlight"><pre>:s/abc/def/           change the first &#39;abc&#39; of the line to &#39;def&#39;
+:s/abc/def/g          change all &#39;abc&#39; of the line to &#39;def&#39;
+:%s/abc/def/g         change all &#39;abc&#39; of all lines to &#39;def&#39;
+:%s/\&lt;abc\&gt;/def/g     change all words &#39;abc&#39; of all lines to &#39;def&#39;
+:%s/\&lt;abc\&gt;/def/gI    change all words &#39;abc&#39; (case sensitive) of all lines to &#39;def&#39;
+:%s/\&lt;abc\&gt;/def/gci   change all words &#39;abc&#39; (case insensitive) of all lines to &#39;def&#39;, ask for confirmation
+:5,10s/abc/def/g      change all &#39;abc&#39; to &#39;def&#39;, from line 5 to line 10 inclusive
+:.,+5s/abc/def/g      change all &#39;abc&#39; to &#39;def&#39;, for the current line and the 5 next lines
+:.,$s/abc/def/g       change all &#39;abc&#39; to &#39;def&#39;, from the current line to the last line
+:g/^a/s/abc/def/g     change all &#39;abc&#39; to &#39;def&#39;, for each line starting with &#39;a&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
