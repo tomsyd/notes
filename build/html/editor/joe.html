@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Joe &mdash; technotes 1 documentation</title>
+  <title>JOE (Joe’s Own Editor) &mdash; technotes 1 documentation</title>
   
 
   
@@ -98,14 +98,28 @@
 <li class="toctree-l1"><a class="reference internal" href="vim.html">VIM (Vi IMproved)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#basic-commands">Basic commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#multi-files-multi-windows">Multi-files, multi-windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#search-and-replace">Search and Replace</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Joe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">JOE (Joe’s Own Editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search">Search</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nano.html">Nano</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/geometry.html">Geometry</a></li>
 </ul>
 
           
@@ -130,7 +144,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Joe</li>
+    <li>JOE (Joe’s Own Editor)</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/editor/joe.txt" rel="nofollow"> View page source</a>
@@ -141,8 +155,253 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="joe">
-<h1>Joe<a class="headerlink" href="#joe" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="joe-joes-own-editor">
+<h1>JOE (Joe’s Own Editor)<a class="headerlink" href="#joe-joes-own-editor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launch-joe-from-command-line">
+<h3>Launch JOE from command line<a class="headerlink" href="#launch-joe-from-command-line" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>joe file.txt                     open and edit file.txt
+<span class="nv">$ </span>joe -wordwrap file.txt           option wordwrap
+<span class="nv">$ </span>joe -lmargin <span class="m">5</span> -tab <span class="m">5</span> file.txt   left <span class="nv">margin</span> <span class="o">=</span> <span class="m">5</span> chars and <span class="nv">TAB</span> <span class="o">=</span> <span class="m">5</span> chars
+<span class="nv">$ </span>joe +25 file.txt                 edit from 25th line
+<span class="nv">$ </span>jmacs file.txt                   variant : simulate GNU-EMACS
+<span class="nv">$ </span>jstar file.txt                   variant : simulate WordStar
+<span class="nv">$ </span>jpico file.txt                   variant : simulate the Pine mailer editor PICO
+<span class="nv">$ </span>rjoe file.txt                    variant : restraint the edit to the file file.txt
+                                   only
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-and-quiting-commands">
+<h3>Saving and quiting commands<a class="headerlink" href="#saving-and-quiting-commands" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + k + d</td>
+<td>save the file</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + x</td>
+<td>save and exit</td>
+</tr>
+<tr class="row-odd"><td>CTRL + c</td>
+<td>exit without save</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + z</td>
+<td>exit and leave JOE in background (fg to go back)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="orthographe">
+<h3>Orthographe<a class="headerlink" href="#orthographe" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + [ + n</td>
+<td>check one word</td>
+</tr>
+<tr class="row-even"><td>CTRL + [ + l</td>
+<td>check one file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="misc">
+<h3>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + k + a</td>
+<td>move to the middle</td>
+</tr>
+<tr class="row-even"><td>CTRL + t</td>
+<td>display and choose the options</td>
+</tr>
+<tr class="row-odd"><td>CTRL + r</td>
+<td>refresh the display</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + h</td>
+<td>display or close the online help</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cursor-move">
+<h3>Cursor / Move<a class="headerlink" href="#cursor-move" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + b</td>
+<td>move to left</td>
+</tr>
+<tr class="row-even"><td>CTRL + p</td>
+<td>move to top</td>
+</tr>
+<tr class="row-odd"><td>CTRL + f</td>
+<td>move to right</td>
+</tr>
+<tr class="row-even"><td>CTRL + n</td>
+<td>move to down</td>
+</tr>
+<tr class="row-odd"><td>CTRL + z</td>
+<td>move to the previous word</td>
+</tr>
+<tr class="row-even"><td>CTRL + x</td>
+<td>move to the next word</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h3>Navigation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + u</td>
+<td>previous screen</td>
+</tr>
+<tr class="row-even"><td>CTRL + v</td>
+<td>next screen</td>
+</tr>
+<tr class="row-odd"><td>CTRL + a</td>
+<td>beginning of the line</td>
+</tr>
+<tr class="row-even"><td>CTRL + e</td>
+<td>end of the line</td>
+</tr>
+<tr class="row-odd"><td>CTRL + k + u</td>
+<td>beginning of the file</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + v</td>
+<td>end of the file</td>
+</tr>
+<tr class="row-odd"><td>CTRL + k + l</td>
+<td>go to line n</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="editing">
+<h2>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blocs-operations">
+<h3>Blocs operations<a class="headerlink" href="#blocs-operations" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + k + b</td>
+<td>beginning of the bloc</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + k</td>
+<td>end of the bloc</td>
+</tr>
+<tr class="row-odd"><td>CTRL + k + m</td>
+<td>move of the bloc</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + c</td>
+<td>copy the bloc</td>
+</tr>
+<tr class="row-odd"><td>CTRL + k + w</td>
+<td>write the bloc in a file</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + y</td>
+<td>delete the bloc</td>
+</tr>
+<tr class="row-odd"><td>CTRL + k + /</td>
+<td>filter the bloc</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="deletion">
+<h3>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + d</td>
+<td>delete one character</td>
+</tr>
+<tr class="row-even"><td>CTRL + y</td>
+<td>delete one line</td>
+</tr>
+<tr class="row-odd"><td>CTRL + w</td>
+<td>delete one word on the right of the cursor</td>
+</tr>
+<tr class="row-even"><td>CTRL + o</td>
+<td>delete one word on the left of the cursor</td>
+</tr>
+<tr class="row-odd"><td>CTRL + j</td>
+<td>delete the rest of the line (i.e. the right side of the cursor)</td>
+</tr>
+<tr class="row-even"><td>CTRL + _</td>
+<td>cancel the operation</td>
+</tr>
+<tr class="row-odd"><td>CTRL + 6</td>
+<td>redo the cancelled operation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="files">
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + k + e</td>
+<td>open / edit a new file</td>
+</tr>
+<tr class="row-even"><td>CTRL + k + r</td>
+<td>insert one file at the cursor position</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + k + f</td>
+<td>search one text</td>
+</tr>
+<tr class="row-even"><td>CTRL + l</td>
+<td>search the next</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 

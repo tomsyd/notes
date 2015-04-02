@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Nano &mdash; technotes 1 documentation</title>
+  <title>NANO (Nano’s ANOther editor) &mdash; technotes 1 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="technotes 1 documentation" href="../index.html"/>
         <link rel="next" title="Shell" href="../language/shell.html"/>
-        <link rel="prev" title="Joe" href="joe.html"/> 
+        <link rel="prev" title="JOE (Joe’s Own Editor)" href="joe.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -98,14 +98,31 @@
 <li class="toctree-l1"><a class="reference internal" href="vim.html">VIM (Vi IMproved)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#basic-commands">Basic commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#multi-files-multi-windows">Multi-files, multi-windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html#search-and-replace">Search and Replace</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joe.html">Joe</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joe.html">JOE (Joe’s Own Editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#search">Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">NANO (Nano’s ANOther editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/geometry.html">Geometry</a></li>
 </ul>
 
           
@@ -130,7 +147,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Nano</li>
+    <li>NANO (Nano’s ANOther editor)</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../_sources/editor/nano.txt" rel="nofollow"> View page source</a>
@@ -141,8 +158,96 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="nano">
-<h1>Nano<a class="headerlink" href="#nano" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="nano-nanos-another-editor">
+<h1>NANO (Nano’s ANOther editor)<a class="headerlink" href="#nano-nanos-another-editor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-commands">
+<h2>Basic commands<a class="headerlink" href="#basic-commands" title="Permalink to this headline">¶</a></h2>
+<p>NANO is the open source clone of the editor PICO, distributed as part of the mail client Pine.</p>
+<div class="section" id="launch-nano-from-command-line">
+<h3>Launch NANO from command line<a class="headerlink" href="#launch-nano-from-command-line" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>nano file.txt       open and edit file.txt
+<span class="nv">$ </span>nano -B file.txt    save the original file as file.txt~ or ~.file
+<span class="nv">$ </span>nano -m file.txt    activate the mouse cursor <span class="o">(</span><span class="k">if</span> supported<span class="o">)</span>
+<span class="nv">$ </span>nano +25 file.txt   edit from the 25th line
+<span class="nv">$ </span>jpico file.txt      simulator JOE of PICO
+</pre></div>
+</div>
+</div>
+<div class="section" id="short-cuts-fn">
+<h3>Short-cuts Fn<a class="headerlink" href="#short-cuts-fn" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="16%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>F1</td>
+<td>CTRL + g</td>
+<td>display online help (CTRL + x to quit)</td>
+</tr>
+<tr class="row-even"><td>F2</td>
+<td>CTRL + x</td>
+<td>quit NANO (or cloase ongoing buffer)</td>
+</tr>
+<tr class="row-odd"><td>F3</td>
+<td>CTRL + o</td>
+<td>save ongoing file</td>
+</tr>
+<tr class="row-even"><td>F4</td>
+<td>CTRL + j</td>
+<td>reformat the text of paragraph</td>
+</tr>
+<tr class="row-odd"><td>F5</td>
+<td>CTRL + r</td>
+<td>insert one file</td>
+</tr>
+<tr class="row-even"><td>F6</td>
+<td>CTRL + w</td>
+<td>search one text</td>
+</tr>
+<tr class="row-odd"><td>F7</td>
+<td>CTRL + y</td>
+<td>previous screen</td>
+</tr>
+<tr class="row-even"><td>F8</td>
+<td>CTRL + v</td>
+<td>next screen</td>
+</tr>
+<tr class="row-odd"><td>F9</td>
+<td>CTRL + k</td>
+<td>cut (and copy) the line (or the chosen text)</td>
+</tr>
+<tr class="row-even"><td>F10</td>
+<td>CTRL + u</td>
+<td>paste the cut text</td>
+</tr>
+<tr class="row-odd"><td>F11</td>
+<td>CTRL + c</td>
+<td>display the cursor position</td>
+</tr>
+<tr class="row-even"><td>F12</td>
+<td>CTRL + t</td>
+<td>start the orthograph verification</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="misc">
+<h3>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + 6</td>
+<td>choose one text from the cursor (CTRL + 6 to cancel the action)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 
@@ -154,7 +259,7 @@
         <a href="../language/shell.html" class="btn btn-neutral float-right" title="Shell">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="joe.html" class="btn btn-neutral" title="Joe"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="joe.html" class="btn btn-neutral" title="JOE (Joe’s Own Editor)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

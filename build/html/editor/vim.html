@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="technotes 1 documentation" href="../index.html"/>
-        <link rel="next" title="Joe" href="joe.html"/>
+        <link rel="next" title="JOE (Joe’s Own Editor)" href="joe.html"/>
         <link rel="prev" title="Windows" href="../system/windows.html"/> 
 
   
@@ -104,7 +104,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#search-and-replace">Search and Replace</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="joe.html">Joe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joe.html">JOE (Joe’s Own Editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="joe.html#search">Search</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="nano.html">Nano</a></li>
 </ul>
 <ul>
@@ -184,7 +190,8 @@ for Cygwin, <strong>!bash</strong> and <strong>exit</strong> seems to be the bes
 <div class="section" id="saving-and-quiting-commands">
 <h3>Saving and quiting commands<a class="headerlink" href="#saving-and-quiting-commands" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre>:w            save the current file (before quit)
-:w file.txt   save the modified file with another file name (even if the file was opened in read-only mode)
+:w file.txt   save the modified file with another file name
+              (even if the file was opened in read-only mode)
 :wq           save and quit
 ZZ            save and quit
 :q!           quit without saving
@@ -341,7 +348,8 @@ ZZ            save and quit
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vim file1 file2 file3 ...
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>:n        edit next file among multi-files (with respect to the order given in the command line)
+<div class="highlight-python"><div class="highlight"><pre>:n        edit next file among multi-files
+          (with respect to the order given in the command line)
 :wn       save the modification and edit the next file
 :n!       edit the next file without saving the ongoing modification
 :e        reload the current file
@@ -364,16 +372,26 @@ CTRL + w + w    switch among all (sub-)windows
 <h2>Search and Replace<a class="headerlink" href="#search-and-replace" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="searching-commands">
 <h3>Searching commands<a class="headerlink" href="#searching-commands" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>/Exception   will search for word &quot;Exception&quot; from top to bottom and stop when it got first match, to go to next match type  &quot;n&quot; and for coming back to previous match press &quot;Shift + N&quot;
-?Exception   will search for word &quot;Exception&quot; from bottom to top and stop when it got first match, to go to next match type  &quot;n&quot; and for coming back to previous match press &quot;Shift + N&quot;, remember for next match it will go towards top of file.
+<div class="highlight-python"><div class="highlight"><pre>/Exception   will search for word &quot;Exception&quot; from top to bottom and stop when it got
+             first match, to go to next match type &quot;n&quot; and for coming back to previous
+             match press &quot;Shift + N&quot;
+?Exception   will search for word &quot;Exception&quot; from bottom to top and stop when it got
+             first match, to go to next match type &quot;n&quot; and for coming back to previous
+             match press &quot;Shift + N&quot;, remember for next match it will go towards top
+             of file.
 </pre></div>
 </div>
 </div>
 <div class="section" id="find-and-replace">
 <h3>Find and replace<a class="headerlink" href="#find-and-replace" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>:%s/Old/New/g     This is an example of global search it will replace all occurrence of word &quot;Old&quot; in file with word &quot;New&quot;. Its also equivalent to following command &quot;: 0,$ s/Old/New/g&quot; which actually tells that search from fist to last line.
-:%s/Old/New/gc    This is similar to first command but with the introduction of &quot;c&quot; it will ask for confirmation
-:%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation. to make it case Sensitive use &quot;I&quot;
+<div class="highlight-python"><div class="highlight"><pre>:%s/Old/New/g     This is an example of global search it will replace all occurrence
+                  of word &quot;Old&quot; in file with word &quot;New&quot;. Its also equivalent to
+                  following command &quot;: 0,$ s/Old/New/g&quot; which actually tells that
+                  search from fist to last line.
+:%s/Old/New/gc    This is similar to first command but with the introduction of &quot;c&quot;
+                  it will ask for confirmation
+:%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+                  to make it case Sensitive use &quot;I&quot;
 </pre></div>
 </div>
 </div>
@@ -385,9 +403,11 @@ CTRL + w + w    switch among all (sub-)windows
 :%s/abc/def/g         change all &#39;abc&#39; of all lines to &#39;def&#39;
 :%s/\&lt;abc\&gt;/def/g     change all words &#39;abc&#39; of all lines to &#39;def&#39;
 :%s/\&lt;abc\&gt;/def/gI    change all words &#39;abc&#39; (case sensitive) of all lines to &#39;def&#39;
-:%s/\&lt;abc\&gt;/def/gci   change all words &#39;abc&#39; (case insensitive) of all lines to &#39;def&#39;, ask for confirmation
+:%s/\&lt;abc\&gt;/def/gci   change all words &#39;abc&#39; (case insensitive) of all lines to &#39;def&#39;,
+                      ask for confirmation
 :5,10s/abc/def/g      change all &#39;abc&#39; to &#39;def&#39;, from line 5 to line 10 inclusive
-:.,+5s/abc/def/g      change all &#39;abc&#39; to &#39;def&#39;, for the current line and the 5 next lines
+:.,+5s/abc/def/g      change all &#39;abc&#39; to &#39;def&#39;, for the current line and the 5 next
+                      lines
 :.,$s/abc/def/g       change all &#39;abc&#39; to &#39;def&#39;, from the current line to the last line
 :g/^a/s/abc/def/g     change all &#39;abc&#39; to &#39;def&#39;, for each line starting with &#39;a&#39;
 </pre></div>
@@ -402,7 +422,7 @@ CTRL + w + w    switch among all (sub-)windows
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="joe.html" class="btn btn-neutral float-right" title="Joe">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="joe.html" class="btn btn-neutral float-right" title="JOE (Joe’s Own Editor)">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../system/windows.html" class="btn btn-neutral" title="Windows"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -19,7 +19,7 @@
 
 
 \title{technotes Documentation}
-\date{April 01, 2015}
+\date{April 02, 2015}
 \release{1}
 \author{Tom JIANG}
 \newcommand{\sphinxlogo}{}
@@ -681,7 +681,8 @@ for Cygwin, \textbf{!bash} and \textbf{exit} seems to be the best choice
 \label{editor/vim:saving-and-quiting-commands}
 \begin{Verbatim}[commandchars=\\\{\}]
 :w            save the current file (before quit)
-:w file.txt   save the modified file with another file name (even if the file was opened in read\PYGZhy{}only mode)
+:w file.txt   save the modified file with another file name
+              (even if the file was opened in read\PYGZhy{}only mode)
 :wq           save and quit
 ZZ            save and quit
 :q!           quit without saving
@@ -892,7 +893,8 @@ replace TAB by 4 spaces
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-:n        edit next file among multi\PYGZhy{}files (with respect to the order given in the command line)
+:n        edit next file among multi\PYGZhy{}files
+          (with respect to the order given in the command line)
 :wn       save the modification and edit the next file
 :n!       edit the next file without saving the ongoing modification
 :e        reload the current file
@@ -910,17 +912,484 @@ CTRL + w + w    switch among all (sub\PYGZhy{})windows
 :q              close the current (sub\PYGZhy{})window
 \end{Verbatim}
 
-Since Pythagoras, we know that \(a^2 + b^2 = c^2\).
-\begin{gather}
-\begin{split}(a + b)^2  &=  (a + b)(a + b) \\
-           &=  a^2 + 2ab + b^2\end{split}\notag
-\end{gather}
 
-\section{Joe}
-\label{editor/joe::doc}\label{editor/joe:joe}
+\subsection{Search and Replace}
+\label{editor/vim:search-and-replace}
 
-\section{Nano}
-\label{editor/nano::doc}\label{editor/nano:nano}
+\subsubsection{Searching commands}
+\label{editor/vim:searching-commands}
+\begin{Verbatim}[commandchars=\\\{\}]
+/Exception   will search for word \PYGZdq{}Exception\PYGZdq{} from top to bottom and stop when it got
+             first match, to go to next match type \PYGZdq{}n\PYGZdq{} and for coming back to previous
+             match press \PYGZdq{}Shift + N\PYGZdq{}
+?Exception   will search for word \PYGZdq{}Exception\PYGZdq{} from bottom to top and stop when it got
+             first match, to go to next match type \PYGZdq{}n\PYGZdq{} and for coming back to previous
+             match press \PYGZdq{}Shift + N\PYGZdq{}, remember for next match it will go towards top
+             of file.
+\end{Verbatim}
+
+
+\subsubsection{Find and replace}
+\label{editor/vim:find-and-replace}
+\begin{Verbatim}[commandchars=\\\{\}]
+:\PYGZpc{}s/Old/New/g     This is an example of global search it will replace all occurrence
+                  of word \PYGZdq{}Old\PYGZdq{} in file with word \PYGZdq{}New\PYGZdq{}. Its also equivalent to
+                  following command \PYGZdq{}: 0,\PYGZdl{} s/Old/New/g\PYGZdq{} which actually tells that
+                  search from fist to last line.
+:\PYGZpc{}s/Old/New/gc    This is similar to first command but with the introduction of \PYGZdq{}c\PYGZdq{}
+                  it will ask for confirmation
+:\PYGZpc{}s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+                  to make it case Sensitive use \PYGZdq{}I\PYGZdq{}
+\end{Verbatim}
+
+
+\subsubsection{Substitution}
+\label{editor/vim:substitution}
+Substitution is very useful when working with text. Below you have some example. For more information, you could check the link : \href{http://vim.wikia.com/wiki/Search\_and\_replace}{http://vim.wikia.com/wiki/Search\_and\_replace}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+:s/abc/def/           change the first \PYGZsq{}abc\PYGZsq{} of the line to \PYGZsq{}def\PYGZsq{}
+:s/abc/def/g          change all \PYGZsq{}abc\PYGZsq{} of the line to \PYGZsq{}def\PYGZsq{}
+:\PYGZpc{}s/abc/def/g         change all \PYGZsq{}abc\PYGZsq{} of all lines to \PYGZsq{}def\PYGZsq{}
+:\PYGZpc{}s/\PYGZbs{}\PYGZlt{}abc\PYGZbs{}\PYGZgt{}/def/g     change all words \PYGZsq{}abc\PYGZsq{} of all lines to \PYGZsq{}def\PYGZsq{}
+:\PYGZpc{}s/\PYGZbs{}\PYGZlt{}abc\PYGZbs{}\PYGZgt{}/def/gI    change all words \PYGZsq{}abc\PYGZsq{} (case sensitive) of all lines to \PYGZsq{}def\PYGZsq{}
+:\PYGZpc{}s/\PYGZbs{}\PYGZlt{}abc\PYGZbs{}\PYGZgt{}/def/gci   change all words \PYGZsq{}abc\PYGZsq{} (case insensitive) of all lines to \PYGZsq{}def\PYGZsq{},
+                      ask for confirmation
+:5,10s/abc/def/g      change all \PYGZsq{}abc\PYGZsq{} to \PYGZsq{}def\PYGZsq{}, from line 5 to line 10 inclusive
+:.,+5s/abc/def/g      change all \PYGZsq{}abc\PYGZsq{} to \PYGZsq{}def\PYGZsq{}, for the current line and the 5 next
+                      lines
+:.,\PYGZdl{}s/abc/def/g       change all \PYGZsq{}abc\PYGZsq{} to \PYGZsq{}def\PYGZsq{}, from the current line to the last line
+:g/\PYGZca{}a/s/abc/def/g     change all \PYGZsq{}abc\PYGZsq{} to \PYGZsq{}def\PYGZsq{}, for each line starting with \PYGZsq{}a\PYGZsq{}
+\end{Verbatim}
+
+
+\section{JOE (Joe’s Own Editor)}
+\label{editor/joe:joe-joes-own-editor}\label{editor/joe::doc}
+
+\subsection{Basic commands}
+\label{editor/joe:basic-commands}
+
+\subsubsection{Launch JOE from command line}
+\label{editor/joe:launch-joe-from-command-line}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }joe file.txt                     open and edit file.txt
+\PYG{n+nv}{\PYGZdl{} }joe \PYGZhy{}wordwrap file.txt           option wordwrap
+\PYG{n+nv}{\PYGZdl{} }joe \PYGZhy{}lmargin \PYG{l+m}{5} \PYGZhy{}tab \PYG{l+m}{5} file.txt   left \PYG{n+nv}{margin} \PYG{o}{=} \PYG{l+m}{5} chars and \PYG{n+nv}{TAB} \PYG{o}{=} \PYG{l+m}{5} chars
+\PYG{n+nv}{\PYGZdl{} }joe +25 file.txt                 edit from 25th line
+\PYG{n+nv}{\PYGZdl{} }jmacs file.txt                   variant : simulate GNU\PYGZhy{}EMACS
+\PYG{n+nv}{\PYGZdl{} }jstar file.txt                   variant : simulate WordStar
+\PYG{n+nv}{\PYGZdl{} }jpico file.txt                   variant : simulate the Pine mailer editor PICO
+\PYG{n+nv}{\PYGZdl{} }rjoe file.txt                    variant : restraint the edit to the file file.txt
+                                   only
+\end{Verbatim}
+
+
+\subsubsection{Saving and quiting commands}
+\label{editor/joe:saving-and-quiting-commands}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + k + d
+ & 
+save the file
+\\
+\hline
+CTRL + k + x
+ & 
+save and exit
+\\
+\hline
+CTRL + c
+ & 
+exit without save
+\\
+\hline
+CTRL + k + z
+ & 
+exit and leave JOE in background (fg to go back)
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Orthographe}
+\label{editor/joe:orthographe}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + {[} + n
+ & 
+check one word
+\\
+\hline
+CTRL + {[} + l
+ & 
+check one file
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Misc}
+\label{editor/joe:misc}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + k + a
+ & 
+move to the middle
+\\
+\hline
+CTRL + t
+ & 
+display and choose the options
+\\
+\hline
+CTRL + r
+ & 
+refresh the display
+\\
+\hline
+CTRL + k + h
+ & 
+display or close the online help
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Navigation}
+\label{editor/joe:navigation}
+
+\subsubsection{Cursor / Move}
+\label{editor/joe:cursor-move}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + b
+ & 
+move to left
+\\
+\hline
+CTRL + p
+ & 
+move to top
+\\
+\hline
+CTRL + f
+ & 
+move to right
+\\
+\hline
+CTRL + n
+ & 
+move to down
+\\
+\hline
+CTRL + z
+ & 
+move to the previous word
+\\
+\hline
+CTRL + x
+ & 
+move to the next word
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Navigation}
+\label{editor/joe:id1}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + u
+ & 
+previous screen
+\\
+\hline
+CTRL + v
+ & 
+next screen
+\\
+\hline
+CTRL + a
+ & 
+beginning of the line
+\\
+\hline
+CTRL + e
+ & 
+end of the line
+\\
+\hline
+CTRL + k + u
+ & 
+beginning of the file
+\\
+\hline
+CTRL + k + v
+ & 
+end of the file
+\\
+\hline
+CTRL + k + l
+ & 
+go to line n
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Editing}
+\label{editor/joe:editing}
+
+\subsubsection{Blocs operations}
+\label{editor/joe:blocs-operations}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + k + b
+ & 
+beginning of the bloc
+\\
+\hline
+CTRL + k + k
+ & 
+end of the bloc
+\\
+\hline
+CTRL + k + m
+ & 
+move of the bloc
+\\
+\hline
+CTRL + k + c
+ & 
+copy the bloc
+\\
+\hline
+CTRL + k + w
+ & 
+write the bloc in a file
+\\
+\hline
+CTRL + k + y
+ & 
+delete the bloc
+\\
+\hline
+CTRL + k + /
+ & 
+filter the bloc
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Deletion}
+\label{editor/joe:deletion}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + d
+ & 
+delete one character
+\\
+\hline
+CTRL + y
+ & 
+delete one line
+\\
+\hline
+CTRL + w
+ & 
+delete one word on the right of the cursor
+\\
+\hline
+CTRL + o
+ & 
+delete one word on the left of the cursor
+\\
+\hline
+CTRL + j
+ & 
+delete the rest of the line (i.e. the right side of the cursor)
+\\
+\hline
+CTRL + \_
+ & 
+cancel the operation
+\\
+\hline
+CTRL + 6
+ & 
+redo the cancelled operation
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Files}
+\label{editor/joe:files}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + k + e
+ & 
+open / edit a new file
+\\
+\hline
+CTRL + k + r
+ & 
+insert one file at the cursor position
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Search}
+\label{editor/joe:search}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + k + f
+ & 
+search one text
+\\
+\hline
+CTRL + l
+ & 
+search the next
+\\
+\hline\end{tabulary}
+
+
+
+\section{NANO (Nano’s ANOther editor)}
+\label{editor/nano::doc}\label{editor/nano:nano-nanos-another-editor}
+
+\subsection{Basic commands}
+\label{editor/nano:basic-commands}
+NANO is the open source clone of the editor PICO, distributed as part of the mail client Pine.
+
+
+\subsubsection{Launch NANO from command line}
+\label{editor/nano:launch-nano-from-command-line}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }nano file.txt       open and edit file.txt
+\PYG{n+nv}{\PYGZdl{} }nano \PYGZhy{}B file.txt    save the original file as file.txt\PYGZti{} or \PYGZti{}.file
+\PYG{n+nv}{\PYGZdl{} }nano \PYGZhy{}m file.txt    activate the mouse cursor \PYG{o}{(}\PYG{k}{if} supported\PYG{o}{)}
+\PYG{n+nv}{\PYGZdl{} }nano +25 file.txt   edit from the 25th line
+\PYG{n+nv}{\PYGZdl{} }jpico file.txt      simulator JOE of PICO
+\end{Verbatim}
+
+
+\subsubsection{Short-cuts Fn}
+\label{editor/nano:short-cuts-fn}
+\begin{tabulary}{\linewidth}{|L|L|L|}
+\hline
+
+F1
+ & 
+CTRL + g
+ & 
+display online help (CTRL + x to quit)
+\\
+\hline
+F2
+ & 
+CTRL + x
+ & 
+quit NANO (or cloase ongoing buffer)
+\\
+\hline
+F3
+ & 
+CTRL + o
+ & 
+save ongoing file
+\\
+\hline
+F4
+ & 
+CTRL + j
+ & 
+reformat the text of paragraph
+\\
+\hline
+F5
+ & 
+CTRL + r
+ & 
+insert one file
+\\
+\hline
+F6
+ & 
+CTRL + w
+ & 
+search one text
+\\
+\hline
+F7
+ & 
+CTRL + y
+ & 
+previous screen
+\\
+\hline
+F8
+ & 
+CTRL + v
+ & 
+next screen
+\\
+\hline
+F9
+ & 
+CTRL + k
+ & 
+cut (and copy) the line (or the chosen text)
+\\
+\hline
+F10
+ & 
+CTRL + u
+ & 
+paste the cut text
+\\
+\hline
+F11
+ & 
+CTRL + c
+ & 
+display the cursor position
+\\
+\hline
+F12
+ & 
+CTRL + t
+ & 
+start the orthograph verification
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{Misc}
+\label{editor/nano:misc}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + 6
+ & 
+choose one text from the cursor (CTRL + 6 to cancel the action)
+\\
+\hline\end{tabulary}
+
+
 
 \chapter{Programming language}
 \label{index:programming-language}
@@ -930,6 +1399,15 @@ Since Pythagoras, we know that \(a^2 + b^2 = c^2\).
 
 \section{Python}
 \label{language/python:python}\label{language/python::doc}
+
+\chapter{Mathmatics}
+\label{index:mathmatics}
+
+\section{Algebra}
+\label{math/algebra::doc}\label{math/algebra:algebra}
+
+\section{Geometry}
+\label{math/geometry:geometry}\label{math/geometry::doc}
 
 
 \renewcommand{\indexname}{Index}

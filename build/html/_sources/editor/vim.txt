@@ -43,7 +43,8 @@ Saving and quiting commands
 ::
 
    :w            save the current file (before quit)
-   :w file.txt   save the modified file with another file name (even if the file was opened in read-only mode)
+   :w file.txt   save the modified file with another file name
+                 (even if the file was opened in read-only mode)
    :wq           save and quit
    ZZ            save and quit
    :q!           quit without saving
@@ -165,7 +166,8 @@ Opening multi-files / another file
 
 ::
 
-   :n        edit next file among multi-files (with respect to the order given in the command line)
+   :n        edit next file among multi-files
+             (with respect to the order given in the command line)
    :wn       save the modification and edit the next file
    :n!       edit the next file without saving the ongoing modification
    :e        reload the current file
@@ -191,17 +193,27 @@ Searching commands
 
 ::
 
-   /Exception   will search for word "Exception" from top to bottom and stop when it got first match, to go to next match type  "n" and for coming back to previous match press "Shift + N"
-   ?Exception   will search for word "Exception" from bottom to top and stop when it got first match, to go to next match type  "n" and for coming back to previous match press "Shift + N", remember for next match it will go towards top of file.
+   /Exception   will search for word "Exception" from top to bottom and stop when it got
+                first match, to go to next match type "n" and for coming back to previous
+                match press "Shift + N"
+   ?Exception   will search for word "Exception" from bottom to top and stop when it got
+                first match, to go to next match type "n" and for coming back to previous
+                match press "Shift + N", remember for next match it will go towards top
+                of file.
 
 Find and replace
 ^^^^^^^^^^^^^^^^
 
 ::
 
-   :%s/Old/New/g     This is an example of global search it will replace all occurrence of word "Old" in file with word "New". Its also equivalent to following command ": 0,$ s/Old/New/g" which actually tells that search from fist to last line.
-   :%s/Old/New/gc    This is similar to first command but with the introduction of "c" it will ask for confirmation
-   :%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation. to make it case Sensitive use "I"
+   :%s/Old/New/g     This is an example of global search it will replace all occurrence
+                     of word "Old" in file with word "New". Its also equivalent to
+                     following command ": 0,$ s/Old/New/g" which actually tells that
+                     search from fist to last line.
+   :%s/Old/New/gc    This is similar to first command but with the introduction of "c"
+                     it will ask for confirmation
+   :%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+                     to make it case Sensitive use "I"
 
 Substitution
 ^^^^^^^^^^^^
@@ -215,8 +227,10 @@ Substitution is very useful when working with text. Below you have some example.
    :%s/abc/def/g         change all 'abc' of all lines to 'def'
    :%s/\<abc\>/def/g     change all words 'abc' of all lines to 'def'
    :%s/\<abc\>/def/gI    change all words 'abc' (case sensitive) of all lines to 'def'
-   :%s/\<abc\>/def/gci   change all words 'abc' (case insensitive) of all lines to 'def', ask for confirmation
+   :%s/\<abc\>/def/gci   change all words 'abc' (case insensitive) of all lines to 'def',
+                         ask for confirmation
    :5,10s/abc/def/g      change all 'abc' to 'def', from line 5 to line 10 inclusive
-   :.,+5s/abc/def/g      change all 'abc' to 'def', for the current line and the 5 next lines
+   :.,+5s/abc/def/g      change all 'abc' to 'def', for the current line and the 5 next
+                         lines
    :.,$s/abc/def/g       change all 'abc' to 'def', from the current line to the last line
    :g/^a/s/abc/def/g     change all 'abc' to 'def', for each line starting with 'a'

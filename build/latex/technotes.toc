@@ -61,8 +61,32 @@
 \contentsline {subsection}{\numberline {4.1.5}Multi-files, multi-windows}{13}{subsection.4.1.5}
 \contentsline {subsubsection}{Opening multi-files / another file}{13}{subsubsection*.36}
 \contentsline {subsubsection}{Multi-windows}{13}{subsubsection*.37}
-\contentsline {section}{\numberline {4.2}Joe}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}Nano}{14}{section.4.3}
-\contentsline {chapter}{\numberline {5}Programming language}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Shell}{15}{section.5.1}
-\contentsline {section}{\numberline {5.2}Python}{15}{section.5.2}
+\contentsline {subsection}{\numberline {4.1.6}Search and Replace}{14}{subsection.4.1.6}
+\contentsline {subsubsection}{Searching commands}{14}{subsubsection*.38}
+\contentsline {subsubsection}{Find and replace}{14}{subsubsection*.39}
+\contentsline {subsubsection}{Substitution}{14}{subsubsection*.40}
+\contentsline {section}{\numberline {4.2}JOE (Joe\IeC {\textquoteright }s Own Editor)}{14}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Basic commands}{14}{subsection.4.2.1}
+\contentsline {subsubsection}{Launch JOE from command line}{14}{subsubsection*.41}
+\contentsline {subsubsection}{Saving and quiting commands}{15}{subsubsection*.42}
+\contentsline {subsubsection}{Orthographe}{15}{subsubsection*.43}
+\contentsline {subsubsection}{Misc}{15}{subsubsection*.44}
+\contentsline {subsection}{\numberline {4.2.2}Navigation}{15}{subsection.4.2.2}
+\contentsline {subsubsection}{Cursor / Move}{15}{subsubsection*.45}
+\contentsline {subsubsection}{Navigation}{15}{subsubsection*.46}
+\contentsline {subsection}{\numberline {4.2.3}Editing}{16}{subsection.4.2.3}
+\contentsline {subsubsection}{Blocs operations}{16}{subsubsection*.47}
+\contentsline {subsubsection}{Deletion}{16}{subsubsection*.48}
+\contentsline {subsubsection}{Files}{16}{subsubsection*.49}
+\contentsline {subsection}{\numberline {4.2.4}Search}{16}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}NANO (Nano\IeC {\textquoteright }s ANOther editor)}{16}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Basic commands}{16}{subsection.4.3.1}
+\contentsline {subsubsection}{Launch NANO from command line}{16}{subsubsection*.50}
+\contentsline {subsubsection}{Short-cuts Fn}{17}{subsubsection*.51}
+\contentsline {subsubsection}{Misc}{17}{subsubsection*.52}
+\contentsline {chapter}{\numberline {5}Programming language}{19}{chapter.5}
+\contentsline {section}{\numberline {5.1}Shell}{19}{section.5.1}
+\contentsline {section}{\numberline {5.2}Python}{19}{section.5.2}
+\contentsline {chapter}{\numberline {6}Mathmatics}{21}{chapter.6}
+\contentsline {section}{\numberline {6.1}Algebra}{21}{section.6.1}
+\contentsline {section}{\numberline {6.2}Geometry}{21}{section.6.2}
