@@ -423,7 +423,7 @@ Treasure Hunt
    mc = minecraft.Minecraft.create()
    
    score = 0
-   range = 5 # increase this number to make a more difficult game!
+   RANGE = 5 # increase this number to make a more difficult game!
    
    treasurex = None
    
