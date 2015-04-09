@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Minecraft Pi Edition &mdash; technotes 1 documentation</title>
+  <title>Minecraft Pi Edition &mdash; Tech for fun! 1 documentation</title>
   
 
   
@@ -30,9 +30,9 @@
   
 
   
-    <link rel="top" title="technotes 1 documentation" href="../index.html"/>
+    <link rel="top" title="Tech for fun! 1 documentation" href="../index.html"/>
         <link rel="next" title="Pygame" href="pygame.html"/>
-        <link rel="prev" title="TechNotes by tom@jiang.fr at http://tom.jiang.fr" href="../index.html"/> 
+        <link rel="prev" title="Tech for fun!" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="../index.html" class="fa fa-home"> technotes</a>
+          <a href="../index.html" class="fa fa-home"> Tech for fun!</a>
         
         
 <div role="search">
@@ -137,7 +137,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">technotes</a>
+        <a href="../index.html">Tech for fun!</a>
       </nav>
 
 
@@ -568,7 +568,10 @@
     <span class="n">mc</span><span class="o">.</span><span class="n">setBlocks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">size</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">size</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="n">size</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).</p>
+<div class="sidebar">
+<p class="first sidebar-title">Challenge</p>
+<p class="last">Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).</p>
+</div>
 </div>
 <div class="section" id="build-a-house">
 <h3>Build a house<a class="headerlink" href="#build-a-house" title="Permalink to this headline">¶</a></h3>
@@ -677,8 +680,11 @@
     <span class="n">x</span> <span class="o">+=</span> <span class="n">SIZE</span>
 </pre></div>
 </td></tr></table></div>
+<div class="sidebar">
+<p class="first sidebar-title"><code class="docutils literal"><span class="pre">range(5)</span> <span class="pre">=</span> <span class="pre">range(0,5,1)</span></code></p>
 <p><code class="docutils literal"><span class="pre">range(5)</span></code> means the list of the first five integers starting from 0, i.e. 0, 1, 2, 3, 4.</p>
-<p><code class="docutils literal"><span class="pre">range(5)</span></code> is indeed a shortcut of <code class="docutils literal"><span class="pre">range(0,5,1)</span></code> which means the list of integers starting from 0 and less than 5, increased 1 per step.</p>
+<p class="last"><code class="docutils literal"><span class="pre">range(5)</span></code> is indeed a shortcut of <code class="docutils literal"><span class="pre">range(0,5,1)</span></code> which means the list of integers starting from 0 and less than 5, increased 1 per step.</p>
+</div>
 </div>
 <div class="section" id="magic-bridge">
 <h3>Magic bridge<a class="headerlink" href="#magic-bridge" title="Permalink to this headline">¶</a></h3>
@@ -773,6 +779,143 @@
 </pre></div>
 </td></tr></table></div>
 </div>
+<div class="section" id="vanishing-bridge-improved-version">
+<h3>Vanishing bridge (Improved Version)<a class="headerlink" href="#vanishing-bridge-improved-version" title="Permalink to this headline">¶</a></h3>
+<p>One question raised by Tom on the previous version of vanishing bridge: can we remove also the bridge&#8217;s one glass block when we are on a glass block which is not part of the bridge?</p>
+<p>For this to be done, we need to check when we have a glass block, whether its coordinate is in the list of the bridge&#8217;s glass blocks&#8217; coordinates.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mcpi</span> <span class="kn">import</span> <span class="n">minecraft</span><span class="p">,</span> <span class="n">block</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">mc</span> <span class="o">=</span> <span class="n">minecraft</span><span class="o">.</span><span class="n">Minecraft</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="n">bridge</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">buildBridge</span><span class="p">():</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">getBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="c"># y-1 means under the feet</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="ow">or</span>
+       <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">WATER_STATIONARY</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="ow">or</span>
+       <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">WATER_FLOWING</span><span class="o">.</span><span class="n">id</span><span class="p">):</span>
+        <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">coordinate</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+        <span class="n">bridge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bridge</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">coordinate</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">coordinate</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c"># b == block.GLASS.id</span>
+        <span class="k">if</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bridge</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bridge</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">coordinate</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">coordinate</span>
+                <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">buildBridge</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="vanishing-bridge-simplified-version">
+<h3>Vanishing bridge (Simplified Version)<a class="headerlink" href="#vanishing-bridge-simplified-version" title="Permalink to this headline">¶</a></h3>
+<p>There are two repeated blocks in the above code: it&#8217;s our chance to create a new function!</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mcpi</span> <span class="kn">import</span> <span class="n">minecraft</span><span class="p">,</span> <span class="n">block</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">mc</span> <span class="o">=</span> <span class="n">minecraft</span><span class="o">.</span><span class="n">Minecraft</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="n">bridge</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">popBridge</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bridge</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">coordinate</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">coordinate</span>
+        <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">buildBridge</span><span class="p">():</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">getBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="c"># y-1 means under the feet</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="ow">or</span>
+       <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">WATER_STATIONARY</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="ow">or</span>
+       <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">block</span><span class="o">.</span><span class="n">WATER_FLOWING</span><span class="o">.</span><span class="n">id</span><span class="p">):</span>
+        <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">coordinate</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+        <span class="n">bridge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">block</span><span class="o">.</span><span class="n">GLASS</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">popBridge</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c"># b == block.GLASS.id</span>
+        <span class="k">if</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">z</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">bridge</span><span class="p">:</span>
+            <span class="n">popBridge</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">buildBridge</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 <div class="section" id="treasure-hunt">
 <h3>Treasure Hunt<a class="headerlink" href="#treasure-hunt" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -855,7 +998,7 @@
         <a href="pygame.html" class="btn btn-neutral float-right" title="Pygame">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="TechNotes by tom@jiang.fr at http://tom.jiang.fr"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Tech for fun!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -864,7 +1007,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2015, tom@jiang.fr.
+        &copy; Copyright 2014-2015, Tom.
     </p>
   </div>
 

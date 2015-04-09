@@ -18,10 +18,10 @@
 
 
 
-\title{technotes Documentation}
+\title{Tech for fun!}
 \date{April 09, 2015}
 \release{1}
-\author{Tom JIANG}
+\author{Tom}
 \newcommand{\sphinxlogo}{}
 \renewcommand{\releasename}{Release}
 \makeindex
@@ -131,7 +131,7 @@
 
 
 \chapter{Kid's activity}
-\label{index:kid-s-activity}\label{index:technotes-by-tom-jiang-fr-at-http-tom-jiang-fr}
+\label{index:kid-s-activity}\label{index:tech-for-fun}
 
 \section{Minecraft Pi Edition}
 \label{kid/minecraft::doc}\label{kid/minecraft:minecraft-pi-edition}
@@ -690,8 +690,16 @@ We will clear space for a given \textbf{size}. To do so, we will build a cube of
 \PYG{k}{if} \PYG{n}{size} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
     \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlocks}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{n}{x}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{z}\PYG{o}{+}\PYG{n}{size}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
 \end{Verbatim}
+\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Challenge}
 
-Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
+\medskip
+
+
+Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
 
 
 \subsubsection{Build a house}
@@ -754,10 +762,18 @@ Challenge: Change a little the above program so that the player is in the middle
     \PYG{n}{house}\PYG{p}{(}\PYG{p}{)}
     \PYG{n}{x} \PYG{o}{+}\PYG{o}{=} \PYG{n}{SIZE}
 \end{Verbatim}
+\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{\texttt{range(5) = range(0,5,1)}}
+
+\medskip
+
 
 \code{range(5)} means the list of the first five integers starting from 0, i.e. 0, 1, 2, 3, 4.
 
 \code{range(5)} is indeed a shortcut of \code{range(0,5,1)} which means the list of integers starting from 0 and less than 5, increased 1 per step.
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
 
 
 \subsubsection{Magic bridge}
@@ -812,6 +828,87 @@ To do this, we will build a list of all created glass blocks in order. When it w
             \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c} \PYG{o}{=} \PYG{n}{coordinate}
             \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
             \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+
+\PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
+    \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+    \PYG{n}{buildBridge}\PYG{p}{(}\PYG{p}{)}
+\end{Verbatim}
+
+
+\subsubsection{Vanishing bridge (Improved Version)}
+\label{kid/minecraft:vanishing-bridge-improved-version}
+One question raised by Tom on the previous version of vanishing bridge: can we remove also the bridge's one glass block when we are on a glass block which is not part of the bridge?
+
+For this to be done, we need to check when we have a glass block, whether its coordinate is in the list of the bridge's glass blocks' coordinates.
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{from} \PYG{n+nn}{mcpi} \PYG{k+kn}{import} \PYG{n}{minecraft}\PYG{p}{,} \PYG{n}{block}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
+
+\PYG{n}{mc} \PYG{o}{=} \PYG{n}{minecraft}\PYG{o}{.}\PYG{n}{Minecraft}\PYG{o}{.}\PYG{n}{create}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{bridge} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+
+\PYG{k}{def} \PYG{n+nf}{buildBridge}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{b} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{getBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{)} \PYG{c}{\PYGZsh{} y\PYGZhy{}1 means under the feet}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)} \PYG{o+ow}{or}
+       \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{WATER\PYGZus{}STATIONARY}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)} \PYG{o+ow}{or}
+       \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{WATER\PYGZus{}FLOWING}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+        \PYG{n}{coordinate} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{]}
+        \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{coordinate}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{n}{b} \PYG{o}{!=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bridge}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{n}{coordinate} \PYG{o}{=} \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{p}{)}
+            \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c} \PYG{o}{=} \PYG{n}{coordinate}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+            \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:} \PYG{c}{\PYGZsh{} b == block.GLASS.id}
+        \PYG{k}{if} \PYG{p}{[}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{]} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{bridge}\PYG{p}{:}
+            \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bridge}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+                \PYG{n}{coordinate} \PYG{o}{=} \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{p}{)}
+                \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c} \PYG{o}{=} \PYG{n}{coordinate}
+                \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+                \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+
+\PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
+    \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+    \PYG{n}{buildBridge}\PYG{p}{(}\PYG{p}{)}
+\end{Verbatim}
+
+
+\subsubsection{Vanishing bridge (Simplified Version)}
+\label{kid/minecraft:vanishing-bridge-simplified-version}
+There are two repeated blocks in the above code: it's our chance to create a new function!
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{from} \PYG{n+nn}{mcpi} \PYG{k+kn}{import} \PYG{n}{minecraft}\PYG{p}{,} \PYG{n}{block}
+\PYG{k+kn}{import} \PYG{n+nn}{time}
+
+\PYG{n}{mc} \PYG{o}{=} \PYG{n}{minecraft}\PYG{o}{.}\PYG{n}{Minecraft}\PYG{o}{.}\PYG{n}{create}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{bridge} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+
+\PYG{k}{def} \PYG{n+nf}{popBridge}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bridge}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n}{coordinate} \PYG{o}{=} \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{p}{)}
+        \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c} \PYG{o}{=} \PYG{n}{coordinate}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+        \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{buildBridge}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{b} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{getBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{)} \PYG{c}{\PYGZsh{} y\PYGZhy{}1 means under the feet}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)} \PYG{o+ow}{or}
+       \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{WATER\PYGZus{}STATIONARY}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)} \PYG{o+ow}{or}
+       \PYG{p}{(}\PYG{n}{b} \PYG{o}{==} \PYG{n}{block}\PYG{o}{.}\PYG{n}{WATER\PYGZus{}FLOWING}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{,}\PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+        \PYG{n}{coordinate} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{]}
+        \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{coordinate}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{n}{b} \PYG{o}{!=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GLASS}\PYG{o}{.}\PYG{n}{id}\PYG{p}{:}
+        \PYG{n}{popBridge}\PYG{p}{(}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:} \PYG{c}{\PYGZsh{} b == block.GLASS.id}
+        \PYG{k}{if} \PYG{p}{[}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{]} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{bridge}\PYG{p}{:}
+            \PYG{n}{popBridge}\PYG{p}{(}\PYG{p}{)}
 
 \PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
     \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}

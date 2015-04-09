@@ -14,84 +14,86 @@
 \contentsline {subsubsection}{Build a street}{5}{subsubsection*.10}
 \contentsline {subsubsection}{Magic bridge}{5}{subsubsection*.11}
 \contentsline {subsubsection}{Vanishing bridge}{6}{subsubsection*.12}
-\contentsline {subsubsection}{Treasure Hunt}{6}{subsubsection*.13}
-\contentsline {section}{\numberline {1.2}Pygame}{7}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}List of pygame programs}{7}{subsection.1.2.1}
-\contentsline {subsubsection}{Draw a circle}{7}{subsubsection*.14}
-\contentsline {subsubsection}{Draw circles based on mouse move / position}{7}{subsubsection*.15}
-\contentsline {section}{\numberline {1.3}Scratch}{8}{section.1.3}
-\contentsline {chapter}{\numberline {2}Hardware}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Raspberry Pi}{9}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Default settings}{9}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Basic commands}{9}{subsection.2.1.2}
-\contentsline {subsubsection}{Config}{9}{subsubsection*.16}
-\contentsline {subsubsection}{Start X server}{9}{subsubsection*.17}
-\contentsline {subsubsection}{Reboot}{9}{subsubsection*.18}
-\contentsline {subsubsection}{Shutdown}{9}{subsubsection*.19}
-\contentsline {subsubsection}{Change datetime}{9}{subsubsection*.20}
-\contentsline {subsubsection}{Update}{10}{subsubsection*.21}
-\contentsline {subsection}{\numberline {2.1.3}Information}{10}{subsection.2.1.3}
-\contentsline {subsubsection}{Check OS version}{10}{subsubsection*.22}
-\contentsline {subsubsection}{Check board version}{10}{subsubsection*.23}
-\contentsline {subsubsection}{Display network interface and associated IP addresses}{10}{subsubsection*.24}
-\contentsline {subsection}{\numberline {2.1.4}Short-cuts}{10}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}Setup Keyboard}{10}{subsection.2.1.5}
-\contentsline {subsubsection}{Change the keyboard config}{10}{subsubsection*.25}
-\contentsline {subsubsection}{Then run the following commands and reboot}{11}{subsubsection*.26}
-\contentsline {subsection}{\numberline {2.1.6}Utilities / Softwares}{11}{subsection.2.1.6}
-\contentsline {subsubsection}{raspi-config tool}{11}{subsubsection*.27}
-\contentsline {subsubsection}{Minecraft}{11}{subsubsection*.28}
-\contentsline {subsubsection}{Screenshot : scrot}{11}{subsubsection*.29}
-\contentsline {subsubsection}{Mercurial}{11}{subsubsection*.30}
-\contentsline {section}{\numberline {2.2}Arduino}{11}{section.2.2}
-\contentsline {chapter}{\numberline {3}System}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Linux}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Windows}{13}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Connect to Internet via Ethernet cable (from PC/laptop)}{13}{subsection.3.2.1}
-\contentsline {chapter}{\numberline {4}Editor}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}VIM (Vi IMproved)}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Basic commands}{15}{subsection.4.1.1}
-\contentsline {subsubsection}{Read only (use \textbf {:wq!} to force the modification)}{15}{subsubsection*.31}
-\contentsline {subsubsection}{Running shell commands}{15}{subsubsection*.32}
-\contentsline {subsubsection}{Launch VIM from command line}{15}{subsubsection*.33}
-\contentsline {subsubsection}{Saving and quiting commands}{15}{subsubsection*.34}
-\contentsline {subsubsection}{Checking history and help}{16}{subsubsection*.35}
-\contentsline {subsubsection}{Recording and replaying commands}{16}{subsubsection*.36}
-\contentsline {subsection}{\numberline {4.1.2}Options}{16}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Navigation}{16}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}Editing}{17}{subsection.4.1.4}
-\contentsline {subsubsection}{Editing commands}{17}{subsubsection*.37}
-\contentsline {subsubsection}{Copy (or cut) / paste (without strange indent)}{17}{subsubsection*.38}
-\contentsline {subsubsection}{Tabulation}{17}{subsubsection*.39}
-\contentsline {subsection}{\numberline {4.1.5}Multi-files, multi-windows}{17}{subsection.4.1.5}
-\contentsline {subsubsection}{Opening multi-files / another file}{17}{subsubsection*.40}
-\contentsline {subsubsection}{Multi-windows}{17}{subsubsection*.41}
-\contentsline {subsection}{\numberline {4.1.6}Search and Replace}{18}{subsection.4.1.6}
-\contentsline {subsubsection}{Searching commands}{18}{subsubsection*.42}
-\contentsline {subsubsection}{Find and replace}{18}{subsubsection*.43}
-\contentsline {subsubsection}{Substitution}{18}{subsubsection*.44}
-\contentsline {section}{\numberline {4.2}JOE (Joe\IeC {\textquoteright }s Own Editor)}{18}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Basic commands}{18}{subsection.4.2.1}
-\contentsline {subsubsection}{Launch JOE from command line}{18}{subsubsection*.45}
-\contentsline {subsubsection}{Saving and quiting commands}{19}{subsubsection*.46}
-\contentsline {subsubsection}{Orthographe}{19}{subsubsection*.47}
-\contentsline {subsubsection}{Misc}{19}{subsubsection*.48}
-\contentsline {subsection}{\numberline {4.2.2}Navigation}{19}{subsection.4.2.2}
-\contentsline {subsubsection}{Cursor / Move}{19}{subsubsection*.49}
-\contentsline {subsubsection}{Navigation}{19}{subsubsection*.50}
-\contentsline {subsection}{\numberline {4.2.3}Editing}{20}{subsection.4.2.3}
-\contentsline {subsubsection}{Blocs operations}{20}{subsubsection*.51}
-\contentsline {subsubsection}{Deletion}{20}{subsubsection*.52}
-\contentsline {subsubsection}{Files}{20}{subsubsection*.53}
-\contentsline {subsection}{\numberline {4.2.4}Search}{20}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}NANO (Nano\IeC {\textquoteright }s ANOther editor)}{20}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Basic commands}{20}{subsection.4.3.1}
-\contentsline {subsubsection}{Launch NANO from command line}{20}{subsubsection*.54}
-\contentsline {subsubsection}{Short-cuts Fn}{21}{subsubsection*.55}
-\contentsline {subsubsection}{Misc}{21}{subsubsection*.56}
-\contentsline {chapter}{\numberline {5}Programming language}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Shell}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Python}{23}{section.5.2}
-\contentsline {chapter}{\numberline {6}Mathmatics}{25}{chapter.6}
-\contentsline {section}{\numberline {6.1}Algebra}{25}{section.6.1}
-\contentsline {section}{\numberline {6.2}Geometry}{25}{section.6.2}
+\contentsline {subsubsection}{Vanishing bridge (Improved Version)}{6}{subsubsection*.13}
+\contentsline {subsubsection}{Vanishing bridge (Simplified Version)}{7}{subsubsection*.14}
+\contentsline {subsubsection}{Treasure Hunt}{8}{subsubsection*.15}
+\contentsline {section}{\numberline {1.2}Pygame}{9}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}List of pygame programs}{9}{subsection.1.2.1}
+\contentsline {subsubsection}{Draw a circle}{9}{subsubsection*.16}
+\contentsline {subsubsection}{Draw circles based on mouse move / position}{9}{subsubsection*.17}
+\contentsline {section}{\numberline {1.3}Scratch}{10}{section.1.3}
+\contentsline {chapter}{\numberline {2}Hardware}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Raspberry Pi}{11}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Default settings}{11}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Basic commands}{11}{subsection.2.1.2}
+\contentsline {subsubsection}{Config}{11}{subsubsection*.18}
+\contentsline {subsubsection}{Start X server}{11}{subsubsection*.19}
+\contentsline {subsubsection}{Reboot}{11}{subsubsection*.20}
+\contentsline {subsubsection}{Shutdown}{11}{subsubsection*.21}
+\contentsline {subsubsection}{Change datetime}{11}{subsubsection*.22}
+\contentsline {subsubsection}{Update}{12}{subsubsection*.23}
+\contentsline {subsection}{\numberline {2.1.3}Information}{12}{subsection.2.1.3}
+\contentsline {subsubsection}{Check OS version}{12}{subsubsection*.24}
+\contentsline {subsubsection}{Check board version}{12}{subsubsection*.25}
+\contentsline {subsubsection}{Display network interface and associated IP addresses}{12}{subsubsection*.26}
+\contentsline {subsection}{\numberline {2.1.4}Short-cuts}{12}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Setup Keyboard}{12}{subsection.2.1.5}
+\contentsline {subsubsection}{Change the keyboard config}{12}{subsubsection*.27}
+\contentsline {subsubsection}{Then run the following commands and reboot}{13}{subsubsection*.28}
+\contentsline {subsection}{\numberline {2.1.6}Utilities / Softwares}{13}{subsection.2.1.6}
+\contentsline {subsubsection}{raspi-config tool}{13}{subsubsection*.29}
+\contentsline {subsubsection}{Minecraft}{13}{subsubsection*.30}
+\contentsline {subsubsection}{Screenshot : scrot}{13}{subsubsection*.31}
+\contentsline {subsubsection}{Mercurial}{13}{subsubsection*.32}
+\contentsline {section}{\numberline {2.2}Arduino}{13}{section.2.2}
+\contentsline {chapter}{\numberline {3}System}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Linux}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Windows}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Connect to Internet via Ethernet cable (from PC/laptop)}{15}{subsection.3.2.1}
+\contentsline {chapter}{\numberline {4}Editor}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}VIM (Vi IMproved)}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Basic commands}{17}{subsection.4.1.1}
+\contentsline {subsubsection}{Read only (use \textbf {:wq!} to force the modification)}{17}{subsubsection*.33}
+\contentsline {subsubsection}{Running shell commands}{17}{subsubsection*.34}
+\contentsline {subsubsection}{Launch VIM from command line}{17}{subsubsection*.35}
+\contentsline {subsubsection}{Saving and quiting commands}{17}{subsubsection*.36}
+\contentsline {subsubsection}{Checking history and help}{18}{subsubsection*.37}
+\contentsline {subsubsection}{Recording and replaying commands}{18}{subsubsection*.38}
+\contentsline {subsection}{\numberline {4.1.2}Options}{18}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Navigation}{18}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Editing}{19}{subsection.4.1.4}
+\contentsline {subsubsection}{Editing commands}{19}{subsubsection*.39}
+\contentsline {subsubsection}{Copy (or cut) / paste (without strange indent)}{19}{subsubsection*.40}
+\contentsline {subsubsection}{Tabulation}{19}{subsubsection*.41}
+\contentsline {subsection}{\numberline {4.1.5}Multi-files, multi-windows}{19}{subsection.4.1.5}
+\contentsline {subsubsection}{Opening multi-files / another file}{19}{subsubsection*.42}
+\contentsline {subsubsection}{Multi-windows}{19}{subsubsection*.43}
+\contentsline {subsection}{\numberline {4.1.6}Search and Replace}{20}{subsection.4.1.6}
+\contentsline {subsubsection}{Searching commands}{20}{subsubsection*.44}
+\contentsline {subsubsection}{Find and replace}{20}{subsubsection*.45}
+\contentsline {subsubsection}{Substitution}{20}{subsubsection*.46}
+\contentsline {section}{\numberline {4.2}JOE (Joe\IeC {\textquoteright }s Own Editor)}{20}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Basic commands}{20}{subsection.4.2.1}
+\contentsline {subsubsection}{Launch JOE from command line}{20}{subsubsection*.47}
+\contentsline {subsubsection}{Saving and quiting commands}{21}{subsubsection*.48}
+\contentsline {subsubsection}{Orthographe}{21}{subsubsection*.49}
+\contentsline {subsubsection}{Misc}{21}{subsubsection*.50}
+\contentsline {subsection}{\numberline {4.2.2}Navigation}{21}{subsection.4.2.2}
+\contentsline {subsubsection}{Cursor / Move}{21}{subsubsection*.51}
+\contentsline {subsubsection}{Navigation}{21}{subsubsection*.52}
+\contentsline {subsection}{\numberline {4.2.3}Editing}{22}{subsection.4.2.3}
+\contentsline {subsubsection}{Blocs operations}{22}{subsubsection*.53}
+\contentsline {subsubsection}{Deletion}{22}{subsubsection*.54}
+\contentsline {subsubsection}{Files}{22}{subsubsection*.55}
+\contentsline {subsection}{\numberline {4.2.4}Search}{22}{subsection.4.2.4}
+\contentsline {section}{\numberline {4.3}NANO (Nano\IeC {\textquoteright }s ANOther editor)}{22}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Basic commands}{22}{subsection.4.3.1}
+\contentsline {subsubsection}{Launch NANO from command line}{22}{subsubsection*.56}
+\contentsline {subsubsection}{Short-cuts Fn}{23}{subsubsection*.57}
+\contentsline {subsubsection}{Misc}{23}{subsubsection*.58}
+\contentsline {chapter}{\numberline {5}Programming language}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Shell}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Python}{25}{section.5.2}
+\contentsline {chapter}{\numberline {6}Mathmatics}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}Algebra}{27}{section.6.1}
+\contentsline {section}{\numberline {6.2}Geometry}{27}{section.6.2}

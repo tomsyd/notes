@@ -280,7 +280,9 @@ We will clear space for a given **size**. To do so, we will build a cube of **si
    if size > 0:
        mc.setBlocks(x,y,z,x+size,y+size,z+size,block.AIR.id)
 
-Challenge: Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
+.. sidebar:: Challenge
+
+   Change a little the above program so that the player is in the middle of the cleared space (and also dig down a few blocks).
 
 Build a house
 ^^^^^^^^^^^^^
@@ -346,9 +348,11 @@ Build a street
        house()
        x += SIZE
 
-``range(5)`` means the list of the first five integers starting from 0, i.e. 0, 1, 2, 3, 4.
+.. sidebar:: ``range(5) = range(0,5,1)``
 
-``range(5)`` is indeed a shortcut of ``range(0,5,1)`` which means the list of integers starting from 0 and less than 5, increased 1 per step.
+   ``range(5)`` means the list of the first five integers starting from 0, i.e. 0, 1, 2, 3, 4.
+   
+   ``range(5)`` is indeed a shortcut of ``range(0,5,1)`` which means the list of integers starting from 0 and less than 5, increased 1 per step.
 
 Magic bridge
 ^^^^^^^^^^^^
@@ -406,6 +410,89 @@ To do this, we will build a list of all created glass blocks in order. When it w
                a,b,c = coordinate
                mc.setBlock(a,b,c,block.AIR.id)
                time.sleep(0.01)
+   
+   while True:
+       time.sleep(0.01)
+       buildBridge()
+
+Vanishing bridge (Improved Version)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One question raised by Tom on the previous version of vanishing bridge: can we remove also the bridge's one glass block when we are on a glass block which is not part of the bridge?
+
+For this to be done, we need to check when we have a glass block, whether its coordinate is in the list of the bridge's glass blocks' coordinates.
+
+.. code-block:: python
+   :linenos:
+
+   from mcpi import minecraft, block
+   import time
+   
+   mc = minecraft.Minecraft.create()
+   bridge = []
+   
+   def buildBridge():
+       x,y,z = mc.player.getTilePos()
+       b = mc.getBlock(x,y-1,z) # y-1 means under the feet
+       if (b == block.AIR.id) or
+          (b == block.WATER_STATIONARY.id) or
+          (b == block.WATER_FLOWING.id):
+           mc.setBlock(x,y-1,z,block.GLASS.id)
+           coordinate = [x,y-1,z]
+           bridge.append(coordinate)
+       elif b != block.GLASS.id:
+           if len(bridge) > 0:
+               coordinate = bridge.pop()
+               a,b,c = coordinate
+               mc.setBlock(a,b,c,block.AIR.id)
+               time.sleep(0.01)
+       else: # b == block.GLASS.id
+           if [x,y-1,z] not in bridge:
+               if len(bridge) > 0:
+                   coordinate = bridge.pop()
+                   a,b,c = coordinate
+                   mc.setBlock(a,b,c,block.AIR.id)
+                   time.sleep(0.01)
+   
+   while True:
+       time.sleep(0.01)
+       buildBridge()
+
+Vanishing bridge (Simplified Version)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are two repeated blocks in the above code: it's our chance to create a new function!
+
+.. code-block:: python
+   :linenos:
+
+   from mcpi import minecraft, block
+   import time
+   
+   mc = minecraft.Minecraft.create()
+   bridge = []
+   
+   def popBridge():
+       if len(bridge) > 0:
+           coordinate = bridge.pop()
+           a,b,c = coordinate
+           mc.setBlock(a,b,c,block.AIR.id)
+           time.sleep(0.01)
+   
+   def buildBridge():
+       x,y,z = mc.player.getTilePos()
+       b = mc.getBlock(x,y-1,z) # y-1 means under the feet
+       if (b == block.AIR.id) or
+          (b == block.WATER_STATIONARY.id) or
+          (b == block.WATER_FLOWING.id):
+           mc.setBlock(x,y-1,z,block.GLASS.id)
+           coordinate = [x,y-1,z]
+           bridge.append(coordinate)
+       elif b != block.GLASS.id:
+           popBridge()
+       else: # b == block.GLASS.id
+           if [x,y-1,z] not in bridge:
+               popBridge()
    
    while True:
        time.sleep(0.01)

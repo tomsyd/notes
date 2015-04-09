@@ -48,8 +48,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'technotes'
-copyright = u'2014-2015, tom@jiang.fr'
+project = u'Tech for fun!'
+copyright = u'2014-2015, Tom'
 author = u'tom@jiang.fr'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -225,8 +225,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'technotes.tex', u'technotes Documentation',
-   u'Tom JIANG', 'manual'),
+  (master_doc, 'technotes.tex', u'Tech for fun!',
+   u'Tom', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
