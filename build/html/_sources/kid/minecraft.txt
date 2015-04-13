@@ -511,26 +511,67 @@ Treasure Hunt
    
    score = 0
    RANGE = 5 # increase this number to make a more difficult game!
+   TIMEOUT = 10
+   timer = TIMEOUT
    
    treasurex = None
+   treasurey = None
+   treasurez = None
    
    def placeTreasure():
-       pass
+       global treasurex, treasurey, treasurez
+       x,y,z = mc.player.getTilePos()
+       treasurex = random.randint(x, x+RANGE)
+       treasurey = random.randint(y+2, y+RANGE+2)
+       treasurez = random.randint(z, z+RANGE)
+       mc.setBlock(treasurex, treasurey, treasurez, block.DIAMOND_BLOCK.id)
    
    def checkHit():
-       pass
+       global score, treasurex
+       events = mc.events.pollBlockHits()
+       for e in events:
+           x,y,z = e.pos
+           if x == treasurex and y == treasurey and z == treasurez:
+               mc.postToChat("HIT!")
+               score += 100
+               mc.setBlock(treasurex, treasurey, treasurez, block.AIR.id)
+               treasurex = None
    
    def homingBeacon():
-       pass
+       global timer
+       if treasurex != None:
+           timer -= 1
+           if timer == 0:
+               timer = TIMEOUT
+               x,y,z = mc.player.getTilePos()
+               diffx = abs(x - treasurex)
+               diffy = abs(y - treasurey)
+               diffz = abs(z - treasurez)
+               diff = diffx + diffy + diffz
+               mc.postToChat("score:" + str(score) + " treasure:" + str(diff))
    
    bridge = []
    
    def buildBridge():
-       pass
+       global score
+       x,y,z = mc.player.getTilePos()
+       b = mc.getBlock(x, y-1, z)
+       if treasurex == None:
+           if len(bridge) > 0:
+               coordinate = bridge.pop()
+               a,b,c = coordinate
+               mc.setBlock(a, b, c, block.AIR.id)
+               mc.postToChat("bridge:" + str(len(bridge)))
+               time.sleep(0.01)
+       elif b != block.GOLD_BLOCK.id:
+           mc.setBlock(x, y-1, z, block.GOLD_BLOCK.id)
+           coordinate = [x, y-1, z]
+           bridge.append(coordinate)
+           score -= 1
    
    while True:
        time.sleep(0.01)
-       
+
        if treasurex == None and len(bridge) == 0:
            placeTreasure()
        

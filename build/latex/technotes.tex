@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 09, 2015}
+\date{April 13, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -926,22 +926,63 @@ There are two repeated blocks in the above code: it's our chance to create a new
 
 \PYG{n}{score} \PYG{o}{=} \PYG{l+m+mi}{0}
 \PYG{n}{RANGE} \PYG{o}{=} \PYG{l+m+mi}{5} \PYG{c}{\PYGZsh{} increase this number to make a more difficult game!}
+\PYG{n}{TIMEOUT} \PYG{o}{=} \PYG{l+m+mi}{10}
+\PYG{n}{timer} \PYG{o}{=} \PYG{n}{TIMEOUT}
 
 \PYG{n}{treasurex} \PYG{o}{=} \PYG{n+nb+bp}{None}
+\PYG{n}{treasurey} \PYG{o}{=} \PYG{n+nb+bp}{None}
+\PYG{n}{treasurez} \PYG{o}{=} \PYG{n+nb+bp}{None}
 
 \PYG{k}{def} \PYG{n+nf}{placeTreasure}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{pass}
+    \PYG{k}{global} \PYG{n}{treasurex}\PYG{p}{,} \PYG{n}{treasurey}\PYG{p}{,} \PYG{n}{treasurez}
+    \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{treasurex} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{x}\PYG{o}{+}\PYG{n}{RANGE}\PYG{p}{)}
+    \PYG{n}{treasurey} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{n}{y}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{y}\PYG{o}{+}\PYG{n}{RANGE}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{treasurez} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{n}{z}\PYG{p}{,} \PYG{n}{z}\PYG{o}{+}\PYG{n}{RANGE}\PYG{p}{)}
+    \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{treasurex}\PYG{p}{,} \PYG{n}{treasurey}\PYG{p}{,} \PYG{n}{treasurez}\PYG{p}{,} \PYG{n}{block}\PYG{o}{.}\PYG{n}{DIAMOND\PYGZus{}BLOCK}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
 
 \PYG{k}{def} \PYG{n+nf}{checkHit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{pass}
+    \PYG{k}{global} \PYG{n}{score}\PYG{p}{,} \PYG{n}{treasurex}
+    \PYG{n}{events} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{events}\PYG{o}{.}\PYG{n}{pollBlockHits}\PYG{p}{(}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{e} \PYG{o+ow}{in} \PYG{n}{events}\PYG{p}{:}
+        \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{e}\PYG{o}{.}\PYG{n}{pos}
+        \PYG{k}{if} \PYG{n}{x} \PYG{o}{==} \PYG{n}{treasurex} \PYG{o+ow}{and} \PYG{n}{y} \PYG{o}{==} \PYG{n}{treasurey} \PYG{o+ow}{and} \PYG{n}{z} \PYG{o}{==} \PYG{n}{treasurez}\PYG{p}{:}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{postToChat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{HIT!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{score} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{100}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{treasurex}\PYG{p}{,} \PYG{n}{treasurey}\PYG{p}{,} \PYG{n}{treasurez}\PYG{p}{,} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+            \PYG{n}{treasurex} \PYG{o}{=} \PYG{n+nb+bp}{None}
 
 \PYG{k}{def} \PYG{n+nf}{homingBeacon}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{pass}
+    \PYG{k}{global} \PYG{n}{timer}
+    \PYG{k}{if} \PYG{n}{treasurex} \PYG{o}{!=} \PYG{n+nb+bp}{None}\PYG{p}{:}
+        \PYG{n}{timer} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{l+m+mi}{1}
+        \PYG{k}{if} \PYG{n}{timer} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{n}{timer} \PYG{o}{=} \PYG{n}{TIMEOUT}
+            \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+            \PYG{n}{diffx} \PYG{o}{=} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZhy{}} \PYG{n}{treasurex}\PYG{p}{)}
+            \PYG{n}{diffy} \PYG{o}{=} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{y} \PYG{o}{\PYGZhy{}} \PYG{n}{treasurey}\PYG{p}{)}
+            \PYG{n}{diffz} \PYG{o}{=} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{z} \PYG{o}{\PYGZhy{}} \PYG{n}{treasurez}\PYG{p}{)}
+            \PYG{n}{diff} \PYG{o}{=} \PYG{n}{diffx} \PYG{o}{+} \PYG{n}{diffy} \PYG{o}{+} \PYG{n}{diffz}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{postToChat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{score:}\PYG{l+s}{\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{score}\PYG{p}{)} \PYG{o}{+} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ treasure:}\PYG{l+s}{\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{diff}\PYG{p}{)}\PYG{p}{)}
 
 \PYG{n}{bridge} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
 
 \PYG{k}{def} \PYG{n+nf}{buildBridge}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-    \PYG{k}{pass}
+    \PYG{k}{global} \PYG{n}{score}
+    \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{b} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{getBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{z}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{treasurex} \PYG{o}{==} \PYG{n+nb+bp}{None}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bridge}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{n}{coordinate} \PYG{o}{=} \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{(}\PYG{p}{)}
+            \PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c} \PYG{o}{=} \PYG{n}{coordinate}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+            \PYG{n}{mc}\PYG{o}{.}\PYG{n}{postToChat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{bridge:}\PYG{l+s}{\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{bridge}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+            \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{n}{b} \PYG{o}{!=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GOLD\PYGZus{}BLOCK}\PYG{o}{.}\PYG{n}{id}\PYG{p}{:}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GOLD\PYGZus{}BLOCK}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
+        \PYG{n}{coordinate} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{z}\PYG{p}{]}
+        \PYG{n}{bridge}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{coordinate}\PYG{p}{)}
+        \PYG{n}{score} \PYG{o}{\PYGZhy{}}\PYG{o}{=} \PYG{l+m+mi}{1}
 
 \PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
     \PYG{n}{time}\PYG{o}{.}\PYG{n}{sleep}\PYG{p}{(}\PYG{l+m+mf}{0.01}\PYG{p}{)}

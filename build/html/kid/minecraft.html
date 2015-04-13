@@ -950,29 +950,111 @@
 30
 31
 32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mcpi</span> <span class="kn">import</span> <span class="n">minecraft</span><span class="p">,</span> <span class="n">block</span>
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mcpi</span> <span class="kn">import</span> <span class="n">minecraft</span><span class="p">,</span> <span class="n">block</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">random</span>
 
 <span class="n">mc</span> <span class="o">=</span> <span class="n">minecraft</span><span class="o">.</span><span class="n">Minecraft</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 
 <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">RANGE</span> <span class="o">=</span> <span class="mi">5</span> <span class="c"># increase this number to make a more difficult game!</span>
+<span class="n">TIMEOUT</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="n">TIMEOUT</span>
 
 <span class="n">treasurex</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">treasurey</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">treasurez</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="k">def</span> <span class="nf">placeTreasure</span><span class="p">():</span>
-    <span class="k">pass</span>
+    <span class="k">global</span> <span class="n">treasurex</span><span class="p">,</span> <span class="n">treasurey</span><span class="p">,</span> <span class="n">treasurez</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+    <span class="n">treasurex</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">RANGE</span><span class="p">)</span>
+    <span class="n">treasurey</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">RANGE</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">treasurez</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="o">+</span><span class="n">RANGE</span><span class="p">)</span>
+    <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">treasurex</span><span class="p">,</span> <span class="n">treasurey</span><span class="p">,</span> <span class="n">treasurez</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">DIAMOND_BLOCK</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">checkHit</span><span class="p">():</span>
-    <span class="k">pass</span>
+    <span class="k">global</span> <span class="n">score</span><span class="p">,</span> <span class="n">treasurex</span>
+    <span class="n">events</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">pollBlockHits</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">pos</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">treasurex</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">==</span> <span class="n">treasurey</span> <span class="ow">and</span> <span class="n">z</span> <span class="o">==</span> <span class="n">treasurez</span><span class="p">:</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">postToChat</span><span class="p">(</span><span class="s">&quot;HIT!&quot;</span><span class="p">)</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="mi">100</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">treasurex</span><span class="p">,</span> <span class="n">treasurey</span><span class="p">,</span> <span class="n">treasurez</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">treasurex</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="k">def</span> <span class="nf">homingBeacon</span><span class="p">():</span>
-    <span class="k">pass</span>
+    <span class="k">global</span> <span class="n">timer</span>
+    <span class="k">if</span> <span class="n">treasurex</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">timer</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">timer</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">timer</span> <span class="o">=</span> <span class="n">TIMEOUT</span>
+            <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+            <span class="n">diffx</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">treasurex</span><span class="p">)</span>
+            <span class="n">diffy</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">treasurey</span><span class="p">)</span>
+            <span class="n">diffz</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">treasurez</span><span class="p">)</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">diffx</span> <span class="o">+</span> <span class="n">diffy</span> <span class="o">+</span> <span class="n">diffz</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">postToChat</span><span class="p">(</span><span class="s">&quot;score:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; treasure:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 
 <span class="n">bridge</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">def</span> <span class="nf">buildBridge</span><span class="p">():</span>
-    <span class="k">pass</span>
+    <span class="k">global</span> <span class="n">score</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">player</span><span class="o">.</span><span class="n">getTilePos</span><span class="p">()</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">getBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">treasurex</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bridge</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">coordinate</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">coordinate</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">AIR</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">mc</span><span class="o">.</span><span class="n">postToChat</span><span class="p">(</span><span class="s">&quot;bridge:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bridge</span><span class="p">)))</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">b</span> <span class="o">!=</span> <span class="n">block</span><span class="o">.</span><span class="n">GOLD_BLOCK</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">mc</span><span class="o">.</span><span class="n">setBlock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">block</span><span class="o">.</span><span class="n">GOLD_BLOCK</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">coordinate</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">]</span>
+        <span class="n">bridge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coordinate</span><span class="p">)</span>
+        <span class="n">score</span> <span class="o">-=</span> <span class="mi">1</span>
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
