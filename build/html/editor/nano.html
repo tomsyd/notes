@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="Tech for fun! 1 documentation" href="../index.html"/>
-        <link rel="next" title="Shell" href="../language/shell.html"/>
+        <link rel="next" title="Archive and Compression" href="../system/linux/archive.html"/>
         <link rel="prev" title="JOE (Joe’s Own Editor)" href="joe.html"/> 
 
   
@@ -89,13 +89,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../system/linux.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
 </ul>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="vi.html">Vi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#cursor-movement-commands">Cursor Movement Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#inserting-text">Inserting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#deleting-text">Deleting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#change-commands">Change Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#file-manipulation">File Manipulation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="vim.html">VIM (Vi IMproved)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#basic-commands">Basic commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vim.html#options">Options</a></li>
@@ -114,12 +119,17 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">NANO (Nano’s ANOther editor)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#search">Search</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/linux/archive.html">Archive and Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../math/algebra.html">Algebra</a></li>
@@ -189,7 +199,7 @@
 </tr>
 <tr class="row-even"><td>F2</td>
 <td>CTRL + x</td>
-<td>quit NANO (or cloase ongoing buffer)</td>
+<td>quit NANO (or close ongoing buffer)</td>
 </tr>
 <tr class="row-odd"><td>F3</td>
 <td>CTRL + o</td>
@@ -249,6 +259,94 @@
 </table>
 </div>
 </div>
+<div class="section" id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + _</td>
+<td>go to line n and column m</td>
+</tr>
+<tr class="row-even"><td>CTRL + f</td>
+<td>move to left</td>
+</tr>
+<tr class="row-odd"><td>CTRL + b</td>
+<td>move to right</td>
+</tr>
+<tr class="row-even"><td>CTRL + SPACE</td>
+<td>move to the previous word</td>
+</tr>
+<tr class="row-odd"><td>CTRL + p</td>
+<td>previous line</td>
+</tr>
+<tr class="row-even"><td>CTRL + n</td>
+<td>next line</td>
+</tr>
+<tr class="row-odd"><td>CTRL + a</td>
+<td>beginning of the line</td>
+</tr>
+<tr class="row-even"><td>CTRL + e</td>
+<td>end of the line</td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal"><span class="pre">META</span></code> does not exist on most of the recent keyboards. We list the commands below just for reference.</p>
+<p>Sometimes you could mimic a command <code class="docutils literal"><span class="pre">META</span></code> + <code class="docutils literal"><span class="pre">s</span></code> (toggle smooth scrolling mode on and off) as follows:</p>
+<ul class="simple">
+<li>press <code class="docutils literal"><span class="pre">Esc</span></code> key</li>
+<li>release <code class="docutils literal"><span class="pre">Esc</span></code> key</li>
+<li>press <code class="docutils literal"><span class="pre">s</span></code> key</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>META + SPACE</td>
+<td>move to the next word</td>
+</tr>
+<tr class="row-even"><td>META + (</td>
+<td>beginning of the paragraph</td>
+</tr>
+<tr class="row-odd"><td>META + )</td>
+<td>end of the paragraph</td>
+</tr>
+<tr class="row-even"><td>META + n</td>
+<td>beginning of the file</td>
+</tr>
+<tr class="row-odd"><td>META + /</td>
+<td>end of the file</td>
+</tr>
+<tr class="row-even"><td>META + ]</td>
+<td>move to the opening curly bracket { which corresponds to the closing curly bracket }</td>
+</tr>
+<tr class="row-odd"><td>META + =</td>
+<td>move screen one line down</td>
+</tr>
+<tr class="row-even"><td>META + _</td>
+<td>move screen one line up</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>CTRL + n</td>
+<td>search and replace one text</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -257,7 +355,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../language/shell.html" class="btn btn-neutral float-right" title="Shell">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../system/linux/archive.html" class="btn btn-neutral float-right" title="Archive and Compression">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="joe.html" class="btn btn-neutral" title="JOE (Joe’s Own Editor)"><span class="fa fa-arrow-circle-left"></span> Previous</a>

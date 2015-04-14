@@ -533,7 +533,7 @@ Treasure Hunt
            x,y,z = e.pos
            if x == treasurex and y == treasurey and z == treasurez:
                mc.postToChat("HIT!")
-               score += 100
+               score += 20
                mc.setBlock(treasurex, treasurey, treasurez, block.AIR.id)
                treasurex = None
    
@@ -578,3 +578,67 @@ Treasure Hunt
        checkHit()
        homingBeacon()
        buildBridge()
+
+Build a Maze
+^^^^^^^^^^^^
+
+.. code-block:: python
+   :linenos:
+   
+   from mcpi import minecraft, block
+   
+   mc = minecraft.Minecraft.create()
+   
+   GAP = block.AIR.id
+   WALL = block.GOLD_BLOCK.id
+   FLOOR = block.GRASS.id
+   
+   FILENAME = "maze.csv"
+   f = open(FILENAME, "r")
+   
+   x,y,z = mc.player.getTilePos()
+   ORIGINX = x+1
+   ORIGINY = y
+   ORIGINZ = z+1
+   
+   z = ORIGINZ
+   for line in f.readlines():
+       data = line.split(",")
+       x = ORIGINX
+       for cell in data:
+           if cell == "0":
+               b = GAP
+           else:
+               b = WALL
+           mc.setBlock(x, ORIGINY, z, b)
+           mc.setBlock(x, ORIGINY+1, z, b)
+           mc.setBlock(x, ORIGINY-1, z, FLOOR)
+           x += 1
+       z += 1
+
+.. sidebar:: maze.csv sample
+
+   ::
+       
+       1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+       1,1,1,1,1,1,1,1,1,0,1,0,1,1,0,1
+       1,0,0,1,0,0,0,0,1,0,1,0,1,0,0,1
+       1,1,0,1,0,1,1,0,0,0,0,0,1,0,1,1
+       1,1,0,1,0,1,1,1,1,1,1,1,1,0,1,1
+       1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1
+       1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1
+       1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1
+       1,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1
+       1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+       1,0,1,1,1,1,1,1,1,1,0,1,1,1,1,1
+       1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1
+       1,0,1,0,1,1,1,1,0,1,1,1,1,1,0,1
+       1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1
+       1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1
+
+.. sidebar:: Challenge
+
+   - make your own CSV datasheet
+   - plant some random treasure
+

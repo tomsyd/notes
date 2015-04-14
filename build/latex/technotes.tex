@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 13, 2015}
+\date{April 14, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -948,7 +948,7 @@ There are two repeated blocks in the above code: it's our chance to create a new
         \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{e}\PYG{o}{.}\PYG{n}{pos}
         \PYG{k}{if} \PYG{n}{x} \PYG{o}{==} \PYG{n}{treasurex} \PYG{o+ow}{and} \PYG{n}{y} \PYG{o}{==} \PYG{n}{treasurey} \PYG{o+ow}{and} \PYG{n}{z} \PYG{o}{==} \PYG{n}{treasurez}\PYG{p}{:}
             \PYG{n}{mc}\PYG{o}{.}\PYG{n}{postToChat}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{HIT!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
-            \PYG{n}{score} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{100}
+            \PYG{n}{score} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{20}
             \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{treasurex}\PYG{p}{,} \PYG{n}{treasurey}\PYG{p}{,} \PYG{n}{treasurez}\PYG{p}{,} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}\PYG{p}{)}
             \PYG{n}{treasurex} \PYG{o}{=} \PYG{n+nb+bp}{None}
 
@@ -994,6 +994,85 @@ There are two repeated blocks in the above code: it's our chance to create a new
     \PYG{n}{homingBeacon}\PYG{p}{(}\PYG{p}{)}
     \PYG{n}{buildBridge}\PYG{p}{(}\PYG{p}{)}
 \end{Verbatim}
+
+
+\subsubsection{Build a Maze}
+\label{kid/minecraft:build-a-maze}
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{from} \PYG{n+nn}{mcpi} \PYG{k+kn}{import} \PYG{n}{minecraft}\PYG{p}{,} \PYG{n}{block}
+
+\PYG{n}{mc} \PYG{o}{=} \PYG{n}{minecraft}\PYG{o}{.}\PYG{n}{Minecraft}\PYG{o}{.}\PYG{n}{create}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{GAP} \PYG{o}{=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{AIR}\PYG{o}{.}\PYG{n}{id}
+\PYG{n}{WALL} \PYG{o}{=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GOLD\PYGZus{}BLOCK}\PYG{o}{.}\PYG{n}{id}
+\PYG{n}{FLOOR} \PYG{o}{=} \PYG{n}{block}\PYG{o}{.}\PYG{n}{GRASS}\PYG{o}{.}\PYG{n}{id}
+
+\PYG{n}{FILENAME} \PYG{o}{=} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{maze.csv}\PYG{l+s}{\PYGZdq{}}
+\PYG{n}{f} \PYG{o}{=} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{FILENAME}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{r}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{z} \PYG{o}{=} \PYG{n}{mc}\PYG{o}{.}\PYG{n}{player}\PYG{o}{.}\PYG{n}{getTilePos}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ORIGINX} \PYG{o}{=} \PYG{n}{x}\PYG{o}{+}\PYG{l+m+mi}{1}
+\PYG{n}{ORIGINY} \PYG{o}{=} \PYG{n}{y}
+\PYG{n}{ORIGINZ} \PYG{o}{=} \PYG{n}{z}\PYG{o}{+}\PYG{l+m+mi}{1}
+
+\PYG{n}{z} \PYG{o}{=} \PYG{n}{ORIGINZ}
+\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n}{f}\PYG{o}{.}\PYG{n}{readlines}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{data} \PYG{o}{=} \PYG{n}{line}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{,}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{ORIGINX}
+    \PYG{k}{for} \PYG{n}{cell} \PYG{o+ow}{in} \PYG{n}{data}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{cell} \PYG{o}{==} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{0}\PYG{l+s}{\PYGZdq{}}\PYG{p}{:}
+            \PYG{n}{b} \PYG{o}{=} \PYG{n}{GAP}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{b} \PYG{o}{=} \PYG{n}{WALL}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{ORIGINY}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{ORIGINY}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{b}\PYG{p}{)}
+        \PYG{n}{mc}\PYG{o}{.}\PYG{n}{setBlock}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{ORIGINY}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{FLOOR}\PYG{p}{)}
+        \PYG{n}{x} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{z} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+\end{Verbatim}
+\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{maze.csv sample}
+
+\medskip
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}
+\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}
+\end{Verbatim}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Challenge}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+make your own CSV datasheet
+
+\item {} 
+plant some random treasure
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
 
 
 \section{Pygame}
@@ -1267,24 +1346,380 @@ BACKSPACE=\PYGZdq{}guess\PYGZdq{}
 \section{Arduino}
 \label{hardware/arduino::doc}\label{hardware/arduino:arduino}
 
-\chapter{System}
-\label{index:system}
+\chapter{Programming language}
+\label{index:programming-language}
 
-\section{Linux}
-\label{system/linux::doc}\label{system/linux:linux}
+\section{Shell}
+\label{language/shell:shell}\label{language/shell::doc}
 
-\section{Windows}
-\label{system/windows:windows}\label{system/windows::doc}
-
-\subsection{Connect to Internet via Ethernet cable (from PC/laptop)}
-\label{system/windows:connect-to-internet-via-ethernet-cable-from-pc-laptop}
-\textbf{Control Panel} --\textgreater{} \textbf{Network and Internet} --\textgreater{} \textbf{Network Connections}
-
-\textbf{Ctrl} + select local and wireless connections, right click \textbf{Bridge Connections}
-
+\section{Python}
+\label{language/python:python}\label{language/python::doc}
 
 \chapter{Editor}
 \label{index:editor}
+
+\section{Vi}
+\label{editor/vi:vi}\label{editor/vi::doc}
+
+\subsection{Cursor Movement Commands}
+\label{editor/vi:cursor-movement-commands}
+\code{(n)} indicates a number, and is optional
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+(n)h
+ & 
+left (n) space(s)
+\\
+\hline
+(n)j
+ & 
+down (n) space(s)
+\\
+\hline
+(n)k
+ & 
+up (n) space(s)
+\\
+\hline
+(n)l
+ & 
+right (n) space(s)
+\\
+\hline\end{tabulary}
+
+
+(The arrow keys usually work also)
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + F
+ & 
+forward one screen
+\\
+\hline
+CTRL + B
+ & 
+back one screen
+\\
+\hline
+CTRL + D
+ & 
+down half screen
+\\
+\hline
+CTRL + U
+ & 
+up half screen
+\\
+\hline
+H
+ & 
+beginning of top line of screen
+\\
+\hline
+M
+ & 
+beginning of middle line of screen
+\\
+\hline
+L
+ & 
+beginning of last line of screen
+\\
+\hline
+G
+ & 
+beginning of last line of file
+\\
+\hline
+(n)G
+ & 
+move to beginning of line (n)
+\\
+\hline
+0
+ & 
+(zero) beginning of line
+\\
+\hline
+\$
+ & 
+end of line
+\\
+\hline
+(n)w
+ & 
+forward (n) word(s)
+\\
+\hline
+(n)b
+ & 
+back (n) word(s)
+\\
+\hline
+e
+ & 
+end of word
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Inserting Text}
+\label{editor/vi:inserting-text}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+i
+ & 
+insert text before the cursor
+\\
+\hline
+a
+ & 
+append text after the cursor (does not overwrite other text)
+\\
+\hline
+I
+ & 
+insert text at the beginning of the line
+\\
+\hline
+A
+ & 
+append text to the end of the line
+\\
+\hline
+r
+ & 
+replace the character under the cursor with the next character typed
+\\
+\hline
+R
+ & 
+Overwrite characters until the end of the line (or until escape is pressed to change command)
+\\
+\hline
+o
+ & 
+(alpha o) open new line after the current line to type text
+\\
+\hline
+O
+ & 
+(alpha O) open new line before the current line to type text
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Deleting Text}
+\label{editor/vi:deleting-text}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+dd
+ & 
+deletes current line
+\\
+\hline
+(n)dd
+ & 
+deletes (n) line(s)
+\\
+\hline
+(n)dw
+ & 
+deletes (n) word(s)
+\\
+\hline
+D
+ & 
+deletes from cursor to end of line
+\\
+\hline
+x
+ & 
+deletes current character
+\\
+\hline
+(n)x
+ & 
+deletes (n) character(s)
+\\
+\hline
+X
+ & 
+deletes previous character
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Change Commands}
+\label{editor/vi:change-commands}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+(n)cc
+ & 
+changes (n) characters on line(s) until end of the line (or until escape is pressed)
+\\
+\hline
+cw
+ & 
+changes characters of word until end of the word (or until escape is pressed)
+\\
+\hline
+(n)cw
+ & 
+changes characters of the next (n) words
+\\
+\hline
+c\$
+ & 
+changes text to the end of the line
+\\
+\hline
+ct(x)
+ & 
+changes text to the letter (x)
+\\
+\hline
+C
+ & 
+changes remaining text on the current line (until stopped by escape key)
+\\
+\hline
+\textasciitilde{}
+ & 
+changes the case of the current character
+\\
+\hline
+J
+ & 
+joins the current line and the next line
+\\
+\hline
+u
+ & 
+undo the last command just done on this line
+\\
+\hline
+.
+ & 
+repeats last change
+\\
+\hline
+s
+ & 
+substitutes text for current character
+\\
+\hline
+S
+ & 
+substitutes text for current line
+\\
+\hline
+:s
+ & 
+substitutes new word(s) for old
+\code{:\textless{}line nos effected\textgreater{} s/old/new/g}
+\\
+\hline
+\&
+ & 
+repeats last substitution (:s) command
+\\
+\hline
+(n)yy
+ & 
+yanks (n) lines to buffer
+\\
+\hline
+y(n)w
+ & 
+yanks (n) words to buffer
+\\
+\hline
+p
+ & 
+puts yanked or deleted text after cursor
+\\
+\hline
+P
+ & 
+puts yanked or deleted text before cursor
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{File Manipulation}
+\label{editor/vi:file-manipulation}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+:w (file)
+ & 
+writes changes to file (default is current file)
+\\
+\hline
+:wq
+ & 
+writes changes to current file and quits edit session
+\\
+\hline
+:w! (file)
+ & 
+overwrites file (default is current file)
+\\
+\hline
+:q
+ & 
+quits edit session w/no changes made
+\\
+\hline
+:q!
+ & 
+quits edit session and discards changes
+\\
+\hline
+:n
+ & 
+edits next file in argument list
+\\
+\hline
+:f (name)
+ & 
+changes name of current file to (name)
+\\
+\hline
+:r (file)
+ & 
+reads contents of file into current edit at the current cursor position (insert a file)
+\\
+\hline
+:!(command)
+ & 
+shell escape
+\\
+\hline
+:r!(command)
+ & 
+inserts result of shell command at cursor position
+\\
+\hline
+ZZ
+ & 
+write changes to current file and exit
+\\
+\hline\end{tabulary}
+
+
 
 \section{VIM (Vi IMproved)}
 \label{editor/vim:vim-vi-improved}\label{editor/vim::doc}
@@ -1418,7 +1853,7 @@ gg
 goes to start of file
 \\
 \hline
-shift g
+SHIFT g
  & 
 goes to end of file
 \\
@@ -1464,7 +1899,7 @@ p
 paste below line
 \\
 \hline
-Shift p
+SHIFT p
  & 
 paste above line
 \\
@@ -1484,7 +1919,7 @@ u
 undo last change
 \\
 \hline
-Ctrl + R
+CTRL + R
  & 
 Re do last change
 \\
@@ -1950,7 +2385,7 @@ F2
  & 
 CTRL + x
  & 
-quit NANO (or cloase ongoing buffer)
+quit NANO (or close ongoing buffer)
 \\
 \hline
 F3
@@ -2039,14 +2474,390 @@ choose one text from the cursor (CTRL + 6 to cancel the action)
 
 
 
-\chapter{Programming language}
-\label{index:programming-language}
+\subsection{Navigation}
+\label{editor/nano:navigation}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
 
-\section{Shell}
-\label{language/shell:shell}\label{language/shell::doc}
+CTRL + \_
+ & 
+go to line n and column m
+\\
+\hline
+CTRL + f
+ & 
+move to left
+\\
+\hline
+CTRL + b
+ & 
+move to right
+\\
+\hline
+CTRL + SPACE
+ & 
+move to the previous word
+\\
+\hline
+CTRL + p
+ & 
+previous line
+\\
+\hline
+CTRL + n
+ & 
+next line
+\\
+\hline
+CTRL + a
+ & 
+beginning of the line
+\\
+\hline
+CTRL + e
+ & 
+end of the line
+\\
+\hline\end{tabulary}
 
-\section{Python}
-\label{language/python:python}\label{language/python::doc}
+
+\code{META} does not exist on most of the recent keyboards. We list the commands below just for reference.
+
+Sometimes you could mimic a command \code{META} + \code{s} (toggle smooth scrolling mode on and off) as follows:
+\begin{itemize}
+\item {} 
+press \code{Esc} key
+
+\item {} 
+release \code{Esc} key
+
+\item {} 
+press \code{s} key
+
+\end{itemize}
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+META + SPACE
+ & 
+move to the next word
+\\
+\hline
+META + (
+ & 
+beginning of the paragraph
+\\
+\hline
+META + )
+ & 
+end of the paragraph
+\\
+\hline
+META + n
+ & 
+beginning of the file
+\\
+\hline
+META + /
+ & 
+end of the file
+\\
+\hline
+META + {]}
+ & 
+move to the opening curly bracket \{ which corresponds to the closing curly bracket \}
+\\
+\hline
+META + =
+ & 
+move screen one line down
+\\
+\hline
+META + \_
+ & 
+move screen one line up
+\\
+\hline\end{tabulary}
+
+
+
+\subsection{Search}
+\label{editor/nano:search}
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+CTRL + n
+ & 
+search and replace one text
+\\
+\hline\end{tabulary}
+
+
+
+\chapter{System}
+\label{index:system}
+
+\section{Archive and Compression}
+\label{system/linux/archive:archive-and-compression}\label{system/linux/archive::doc}
+
+\subsection{tar (Tape ARchiver)}
+\label{system/linux/archive:tar-tape-archiver}
+tar is very useful to backup / group your files. You could group your files / folders with
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar cvf backup.tar file1 file2 ... folder1 folder2 ...
+\end{Verbatim}
+
+To extract content of a tar file, just do the following
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar xvf backup.tar
+\end{Verbatim}
+
+N.B. tar is probably one of the first commands existing in the Unix / Linux world. You could invoke its options with a dash or not, this will not change the result.
+
+
+\subsubsection{tar options}
+\label{system/linux/archive:tar-options}
+Here is a list of some useful options :
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+c
+ & 
+create, for creating tar file
+\\
+\hline
+v
+ & 
+verbose, display name of files including,excluding from tar command
+\\
+\hline \multirow{2}{*}{
+f
+} & 
+following, used to point name of tar file to be created.
+\\
+\cline{2-2} & 
+it actually tells tar command that name of the file is ``next'' letter just after options.
+\\
+\hline
+x
+ & 
+extract, for extracting files from tar file.
+\\
+\hline
+t
+ & 
+for viewing content of tar file
+\\
+\hline
+z
+ & 
+zip, tells tar command that create tar file using gzip.
+\\
+\hline
+j
+ & 
+another compressing option tells tar command to use bzip2 for compression
+\\
+\hline
+r
+ & 
+update or add file or directory in already existed .tar file
+\\
+\hline
+wildcards
+ & 
+to specify patters in unix tar command
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{tarball}
+\label{system/linux/archive:tarball}
+When combining with gzip, tar becomes an extremely recommanded tool to archieve your documents. The resulted file is often called tarball, and is ended with either the extension .tgz or .tar.gz. For example, to archieve files / folders into a tarball:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar zcvf backup.tgz file1 file2 ... folder1 folder2 ...
+\end{Verbatim}
+
+and to extract a tarball:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar zxvf backup.tgz
+\end{Verbatim}
+
+
+\subsubsection{creation}
+\label{system/linux/archive:creation}
+Create tar archive/file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cvf tarball.tar *
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cvf tarball.tar file1 folder1 file2
+\end{Verbatim}
+
+Create compressed tar file (gzip, bzip2)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zcvf tarball.tgz *
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zcvf tarball.tar.gz *
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}jcvf tarball.tar.bz2 *
+\end{Verbatim}
+
+
+\subsubsection{extraction}
+\label{system/linux/archive:extraction}
+Extract contents from tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}xvf tarball.tar
+\end{Verbatim}
+
+Extract contents from compressed tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tgz
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tar.gz
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}jxvf tarball.tar.bz2
+\end{Verbatim}
+
+Extract a particular file from tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}xvf tarball.tar file
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tgz file
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tar.gz file
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}jxvf tarball.tar.bz2 file
+\end{Verbatim}
+
+Extract a group of files from tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}xvf tarball.tar \PYGZhy{}\PYGZhy{}wildcards \PYG{l+s+s2}{\PYGZdq{}s*\PYGZdq{}}
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tgz \PYGZhy{}\PYGZhy{}wildcards \PYG{l+s+s2}{\PYGZdq{}s*\PYGZdq{}}
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zxvf tarball.tar.gz \PYGZhy{}\PYGZhy{}wildcards \PYG{l+s+s2}{\PYGZdq{}s*\PYGZdq{}}
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}jxvf tarball.tar.bz2 \PYGZhy{}\PYGZhy{}wildcards \PYG{l+s+s2}{\PYGZdq{}s*\PYGZdq{}}
+\end{Verbatim}
+
+
+\subsubsection{other operations}
+\label{system/linux/archive:other-operations}
+View contents of tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}tvf tarball.tar
+\end{Verbatim}
+
+View contents of compressed tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}ztvf tarball.tgz
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}ztvf tarball.tar.gz
+\end{Verbatim}
+
+Update existing tar file (!not compressed tar file)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cvf tarball.tar file folder1
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}rvf tarball.tar folder2
+\end{Verbatim}
+
+Calculate the size (in KB) of (compressed) tar file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cf \PYGZhy{} * \PYG{p}{\textbar{}} wc \PYGZhy{}c
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}zcf \PYGZhy{} * \PYG{p}{\textbar{}} wc \PYGZhy{}c
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}jcf \PYGZhy{} * \PYG{p}{\textbar{}} wc \PYGZhy{}c
+\end{Verbatim}
+
+Delete items (files/folders) from tar file (!not compressed)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }gunzip tarball.tar.gz
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}list \PYGZhy{}\PYGZhy{}file tarball.tar
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}file tarball.tar \PYGZhy{}\PYGZhy{}delete file1 folder1 folder2/file2
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}list \PYGZhy{}\PYGZhy{}file tarball.tar
+\PYG{n+nv}{\PYGZdl{} }gzip tarball.tar
+\end{Verbatim}
+
+
+\subsection{parallel gzip}
+\label{system/linux/archive:parallel-gzip}
+For modern multi-processor, multi-core machines, a parallel implementation of gzip exists, called pigz. The official link is \href{http://zlib.net/pigz/}{http://zlib.net/pigz/} and the manual could be downloaded here : \href{http://zlib.net/pigz/pigz.pdf}{http://zlib.net/pigz/pigz.pdf}
+
+To compress while keeping the original file, using
+
+\begin{Verbatim}[commandchars=\\\{\}]
+pigz \PYGZhy{}\PYGZhy{}best \PYGZhy{}k file
+\end{Verbatim}
+
+and to decompress the .gz file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+pigz \PYGZhy{}d file.gz
+\end{Verbatim}
+
+
+\subsection{bz2}
+\label{system/linux/archive:bz2}
+
+\subsubsection{Compression to bz2}
+\label{system/linux/archive:compression-to-bz2}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }bzip2 file
+\PYG{n+nv}{\PYGZdl{} }bzip2 \PYGZhy{}v file
+\end{Verbatim}
+
+
+\subsubsection{Decompression from bz2}
+\label{system/linux/archive:decompression-from-bz2}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }bunzip2 file.bz2
+\PYG{n+nv}{\PYGZdl{} }bzip2 \PYGZhy{}d file.bz2
+\PYG{n+nv}{\PYGZdl{} }bunzip2 \PYGZhy{}v file.bz2
+\end{Verbatim}
+
+
+\subsubsection{Archive to tarball .tar.bz2}
+\label{system/linux/archive:archive-to-tarball-tar-bz2}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar cjvf files.tar.bz2 *.txt
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cjvf archive.tar.bz2 path/to/folder
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}bzip2 \PYGZhy{}xf path/to/file.tar.bz2
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}cvf \PYGZhy{} path/to/folder \PYG{p}{\textbar{}} bzip2 \PYGZgt{} archive.tar.bz2
+\end{Verbatim}
+
+
+\subsubsection{Restore from tarball .tar.bz2}
+\label{system/linux/archive:restore-from-tarball-tar-bz2}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar xjvf files.tar.bz2
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}xjvf path/to/file.tar.bz2
+\PYG{n+nv}{\PYGZdl{} }bzcat path/to/file.tar.bz2 \PYG{p}{\textbar{}} tar \PYGZhy{}xvf \PYGZhy{}
+\end{Verbatim}
+
+
+\subsection{zip}
+\label{system/linux/archive:zip}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }zip archive.zip file1 file2 file3
+\PYG{n+nv}{\PYGZdl{} }unzip archive.zip
+\end{Verbatim}
+
+
+\section{Windows}
+\label{system/windows:windows}\label{system/windows::doc}
+
+\subsection{Connect to Internet via Ethernet cable (from PC/laptop)}
+\label{system/windows:connect-to-internet-via-ethernet-cable-from-pc-laptop}
+\textbf{Control Panel} --\textgreater{} \textbf{Network and Internet} --\textgreater{} \textbf{Network Connections}
+
+\textbf{Ctrl} + select local and wireless connections, right click \textbf{Bridge Connections}
+
 
 \chapter{Mathmatics}
 \label{index:mathmatics}

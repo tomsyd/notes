@@ -25,25 +25,6 @@ Hardware
    hardware/raspberrypi
    hardware/arduino
 
-System
-------
-
-.. toctree::
-   :maxdepth: 2
-   
-   system/linux
-   system/windows
-
-Editor
-------
-
-.. toctree::
-   :maxdepth: 2
-   
-   editor/vim
-   editor/joe
-   editor/nano
-
 Programming language
 --------------------
 
@@ -52,6 +33,27 @@ Programming language
 
    language/shell
    language/python
+
+Editor
+------
+
+.. toctree::
+   :maxdepth: 2
+   
+   editor/vi
+   editor/vim
+   editor/joe
+   editor/nano
+
+System
+------
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   
+   system/linux/*
+   system/windows
 
 Mathmatics
 ----------

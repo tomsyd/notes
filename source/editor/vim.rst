@@ -98,7 +98,7 @@ Here are some navigating commands
 +---------+----------------------------------+
 | gg      | goes to start of file            |
 +---------+----------------------------------+
-| shift g | goes to end of file              |
+| SHIFT g | goes to end of file              |
 +---------+----------------------------------+
 | 0       | goes to beginning of the line    |
 +---------+----------------------------------+
@@ -120,7 +120,7 @@ Editing commands
 +----------+------------------------------------+
 | p        | paste below line                   |
 +----------+------------------------------------+
-| Shift p  | paste above line                   |
+| SHIFT p  | paste above line                   |
 +----------+------------------------------------+
 | dd       | deletes the current line           |
 +----------+------------------------------------+
@@ -128,7 +128,7 @@ Editing commands
 +----------+------------------------------------+
 | u        | undo last change                   |
 +----------+------------------------------------+
-| Ctrl + R | Re do last change                  |
+| CTRL + R | Re do last change                  |
 +----------+------------------------------------+
 
 Copy (or cut) / paste (without strange indent)

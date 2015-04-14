@@ -32,7 +32,7 @@
   
     <link rel="top" title="Tech for fun! 1 documentation" href="../index.html"/>
         <link rel="next" title="JOE (Joe’s Own Editor)" href="joe.html"/>
-        <link rel="prev" title="Windows" href="../system/windows.html"/> 
+        <link rel="prev" title="Vi" href="vi.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -89,13 +89,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../hardware/arduino.html">Arduino</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../system/linux.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
 </ul>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="vi.html">Vi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#cursor-movement-commands">Cursor Movement Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#inserting-text">Inserting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#deleting-text">Deleting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#change-commands">Change Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vi.html#file-manipulation">File Manipulation</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">VIM (Vi IMproved)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-commands">Basic commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
@@ -114,12 +119,17 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nano.html">NANO (Nano’s ANOther editor)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="nano.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nano.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nano.html#search">Search</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../language/shell.html">Shell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../language/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/linux/archive.html">Archive and Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../math/algebra.html">Algebra</a></li>
@@ -268,7 +278,7 @@ ZZ            save and quit
 <tr class="row-odd"><td>gg</td>
 <td>goes to start of file</td>
 </tr>
-<tr class="row-even"><td>shift g</td>
+<tr class="row-even"><td>SHIFT g</td>
 <td>goes to end of file</td>
 </tr>
 <tr class="row-odd"><td>0</td>
@@ -302,7 +312,7 @@ ZZ            save and quit
 <tr class="row-even"><td>p</td>
 <td>paste below line</td>
 </tr>
-<tr class="row-odd"><td>Shift p</td>
+<tr class="row-odd"><td>SHIFT p</td>
 <td>paste above line</td>
 </tr>
 <tr class="row-even"><td>dd</td>
@@ -314,7 +324,7 @@ ZZ            save and quit
 <tr class="row-even"><td>u</td>
 <td>undo last change</td>
 </tr>
-<tr class="row-odd"><td>Ctrl + R</td>
+<tr class="row-odd"><td>CTRL + R</td>
 <td>Re do last change</td>
 </tr>
 </tbody>
@@ -429,7 +439,7 @@ CTRL + w + w    switch among all (sub-)windows
         <a href="joe.html" class="btn btn-neutral float-right" title="JOE (Joe’s Own Editor)">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../system/windows.html" class="btn btn-neutral" title="Windows"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vi.html" class="btn btn-neutral" title="Vi"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
