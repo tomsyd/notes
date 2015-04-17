@@ -76,7 +76,7 @@
 \contentsline {subsubsection}{Multi-windows}{23}{subsubsection*.44}
 \contentsline {subsection}{\numberline {4.2.6}Search and Replace}{23}{subsection.4.2.6}
 \contentsline {subsubsection}{Searching commands}{23}{subsubsection*.45}
-\contentsline {subsubsection}{Find and replace}{23}{subsubsection*.46}
+\contentsline {subsubsection}{Find and replace}{24}{subsubsection*.46}
 \contentsline {subsubsection}{Substitution}{24}{subsubsection*.47}
 \contentsline {section}{\numberline {4.3}JOE (Joe\IeC {\textquoteright }s Own Editor)}{24}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Basic commands}{24}{subsection.4.3.1}
@@ -114,8 +114,17 @@
 \contentsline {subsubsection}{Archive to tarball .tar.bz2}{31}{subsubsection*.67}
 \contentsline {subsubsection}{Restore from tarball .tar.bz2}{31}{subsubsection*.68}
 \contentsline {subsection}{\numberline {5.1.4}zip}{32}{subsection.5.1.4}
-\contentsline {section}{\numberline {5.2}Windows}{32}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Connect to Internet via Ethernet cable (from PC/laptop)}{32}{subsection.5.2.1}
-\contentsline {chapter}{\numberline {6}Mathmatics}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Algebra}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Geometry}{33}{section.6.2}
+\contentsline {subsection}{\numberline {5.1.5}lzma}{32}{subsection.5.1.5}
+\contentsline {subsubsection}{Restore from lzma tarball}{32}{subsubsection*.69}
+\contentsline {subsection}{\numberline {5.1.6}lzo}{32}{subsection.5.1.6}
+\contentsline {subsubsection}{Compression to lzo}{32}{subsubsection*.70}
+\contentsline {subsubsection}{Decompression from lzo}{32}{subsubsection*.71}
+\contentsline {subsubsection}{Archive all text files {\color {red}\bfseries {}*}.txt to a lzo tarball}{33}{subsubsection*.72}
+\contentsline {subsubsection}{Restore from lzo tarball}{33}{subsubsection*.73}
+\contentsline {section}{\numberline {5.2}Daily Tools}{33}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}find}{33}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.3}Windows}{34}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Connect to Internet via Ethernet cable (from PC/laptop)}{34}{subsection.5.3.1}
+\contentsline {chapter}{\numberline {6}Mathmatics}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}Algebra}{35}{section.6.1}
+\contentsline {section}{\numberline {6.2}Geometry}{35}{section.6.2}

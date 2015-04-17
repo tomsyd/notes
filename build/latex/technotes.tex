@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 14, 2015}
+\date{April 17, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -1792,53 +1792,30 @@ Recoding in vim or VI editor can be done by using \textbf{q} and the executing r
 \label{editor/vim:options}
 Here are the major VIM editor options
 
-\begin{tabulary}{\linewidth}{|L|L|}
-\hline
-
-:set nu
- & 
-This will display line number in front of each line quite useful if you want line by line information.
-\\
-\hline & 
-You can turn it off by executing \textbf{set nonu}. Remember for turning it off put ``no'' in front of option, like here option is ``nu'' so for turning it off use ``nonu''.
-\\
-\hline
-:set nonu
- & 
-removing line number display
-\\
-\hline
-:set hlsearch
- & 
-This will highlight the matching word when we do search in VI editor, quite useful but if you find it annoying or not able to see sometime due to your color scheme you can turn it off by executing \textbf{set nohlsearch}.
-\\
-\hline
-:set wrap
- & 
-If your file has contains some long lines and you want them to wrap use this option, if its already on and you just don't want them to wrap use \textbf{set nowrap}.
-\\
-\hline
-:colorscheme
- & 
-color scheme is used to change color of VIM editor, my favorite color scheme is murphy so if you want to change color scheme of VI editor you can do by executing \textbf{colorscheme murphy}.
-\\
-\hline
-:syntax on
- & 
-syntax can be turn on and off based on your need, if it's on it will display color syntax for .xml, .html and .perl files.
-\\
-\hline
-:set ignorecase
- & 
-This VI editor option allows you do case insensitive search because if it's set VI will not distinguish between two words which are just differ in case.
-\\
-\hline
-:set smartcase
- & 
-Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.
-\\
-\hline\end{tabulary}
-
+\begin{Verbatim}[commandchars=\\\{\}]
+:set nu           This will display line number in front of each line quite useful if
+                  you want line by line information. You can turn it off by executing
+                  \PYGZdq{}set nonu\PYGZdq{}. Remember for turning it off put \PYGZdq{}no\PYGZdq{} in front of option,
+                  like here option is \PYGZdq{}nu\PYGZdq{} so for turning it off use \PYGZdq{}nonu\PYGZdq{}.
+:set nonu         removing line number display
+:set hlsearch     This will highlight the matching word when we do search in VI editor,
+                  quite useful but if you find it annoying or not able to see sometime
+                  due to your color scheme you can turn it off by executing \PYGZdq{}set
+                  nohlsearch\PYGZdq{}.
+:set wrap         If your file has contains some long lines and you want them to wrap
+                  use this option, if its already on and you just don\PYGZsq{}t want them to
+                  wrap use \PYGZdq{}set nowrap\PYGZdq{}.
+:colorscheme      color scheme is used to change color of VIM editor, my favorite color
+                  scheme is murphy so if you want to change color scheme of VI editor
+                  you can do by executing \PYGZdq{}colorscheme murphy\PYGZdq{}.
+:syntax on        syntax can be turn on and off based on your need, if it\PYGZsq{}s on it will
+                  display color syntax for .xml, .html and .perl files.
+:set ignorecase   This VI editor option allows you do case insensitive search because
+                  if it\PYGZsq{}s set VI will not distinguish between two words which are just
+                  differ in case.
+:set smartcase    Another VI editor option which allows case\PYGZhy{}sensitive search if the
+                  word you are searching contains an uppercase character.
+\end{Verbatim}
 
 
 \subsection{Navigation}
@@ -1976,8 +1953,8 @@ replace TAB by 4 spaces
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-:n        edit next file among multi\PYGZhy{}files
-          (with respect to the order given in the command line)
+:n        edit next file among multi\PYGZhy{}files (with respect to the order given in the
+          command line)
 :wn       save the modification and edit the next file
 :n!       edit the next file without saving the ongoing modification
 :e        reload the current file
@@ -2015,13 +1992,13 @@ CTRL + w + w    switch among all (sub\PYGZhy{})windows
 \subsubsection{Find and replace}
 \label{editor/vim:find-and-replace}
 \begin{Verbatim}[commandchars=\\\{\}]
-:\PYGZpc{}s/Old/New/g     This is an example of global search it will replace all occurrence
-                  of word \PYGZdq{}Old\PYGZdq{} in file with word \PYGZdq{}New\PYGZdq{}. Its also equivalent to
-                  following command \PYGZdq{}: 0,\PYGZdl{} s/Old/New/g\PYGZdq{} which actually tells that
-                  search from fist to last line.
-:\PYGZpc{}s/Old/New/gc    This is similar to first command but with the introduction of \PYGZdq{}c\PYGZdq{}
-                  it will ask for confirmation
-:\PYGZpc{}s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+:\PYGZpc{}s/Old/New/g     This is an example of global search it will replace all occurrence of
+                  word \PYGZdq{}Old\PYGZdq{} in file by \PYGZdq{}New\PYGZdq{}. It\PYGZsq{}s also equivalent to following
+                  command \PYGZdq{}: 0,\PYGZdl{} s/Old/New/g\PYGZdq{} which actually tells that search from
+                  first to last line.
+:\PYGZpc{}s/Old/New/gc    This is similar to first command but with the introduction of \PYGZdq{}c\PYGZdq{}; it
+                  will ask for confirmation
+:\PYGZpc{}s/Old/New/gci   This is command is global, case insensitive and ask for confirmation;
                   to make it case Sensitive use \PYGZdq{}I\PYGZdq{}
 \end{Verbatim}
 
@@ -2846,6 +2823,219 @@ pigz \PYGZhy{}d file.gz
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n+nv}{\PYGZdl{} }zip archive.zip file1 file2 file3
 \PYG{n+nv}{\PYGZdl{} }unzip archive.zip
+\end{Verbatim}
+
+
+\subsection{lzma}
+\label{system/linux/archive:lzma}
+
+\subsubsection{Restore from lzma tarball}
+\label{system/linux/archive:restore-from-lzma-tarball}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}xYvf archive.tar.lzma
+\end{Verbatim}
+
+
+\subsection{lzo}
+\label{system/linux/archive:lzo}
+The difference between the format .lzo and others (.gz or .bz2) are :
+\begin{itemize}
+\item {} 
+.lzo is not installed by default on your machine;
+
+\item {} 
+.lzo keeps the original file, unless if you use the option -U;
+
+\item {} 
+.lzo runs fast, but the compression ratio is relatively low.
+
+\end{itemize}
+
+When we try to pass a list of files and folders to lzop, only the files will be compressed and the folders will be skipped.
+
+
+\subsubsection{Compression to lzo}
+\label{system/linux/archive:compression-to-lzo}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}v file
+\PYG{n+nv}{\PYGZdl{} }cat file \PYG{p}{\textbar{}} lzop \PYGZgt{} file.lzo
+\end{Verbatim}
+
+Delete the original file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}U file
+\end{Verbatim}
+
+Test the result's integrality
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}t file.lzo
+\end{Verbatim}
+
+Show file headers
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}\PYGZhy{}info file.lzo       afficher les en\PYGZhy{}têtes du ficher
+\end{Verbatim}
+
+Show compression information
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}l file.lzo
+\end{Verbatim}
+
+Show content of a compressed lzo file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}\PYGZhy{}ls file.lzo
+\end{Verbatim}
+
+
+\subsubsection{Decompression from lzo}
+\label{system/linux/archive:decompression-from-lzo}
+The lzo file is kept by default.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lzop \PYGZhy{}dv file.lzo
+\end{Verbatim}
+
+
+\subsubsection{Archive all text files {\color{red}\bfseries{}*}.txt to a lzo tarball}
+\label{system/linux/archive:archive-all-text-files-txt-to-a-lzo-tarball}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}use\PYGZhy{}compress\PYGZhy{}program\PYG{o}{=}lzop \PYGZhy{}cf files.tar.lzo *.txt
+\end{Verbatim}
+
+
+\subsubsection{Restore from lzo tarball}
+\label{system/linux/archive:restore-from-lzo-tarball}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}use\PYGZhy{}compress\PYGZhy{}program\PYG{o}{=}lzop \PYGZhy{}xf files.tar.lzo
+\end{Verbatim}
+
+
+\section{Daily Tools}
+\label{system/linux/tools::doc}\label{system/linux/tools:daily-tools}
+
+\subsection{find}
+\label{system/linux/tools:find}
+\begin{Verbatim}[commandchars=\\\{\}]
+find \PYGZhy{}print is the same as find, \PYGZhy{}print option is a default option
+find \PYGZhy{}print0 ... \textbar{} xargs \PYGZhy{}0 ... can avoid whitespace problem
+find \PYGZhy{}delete can be used for \PYGZhy{}exec rm \PYGZob{}\PYGZcb{} \PYGZbs{};
+\end{Verbatim}
+
+Find out shell scripts without execution right
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}iname \PYG{l+s+s2}{\PYGZdq{}*.sh\PYGZdq{}} \PYGZhy{}perm 644
+\end{Verbatim}
+
+Add execution right to shell scripts
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }\PYG{k}{for} i in \PYG{l+s+sb}{{}`}find . \PYGZhy{}iname \PYG{l+s+s2}{\PYGZdq{}*.sh\PYGZdq{}} \PYGZhy{}perm 644\PYG{l+s+sb}{{}`}\PYG{p}{;} \PYG{k}{do} \PYG{n+nb}{echo} \PYG{n+nv}{\PYGZdl{}i}\PYG{p}{;} chmod a+x \PYG{n+nv}{\PYGZdl{}i}\PYG{p}{;} \PYG{k}{done}\PYG{p}{;}
+\end{Verbatim}
+
+Find out all files modified since less than 1 day, excatly 1 day or more than 1 day
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}mtime \PYGZhy{}1
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}mtime 1
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}mtime +1
+\end{Verbatim}
+
+Delete found files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}name \PYG{l+s+s2}{\PYGZdq{}*.tmp\PYGZdq{}} \PYGZhy{}delete
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}name \PYG{l+s+s2}{\PYGZdq{}*.tmp\PYGZdq{}} \PYGZhy{}print \PYG{p}{\textbar{}} xargs rm \PYGZhy{}f
+\end{Verbatim}
+
+Grep found files using -print0 and xargs -0 to avoid whitespace problem
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}name \PYG{l+s+s2}{\PYGZdq{}*.txt\PYGZdq{}} \PYGZhy{}print \PYG{p}{\textbar{}} xargs grep \PYG{l+s+s2}{\PYGZdq{}Exception\PYGZdq{}}
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}name \PYG{l+s+s2}{\PYGZdq{}*.txt\PYGZdq{}} \PYGZhy{}print0 \PYG{p}{\textbar{}} xargs \PYGZhy{}0 grep \PYG{l+s+s2}{\PYGZdq{}Exception\PYGZdq{}}
+\end{Verbatim}
+
+Find in the current folder, type file (not link, directory) and newer than first\_file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}maxdepth \PYG{l+m}{1} \PYGZhy{}type f \PYGZhy{}newer first\PYGZus{}file
+\end{Verbatim}
+
+Find in the current folder, type file and modified since more than 15 mins
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}type f \PYGZhy{}cmin \PYG{l+m}{15} \PYGZhy{}prune
+\end{Verbatim}
+
+Find out and list files more than 1000 bytes
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}size +1000c \PYGZhy{}exec ls \PYGZhy{}l \PYG{o}{\PYGZob{}}\PYG{o}{\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\end{Verbatim}
+
+Find out files with size more than 10000 bytes and less than 50000 bytes
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}size +10000c \PYGZhy{}size \PYGZhy{}50000c \PYGZhy{}print
+\end{Verbatim}
+
+Find out and list files modified 10 days ago and more than 50000 bytes
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}mtime +10 \PYGZhy{}size +50000c \PYGZhy{}exec ls \PYGZhy{}l \PYG{o}{\PYGZob{}}\PYG{o}{\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\end{Verbatim}
+
+Find out and list all symbolic links
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find . \PYGZhy{}type l \PYGZhy{}print \PYG{p}{\textbar{}} xargs ls \PYGZhy{}ld \PYG{p}{\textbar{}} awk \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}print \PYGZdl{}9 \PYGZdq{} \PYGZdq{} \PYGZdl{}10 \PYGZdq{} \PYGZdq{} \PYGZdl{}11\PYGZcb{}\PYGZsq{}}
+\end{Verbatim}
+
+Find all the files without permission 777
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find / \PYGZhy{}type f ! \PYGZhy{}perm 777
+\end{Verbatim}
+
+Find all the SGID bit files whose permissions set to 644
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find / \PYGZhy{}perm 2644
+\end{Verbatim}
+
+Find all the Sticky Bit set files whose permission are 551
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find / \PYGZhy{}perm 1551
+\end{Verbatim}
+
+Find all SUID set files.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find / \PYGZhy{}perm /u\PYG{o}{=}s
+\end{Verbatim}
+
+Find all SGID set files.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find / \PYGZhy{}perm /g+s
+\end{Verbatim}
+
+Find all empty files under certain path
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find /tmp \PYGZhy{}type f \PYGZhy{}empty
+\end{Verbatim}
+
+Find all all empty directories under certain path
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find /tmp \PYGZhy{}type d \PYGZhy{}empty
 \end{Verbatim}
 
 

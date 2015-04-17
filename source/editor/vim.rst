@@ -70,25 +70,30 @@ Options
 
 Here are the major VIM editor options
 
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set nu         | This will display line number in front of each line quite useful if you want line by line information.                                                                                                                   |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                 | You can turn it off by executing **set nonu**. Remember for turning it off put "no" in front of option, like here option is "nu" so for turning it off use "nonu".                                                       |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set nonu       | removing line number display                                                                                                                                                                                             |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set hlsearch   | This will highlight the matching word when we do search in VI editor, quite useful but if you find it annoying or not able to see sometime due to your color scheme you can turn it off by executing **set nohlsearch**. |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set wrap       | If your file has contains some long lines and you want them to wrap use this option, if its already on and you just don't want them to wrap use **set nowrap**.                                                          |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :colorscheme    | color scheme is used to change color of VIM editor, my favorite color scheme is murphy so if you want to change color scheme of VI editor you can do by executing **colorscheme murphy**.                                |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :syntax on      | syntax can be turn on and off based on your need, if it's on it will display color syntax for .xml, .html and .perl files.                                                                                               |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set ignorecase | This VI editor option allows you do case insensitive search because if it's set VI will not distinguish between two words which are just differ in case.                                                                 |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :set smartcase  | Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.                                                                                               |
-+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+::
+
+   :set nu           This will display line number in front of each line quite useful if
+                     you want line by line information. You can turn it off by executing
+                     "set nonu". Remember for turning it off put "no" in front of option,
+                     like here option is "nu" so for turning it off use "nonu".
+   :set nonu         removing line number display
+   :set hlsearch     This will highlight the matching word when we do search in VI editor,
+                     quite useful but if you find it annoying or not able to see sometime
+                     due to your color scheme you can turn it off by executing "set
+                     nohlsearch".
+   :set wrap         If your file has contains some long lines and you want them to wrap
+                     use this option, if its already on and you just don't want them to
+                     wrap use "set nowrap".
+   :colorscheme      color scheme is used to change color of VIM editor, my favorite color
+                     scheme is murphy so if you want to change color scheme of VI editor
+                     you can do by executing "colorscheme murphy".
+   :syntax on        syntax can be turn on and off based on your need, if it's on it will
+                     display color syntax for .xml, .html and .perl files.
+   :set ignorecase   This VI editor option allows you do case insensitive search because
+                     if it's set VI will not distinguish between two words which are just
+                     differ in case.
+   :set smartcase    Another VI editor option which allows case-sensitive search if the
+                     word you are searching contains an uppercase character.
 
 Navigation
 ----------
@@ -166,8 +171,8 @@ Opening multi-files / another file
 
 ::
 
-   :n        edit next file among multi-files
-             (with respect to the order given in the command line)
+   :n        edit next file among multi-files (with respect to the order given in the
+             command line)
    :wn       save the modification and edit the next file
    :n!       edit the next file without saving the ongoing modification
    :e        reload the current file
@@ -206,13 +211,13 @@ Find and replace
 
 ::
 
-   :%s/Old/New/g     This is an example of global search it will replace all occurrence
-                     of word "Old" in file with word "New". Its also equivalent to
-                     following command ": 0,$ s/Old/New/g" which actually tells that
-                     search from fist to last line.
-   :%s/Old/New/gc    This is similar to first command but with the introduction of "c"
-                     it will ask for confirmation
-   :%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+   :%s/Old/New/g     This is an example of global search it will replace all occurrence of
+                     word "Old" in file by "New". It's also equivalent to following
+                     command ": 0,$ s/Old/New/g" which actually tells that search from
+                     first to last line.
+   :%s/Old/New/gc    This is similar to first command but with the introduction of "c"; it
+                     will ask for confirmation
+   :%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation;
                      to make it case Sensitive use "I"
 
 Substitution

@@ -28,6 +28,8 @@
   
 
   
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  
 
   
     <link rel="top" title="Tech for fun! 1 documentation" href="../index.html"/>
@@ -125,7 +127,19 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../system/linux/archive.html">Archive and Compression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/linux/archive.html">Archive and Compression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#tar-tape-archiver">tar (Tape ARchiver)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#parallel-gzip">parallel gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#bz2">bz2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#zip">zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#lzma">lzma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/archive.html#lzo">lzo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system/linux/tools.html">Daily Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system/linux/tools.html#find">find</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../system/windows.html">Windows</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../system/windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
 </ul>
@@ -230,41 +244,30 @@ ZZ            save and quit
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <p>Here are the major VIM editor options</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>:set nu</td>
-<td>This will display line number in front of each line quite useful if you want line by line information.</td>
-</tr>
-<tr class="row-even"><td>&nbsp;</td>
-<td>You can turn it off by executing <strong>set nonu</strong>. Remember for turning it off put &#8220;no&#8221; in front of option, like here option is &#8220;nu&#8221; so for turning it off use &#8220;nonu&#8221;.</td>
-</tr>
-<tr class="row-odd"><td>:set nonu</td>
-<td>removing line number display</td>
-</tr>
-<tr class="row-even"><td>:set hlsearch</td>
-<td>This will highlight the matching word when we do search in VI editor, quite useful but if you find it annoying or not able to see sometime due to your color scheme you can turn it off by executing <strong>set nohlsearch</strong>.</td>
-</tr>
-<tr class="row-odd"><td>:set wrap</td>
-<td>If your file has contains some long lines and you want them to wrap use this option, if its already on and you just don&#8217;t want them to wrap use <strong>set nowrap</strong>.</td>
-</tr>
-<tr class="row-even"><td>:colorscheme</td>
-<td>color scheme is used to change color of VIM editor, my favorite color scheme is murphy so if you want to change color scheme of VI editor you can do by executing <strong>colorscheme murphy</strong>.</td>
-</tr>
-<tr class="row-odd"><td>:syntax on</td>
-<td>syntax can be turn on and off based on your need, if it&#8217;s on it will display color syntax for .xml, .html and .perl files.</td>
-</tr>
-<tr class="row-even"><td>:set ignorecase</td>
-<td>This VI editor option allows you do case insensitive search because if it&#8217;s set VI will not distinguish between two words which are just differ in case.</td>
-</tr>
-<tr class="row-odd"><td>:set smartcase</td>
-<td>Another VI editor option which allows case-sensitive search if the word you are searching contains an uppercase character.</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-python"><div class="highlight"><pre>:set nu           This will display line number in front of each line quite useful if
+                  you want line by line information. You can turn it off by executing
+                  &quot;set nonu&quot;. Remember for turning it off put &quot;no&quot; in front of option,
+                  like here option is &quot;nu&quot; so for turning it off use &quot;nonu&quot;.
+:set nonu         removing line number display
+:set hlsearch     This will highlight the matching word when we do search in VI editor,
+                  quite useful but if you find it annoying or not able to see sometime
+                  due to your color scheme you can turn it off by executing &quot;set
+                  nohlsearch&quot;.
+:set wrap         If your file has contains some long lines and you want them to wrap
+                  use this option, if its already on and you just don&#39;t want them to
+                  wrap use &quot;set nowrap&quot;.
+:colorscheme      color scheme is used to change color of VIM editor, my favorite color
+                  scheme is murphy so if you want to change color scheme of VI editor
+                  you can do by executing &quot;colorscheme murphy&quot;.
+:syntax on        syntax can be turn on and off based on your need, if it&#39;s on it will
+                  display color syntax for .xml, .html and .perl files.
+:set ignorecase   This VI editor option allows you do case insensitive search because
+                  if it&#39;s set VI will not distinguish between two words which are just
+                  differ in case.
+:set smartcase    Another VI editor option which allows case-sensitive search if the
+                  word you are searching contains an uppercase character.
+</pre></div>
+</div>
 </div>
 <div class="section" id="navigation">
 <h2>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h2>
@@ -362,8 +365,8 @@ ZZ            save and quit
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vim file1 file2 file3 ...
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>:n        edit next file among multi-files
-          (with respect to the order given in the command line)
+<div class="highlight-python"><div class="highlight"><pre>:n        edit next file among multi-files (with respect to the order given in the
+          command line)
 :wn       save the modification and edit the next file
 :n!       edit the next file without saving the ongoing modification
 :e        reload the current file
@@ -398,13 +401,13 @@ CTRL + w + w    switch among all (sub-)windows
 </div>
 <div class="section" id="find-and-replace">
 <h3>Find and replace<a class="headerlink" href="#find-and-replace" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>:%s/Old/New/g     This is an example of global search it will replace all occurrence
-                  of word &quot;Old&quot; in file with word &quot;New&quot;. Its also equivalent to
-                  following command &quot;: 0,$ s/Old/New/g&quot; which actually tells that
-                  search from fist to last line.
-:%s/Old/New/gc    This is similar to first command but with the introduction of &quot;c&quot;
-                  it will ask for confirmation
-:%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation.
+<div class="highlight-python"><div class="highlight"><pre>:%s/Old/New/g     This is an example of global search it will replace all occurrence of
+                  word &quot;Old&quot; in file by &quot;New&quot;. It&#39;s also equivalent to following
+                  command &quot;: 0,$ s/Old/New/g&quot; which actually tells that search from
+                  first to last line.
+:%s/Old/New/gc    This is similar to first command but with the introduction of &quot;c&quot;; it
+                  will ask for confirmation
+:%s/Old/New/gci   This is command is global, case insensitive and ask for confirmation;
                   to make it case Sensitive use &quot;I&quot;
 </pre></div>
 </div>

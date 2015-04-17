@@ -205,6 +205,10 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'technotesdoc'
 
+# Override default css to get a larger width for local build                 
+def setup(app):
+	app.add_stylesheet('theme_overrides.css')      
+
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {

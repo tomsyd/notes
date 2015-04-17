@@ -217,3 +217,85 @@ zip
 
    $ zip archive.zip file1 file2 file3
    $ unzip archive.zip
+
+lzma
+----
+
+Restore from lzma tarball
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ tar -xYvf archive.tar.lzma
+
+lzo
+---
+
+The difference between the format .lzo and others (.gz or .bz2) are :
+
+- .lzo is not installed by default on your machine;
+- .lzo keeps the original file, unless if you use the option -U;
+- .lzo runs fast, but the compression ratio is relatively low.
+
+When we try to pass a list of files and folders to lzop, only the files will be compressed and the folders will be skipped.
+
+Compression to lzo
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ lzop -v file
+   $ cat file | lzop > file.lzo
+
+Delete the original file
+
+.. code-block:: shell
+
+   $ lzop -U file
+
+Test the result's integrality
+
+.. code-block:: shell
+
+   $ lzop -t file.lzo
+
+Show file headers
+
+.. code-block:: shell
+
+   $ lzop --info file.lzo	afficher les en-têtes du ficher
+
+Show compression information
+
+.. code-block:: shell
+
+   $ lzop -l file.lzo
+
+Show content of a compressed lzo file
+
+.. code-block:: shell
+
+   $ lzop --ls file.lzo
+
+Decompression from lzo
+^^^^^^^^^^^^^^^^^^^^^^
+
+The lzo file is kept by default.
+
+.. code-block:: shell
+
+   $ lzop -dv file.lzo
+
+Archive all text files *.txt to a lzo tarball
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ tar --use-compress-program=lzop -cf files.tar.lzo *.txt
+
+Restore from lzo tarball
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ tar --use-compress-program=lzop -xf files.tar.lzo

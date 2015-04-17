@@ -28,10 +28,12 @@
   
 
   
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
 
   
     <link rel="top" title="Tech for fun! 1 documentation" href="../../index.html"/>
-        <link rel="next" title="Windows" href="../windows.html"/>
+        <link rel="next" title="Daily Tools" href="tools.html"/>
         <link rel="prev" title="NANO (Nano’s ANOther editor)" href="../../editor/nano.html"/> 
 
   
@@ -130,6 +132,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#parallel-gzip">parallel gzip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bz2">bz2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zip">zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lzma">lzma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lzo">lzo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Daily Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#find">find</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../windows.html">Windows</a><ul>
@@ -367,6 +375,71 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="lzma">
+<h2>lzma<a class="headerlink" href="#lzma" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="restore-from-lzma-tarball">
+<h3>Restore from lzma tarball<a class="headerlink" href="#restore-from-lzma-tarball" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>tar -xYvf archive.tar.lzma
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lzo">
+<h2>lzo<a class="headerlink" href="#lzo" title="Permalink to this headline">¶</a></h2>
+<p>The difference between the format .lzo and others (.gz or .bz2) are :</p>
+<ul class="simple">
+<li>.lzo is not installed by default on your machine;</li>
+<li>.lzo keeps the original file, unless if you use the option -U;</li>
+<li>.lzo runs fast, but the compression ratio is relatively low.</li>
+</ul>
+<p>When we try to pass a list of files and folders to lzop, only the files will be compressed and the folders will be skipped.</p>
+<div class="section" id="compression-to-lzo">
+<h3>Compression to lzo<a class="headerlink" href="#compression-to-lzo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop -v file
+<span class="nv">$ </span>cat file <span class="p">|</span> lzop &gt; file.lzo
+</pre></div>
+</div>
+<p>Delete the original file</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop -U file
+</pre></div>
+</div>
+<p>Test the result&#8217;s integrality</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop -t file.lzo
+</pre></div>
+</div>
+<p>Show file headers</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop --info file.lzo       afficher les en-têtes du ficher
+</pre></div>
+</div>
+<p>Show compression information</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop -l file.lzo
+</pre></div>
+</div>
+<p>Show content of a compressed lzo file</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop --ls file.lzo
+</pre></div>
+</div>
+</div>
+<div class="section" id="decompression-from-lzo">
+<h3>Decompression from lzo<a class="headerlink" href="#decompression-from-lzo" title="Permalink to this headline">¶</a></h3>
+<p>The lzo file is kept by default.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lzop -dv file.lzo
+</pre></div>
+</div>
+</div>
+<div class="section" id="archive-all-text-files-txt-to-a-lzo-tarball">
+<h3>Archive all text files <a href="#id1"><span class="problematic" id="id2">*</span></a>.txt to a lzo tarball<a class="headerlink" href="#archive-all-text-files-txt-to-a-lzo-tarball" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>tar --use-compress-program<span class="o">=</span>lzop -cf files.tar.lzo *.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="restore-from-lzo-tarball">
+<h3>Restore from lzo tarball<a class="headerlink" href="#restore-from-lzo-tarball" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>tar --use-compress-program<span class="o">=</span>lzop -xf files.tar.lzo
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -375,7 +448,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../windows.html" class="btn btn-neutral float-right" title="Windows">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tools.html" class="btn btn-neutral float-right" title="Daily Tools">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../editor/nano.html" class="btn btn-neutral" title="NANO (Nano’s ANOther editor)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
