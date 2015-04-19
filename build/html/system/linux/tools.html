@@ -138,6 +138,13 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Daily Tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#find">find</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grep">grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sort">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sed">sed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cat">cat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-htop">top / htop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lsof">lsof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#netstat">netstat</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../windows.html">Windows</a><ul>
@@ -266,6 +273,378 @@ find -delete can be used for -exec rm {} \;
 </div>
 <p>Find all all empty directories under certain path</p>
 <div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>find /tmp -type d -empty
+</pre></div>
+</div>
+</div>
+<div class="section" id="grep">
+<h2>grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<p>There are several variants of grep:</p>
+<ul class="simple">
+<li>grep</li>
+<li>egrep : extended grep</li>
+<li>fgrep : fixed grep</li>
+<li>zgrep</li>
+</ul>
+<p>Grep A, but excluding B</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep A file <span class="p">|</span> grep -v B
+</pre></div>
+</div>
+<p>Count the occurence of a word A</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -c A file
+</pre></div>
+</div>
+<p>Grep A and show n lines prior to the A position and n lines after the A position</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep --context<span class="o">=</span>n A file
+<span class="nv">$ </span>grep -C n A file
+</pre></div>
+</div>
+<p>Extended grep with more regular expression</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>egrep <span class="s2">&quot;A|B&quot;</span> file
+</pre></div>
+</div>
+<p>Case insensitive grep</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -i A file
+</pre></div>
+</div>
+<p>Grep .gz file</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>zgrep A file.gz
+</pre></div>
+</div>
+<p>Grep whole word</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -w WORD file
+</pre></div>
+</div>
+<p>Grep words starting with WORD</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep <span class="s1">&#39;&lt;WORD&#39;</span> file
+</pre></div>
+</div>
+<p>Grep words ending in WORD</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep <span class="s1">&#39;WORD&gt;&#39;</span> file
+</pre></div>
+</div>
+<p>Grep with matching pattern in color</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep A file --color
+</pre></div>
+</div>
+<p>Grep among files matching the given pattern</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -l A *.log
+</pre></div>
+</div>
+<p>Grep showing line number</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -n A file
+</pre></div>
+</div>
+<p>Recursive grep</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>grep -R A folder
+</pre></div>
+</div>
+</div>
+<div class="section" id="sort">
+<h2>sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
+<p>Sort based on the numerical order of the 2nd column</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ps -ef <span class="p">|</span> sort -nk2
+</pre></div>
+</div>
+<p>Sort based on the reverse numerical order of the 3rd column</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ps -ef <span class="p">|</span> sort -rnk3
+</pre></div>
+</div>
+<p>Sort based on the alphabetic order of the 4th column</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ps -ef <span class="p">|</span> sort -nk4
+</pre></div>
+</div>
+<p>Sort based on the alphabetic order</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat file <span class="p">|</span> sort
+<span class="nv">$ </span>sort file
+</pre></div>
+</div>
+<p>Sort based on the alphabetic order, and remove duplicates</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat file <span class="p">|</span> sort <span class="p">|</span> uniq
+<span class="nv">$ </span>cat file <span class="p">|</span> sort -u
+<span class="nv">$ </span>sort -u file
+</pre></div>
+</div>
+<p>Sort file, case insensitive</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sort -f file
+</pre></div>
+</div>
+</div>
+<div class="section" id="sed">
+<h2>sed<a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h2>
+<p>Replace word A by B in a file</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>sed s/A/B/g file
+</pre></div>
+</div>
+</div>
+<div class="section" id="cat">
+<h2>cat<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h2>
+<p>Create a new file and fill it</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat &gt; file.txt
+fill the file
+...
+CTRL+D
+</pre></div>
+</div>
+<p>Append new input to a file (so, keep its current content)</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat &gt;&gt; file.txt
+append the file
+...
+CTRL+D
+</pre></div>
+</div>
+<p>Displaying with line numbers (option -b will number only non-empty lines)</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat -n file.txt
+<span class="nv">$ </span>cat -b file.txt
+</pre></div>
+</div>
+<p>Copy files</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat file1 &gt; file2
+</pre></div>
+</div>
+<p>Concatenating files</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat file <span class="m">1</span> file2 &gt; file
+</pre></div>
+</div>
+<p>Squeezing repeating blank lines into one</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat -s file
+</pre></div>
+</div>
+<p>Show non-printing chars (^V, ^M, etc.)</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat -v file
+</pre></div>
+</div>
+</div>
+<div class="section" id="top-htop">
+<h2>top / htop<a class="headerlink" href="#top-htop" title="Permalink to this headline">¶</a></h2>
+<p>By default, the display of top is ordered by CPU usage</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>top
+</pre></div>
+</div>
+<p>In the top interface, you have the following choices</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>M</td>
+<td>ordered by Memory usage</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>display all CPUs</td>
+</tr>
+<tr class="row-odd"><td>c</td>
+<td>display path of commands</td>
+</tr>
+<tr class="row-even"><td>k</td>
+<td>kill a process via its PID</td>
+</tr>
+<tr class="row-odd"><td>z</td>
+<td>highlight running processes</td>
+</tr>
+<tr class="row-even"><td>s</td>
+<td>change refresh delay</td>
+</tr>
+<tr class="row-odd"><td>h or ?</td>
+<td>online help</td>
+</tr>
+<tr class="row-even"><td>q</td>
+<td>quit</td>
+</tr>
+<tr class="row-odd"><td>W</td>
+<td>save changes (into ~/.toprc)</td>
+</tr>
+</tbody>
+</table>
+<p>To work on one particular user</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>top -u user
+</pre></div>
+</div>
+</div>
+<div class="section" id="lsof">
+<h2>lsof<a class="headerlink" href="#lsof" title="Permalink to this headline">¶</a></h2>
+<p>list all open files</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">FD</span></code> stands for <strong>File descriptor</strong> and may seen some of the values as:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cwd</td>
+<td>current working directory</td>
+</tr>
+<tr class="row-even"><td>rtd</td>
+<td>root directory</td>
+</tr>
+<tr class="row-odd"><td>txt</td>
+<td>program text (code and data)</td>
+</tr>
+<tr class="row-even"><td>mem</td>
+<td>memory-mapped file</td>
+</tr>
+</tbody>
+</table>
+<p>Also in <code class="docutils literal"><span class="pre">FD</span></code> column numbers like <code class="docutils literal"><span class="pre">1u</span></code> is actual file descriptor and followed by u,r,w of it’s mode as:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>r</td>
+<td>for read access</td>
+</tr>
+<tr class="row-even"><td>w</td>
+<td>for write access</td>
+</tr>
+<tr class="row-odd"><td>u</td>
+<td>for read and write access</td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal"><span class="pre">TYPE</span></code> of files and it’s identification:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>DIR</td>
+<td>Directory</td>
+</tr>
+<tr class="row-even"><td>REG</td>
+<td>Regular file</td>
+</tr>
+<tr class="row-odd"><td>CHR</td>
+<td>Character special file</td>
+</tr>
+<tr class="row-even"><td>FIFO</td>
+<td>First In First Out</td>
+</tr>
+</tbody>
+</table>
+<p>list open files of one user</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -u user
+</pre></div>
+</div>
+<p>find out all the running process of specific port</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i TCP:22
+</pre></div>
+</div>
+<p>shows only IPv4 and IPv6 network files</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i 4
+<span class="nv">$ </span>lsof -i 6
+</pre></div>
+</div>
+<p>list all running process of open files of TCP Port ranges from 1-1024.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i TCP:1-1024
+</pre></div>
+</div>
+<p>exclude user with ‘^’ Character : e.g. to exclude root user</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i -u^root
+</pre></div>
+</div>
+<p>find out a specific user is looking what files and commands</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i -u user
+</pre></div>
+</div>
+<p>list all network connections : option &#8216;-i&#8217; shows the list of all network connections &#8216;LISTENING &amp; ESTABLISHED&#8217;.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -i
+</pre></div>
+</div>
+<p>search by PID</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>lsof -p 1
+</pre></div>
+</div>
+<p>kill all activity of particular user</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">kill</span> -9 <span class="sb">`</span>lsof -t -u user<span class="sb">`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="netstat">
+<h2>netstat<a class="headerlink" href="#netstat" title="Permalink to this headline">¶</a></h2>
+<p>listing all the LISTENING Ports of TCP and UDP connections</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -a <span class="p">|</span> more
+</pre></div>
+</div>
+<p>listing only TCP (Transmission Control Protocol) port connections</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -at
+</pre></div>
+</div>
+<p>listing only UDP (User Datagram Protocol ) port connections</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -au
+</pre></div>
+</div>
+<p>listing all active listening ports connections</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -l
+</pre></div>
+</div>
+<p>listing all active listening TCP ports</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -lt
+</pre></div>
+</div>
+<p>listing all active listening UDP ports</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -lu
+</pre></div>
+</div>
+<p>Listing all active UNIX listening ports</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -lx
+</pre></div>
+</div>
+<p>Showing Statistics by Protocol</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -s
+</pre></div>
+</div>
+<p>Showing statistics of TCP protocol</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -st
+</pre></div>
+</div>
+<p>Showing statistics of UDP Protocol</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -su
+</pre></div>
+</div>
+<p>Displaying service name with their PID number : option -tp will display “PID/Program Name”</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -tp
+</pre></div>
+</div>
+<p>Displaying Promiscuous mode with -ac switch, netstat print the selected information or refresh screen every five second. Default screen refresh in every second.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -ac <span class="m">5</span> <span class="p">|</span> grep tcp
+</pre></div>
+</div>
+<p>Displaying Kernel IP routing table</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -r
+</pre></div>
+</div>
+<p>Showing network interface packet transactions including both transferring and receiving packets with MTU size</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -i
+</pre></div>
+</div>
+<p>Showing Kernel interface table, similar to ifconfig command.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -ie
+</pre></div>
+</div>
+<p>Displaying multicast group membership information for both IPv4 and IPv6</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -g
+</pre></div>
+</div>
+<p>Print netstat information every few second</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -c
+</pre></div>
+</div>
+<p>Finding un-configured address families with some useful information</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat --verbose
+</pre></div>
+</div>
+<p>Find out how many listening programs running on a port</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat -ap <span class="p">|</span> grep http
+</pre></div>
+</div>
+<p>Displaying RAW Network Statistics</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>netstat --statistics --raw
 </pre></div>
 </div>
 </div>

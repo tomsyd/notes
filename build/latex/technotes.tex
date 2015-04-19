@@ -3039,6 +3039,537 @@ Find all all empty directories under certain path
 \end{Verbatim}
 
 
+\subsection{grep}
+\label{system/linux/tools:grep}
+There are several variants of grep:
+\begin{itemize}
+\item {} 
+grep
+
+\item {} 
+egrep : extended grep
+
+\item {} 
+fgrep : fixed grep
+
+\item {} 
+zgrep
+
+\end{itemize}
+
+Grep A, but excluding B
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep A file \PYG{p}{\textbar{}} grep \PYGZhy{}v B
+\end{Verbatim}
+
+Count the occurence of a word A
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}c A file
+\end{Verbatim}
+
+Grep A and show n lines prior to the A position and n lines after the A position
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}\PYGZhy{}context\PYG{o}{=}n A file
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}C n A file
+\end{Verbatim}
+
+Extended grep with more regular expression
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }egrep \PYG{l+s+s2}{\PYGZdq{}A\textbar{}B\PYGZdq{}} file
+\end{Verbatim}
+
+Case insensitive grep
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}i A file
+\end{Verbatim}
+
+Grep .gz file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }zgrep A file.gz
+\end{Verbatim}
+
+Grep whole word
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}w WORD file
+\end{Verbatim}
+
+Grep words starting with WORD
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYG{l+s+s1}{\PYGZsq{}\PYGZlt{}WORD\PYGZsq{}} file
+\end{Verbatim}
+
+Grep words ending in WORD
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYG{l+s+s1}{\PYGZsq{}WORD\PYGZgt{}\PYGZsq{}} file
+\end{Verbatim}
+
+Grep with matching pattern in color
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep A file \PYGZhy{}\PYGZhy{}color
+\end{Verbatim}
+
+Grep among files matching the given pattern
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}l A *.log
+\end{Verbatim}
+
+Grep showing line number
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}n A file
+\end{Verbatim}
+
+Recursive grep
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }grep \PYGZhy{}R A folder
+\end{Verbatim}
+
+
+\subsection{sort}
+\label{system/linux/tools:sort}
+Sort based on the numerical order of the 2nd column
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ps \PYGZhy{}ef \PYG{p}{\textbar{}} sort \PYGZhy{}nk2
+\end{Verbatim}
+
+Sort based on the reverse numerical order of the 3rd column
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ps \PYGZhy{}ef \PYG{p}{\textbar{}} sort \PYGZhy{}rnk3
+\end{Verbatim}
+
+Sort based on the alphabetic order of the 4th column
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ps \PYGZhy{}ef \PYG{p}{\textbar{}} sort \PYGZhy{}nk4
+\end{Verbatim}
+
+Sort based on the alphabetic order
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat file \PYG{p}{\textbar{}} sort
+\PYG{n+nv}{\PYGZdl{} }sort file
+\end{Verbatim}
+
+Sort based on the alphabetic order, and remove duplicates
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat file \PYG{p}{\textbar{}} sort \PYG{p}{\textbar{}} uniq
+\PYG{n+nv}{\PYGZdl{} }cat file \PYG{p}{\textbar{}} sort \PYGZhy{}u
+\PYG{n+nv}{\PYGZdl{} }sort \PYGZhy{}u file
+\end{Verbatim}
+
+Sort file, case insensitive
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }sort \PYGZhy{}f file
+\end{Verbatim}
+
+
+\subsection{sed}
+\label{system/linux/tools:sed}
+Replace word A by B in a file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }sed s/A/B/g file
+\end{Verbatim}
+
+
+\subsection{cat}
+\label{system/linux/tools:cat}
+Create a new file and fill it
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZgt{} file.txt
+fill the file
+...
+CTRL+D
+\end{Verbatim}
+
+Append new input to a file (so, keep its current content)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZgt{}\PYGZgt{} file.txt
+append the file
+...
+CTRL+D
+\end{Verbatim}
+
+Displaying with line numbers (option -b will number only non-empty lines)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZhy{}n file.txt
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZhy{}b file.txt
+\end{Verbatim}
+
+Copy files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat file1 \PYGZgt{} file2
+\end{Verbatim}
+
+Concatenating files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat file \PYG{l+m}{1} file2 \PYGZgt{} file
+\end{Verbatim}
+
+Squeezing repeating blank lines into one
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZhy{}s file
+\end{Verbatim}
+
+Show non-printing chars (\textasciicircum{}V, \textasciicircum{}M, etc.)
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat \PYGZhy{}v file
+\end{Verbatim}
+
+
+\subsection{top / htop}
+\label{system/linux/tools:top-htop}
+By default, the display of top is ordered by CPU usage
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }top
+\end{Verbatim}
+
+In the top interface, you have the following choices
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+M
+ & 
+ordered by Memory usage
+\\
+\hline
+1
+ & 
+display all CPUs
+\\
+\hline
+c
+ & 
+display path of commands
+\\
+\hline
+k
+ & 
+kill a process via its PID
+\\
+\hline
+z
+ & 
+highlight running processes
+\\
+\hline
+s
+ & 
+change refresh delay
+\\
+\hline
+h or ?
+ & 
+online help
+\\
+\hline
+q
+ & 
+quit
+\\
+\hline
+W
+ & 
+save changes (into \textasciitilde{}/.toprc)
+\\
+\hline\end{tabulary}
+
+
+To work on one particular user
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }top \PYGZhy{}u user
+\end{Verbatim}
+
+
+\subsection{lsof}
+\label{system/linux/tools:lsof}
+list all open files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof
+\end{Verbatim}
+
+\code{FD} stands for \textbf{File descriptor} and may seen some of the values as:
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+cwd
+ & 
+current working directory
+\\
+\hline
+rtd
+ & 
+root directory
+\\
+\hline
+txt
+ & 
+program text (code and data)
+\\
+\hline
+mem
+ & 
+memory-mapped file
+\\
+\hline\end{tabulary}
+
+
+Also in \code{FD} column numbers like \code{1u} is actual file descriptor and followed by u,r,w of it’s mode as:
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+r
+ & 
+for read access
+\\
+\hline
+w
+ & 
+for write access
+\\
+\hline
+u
+ & 
+for read and write access
+\\
+\hline\end{tabulary}
+
+
+\code{TYPE} of files and it’s identification:
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+DIR
+ & 
+Directory
+\\
+\hline
+REG
+ & 
+Regular file
+\\
+\hline
+CHR
+ & 
+Character special file
+\\
+\hline
+FIFO
+ & 
+First In First Out
+\\
+\hline\end{tabulary}
+
+
+list open files of one user
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}u user
+\end{Verbatim}
+
+find out all the running process of specific port
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i TCP:22
+\end{Verbatim}
+
+shows only IPv4 and IPv6 network files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i 4
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i 6
+\end{Verbatim}
+
+list all running process of open files of TCP Port ranges from 1-1024.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i TCP:1\PYGZhy{}1024
+\end{Verbatim}
+
+exclude user with ‘\textasciicircum{}’ Character : e.g. to exclude root user
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i \PYGZhy{}u\PYGZca{}root
+\end{Verbatim}
+
+find out a specific user is looking what files and commands
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i \PYGZhy{}u user
+\end{Verbatim}
+
+list all network connections : option `-i' shows the list of all network connections `LISTENING \& ESTABLISHED'.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}i
+\end{Verbatim}
+
+search by PID
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }lsof \PYGZhy{}p 1
+\end{Verbatim}
+
+kill all activity of particular user
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }\PYG{n+nb}{kill} \PYGZhy{}9 \PYG{l+s+sb}{{}`}lsof \PYGZhy{}t \PYGZhy{}u user\PYG{l+s+sb}{{}`}
+\end{Verbatim}
+
+
+\subsection{netstat}
+\label{system/linux/tools:netstat}
+listing all the LISTENING Ports of TCP and UDP connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}a \PYG{p}{\textbar{}} more
+\end{Verbatim}
+
+listing only TCP (Transmission Control Protocol) port connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}at
+\end{Verbatim}
+
+listing only UDP (User Datagram Protocol ) port connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}au
+\end{Verbatim}
+
+listing all active listening ports connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}l
+\end{Verbatim}
+
+listing all active listening TCP ports
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}lt
+\end{Verbatim}
+
+listing all active listening UDP ports
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}lu
+\end{Verbatim}
+
+Listing all active UNIX listening ports
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}lx
+\end{Verbatim}
+
+Showing Statistics by Protocol
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}s
+\end{Verbatim}
+
+Showing statistics of TCP protocol
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}st
+\end{Verbatim}
+
+Showing statistics of UDP Protocol
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}su
+\end{Verbatim}
+
+Displaying service name with their PID number : option -tp will display “PID/Program Name”
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}tp
+\end{Verbatim}
+
+Displaying Promiscuous mode with -ac switch, netstat print the selected information or refresh screen every five second. Default screen refresh in every second.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}ac \PYG{l+m}{5} \PYG{p}{\textbar{}} grep tcp
+\end{Verbatim}
+
+Displaying Kernel IP routing table
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}r
+\end{Verbatim}
+
+Showing network interface packet transactions including both transferring and receiving packets with MTU size
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}i
+\end{Verbatim}
+
+Showing Kernel interface table, similar to ifconfig command.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}ie
+\end{Verbatim}
+
+Displaying multicast group membership information for both IPv4 and IPv6
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}g
+\end{Verbatim}
+
+Print netstat information every few second
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}c
+\end{Verbatim}
+
+Finding un-configured address families with some useful information
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}\PYGZhy{}verbose
+\end{Verbatim}
+
+Find out how many listening programs running on a port
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}ap \PYG{p}{\textbar{}} grep http
+\end{Verbatim}
+
+Displaying RAW Network Statistics
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}\PYGZhy{}statistics \PYGZhy{}\PYGZhy{}raw
+\end{Verbatim}
+
+
 \section{Windows}
 \label{system/windows:windows}\label{system/windows::doc}
 
