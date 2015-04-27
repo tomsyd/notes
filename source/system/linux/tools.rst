@@ -572,3 +572,131 @@ Displaying RAW Network Statistics
 .. code-block:: shell
 
    $ netstat --statistics --raw
+
+screen
+------
+
+To use screen
+^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ screen
+
+When connection lost or crash, to restore previous sessions (very useful !)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ screen -r
+
+Remove dead screen
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+   $ screen -wipe
+
+Short-cuts
+^^^^^^^^^^
+
++------------------------+-------------+------------------------------------+
+| CTRL + a then CTRL + c | CTRL + a, c | Create new window                  |
++------------------------+-------------+------------------------------------+
+| CTRL + a then 0                      | Select Window 0                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 1                      | Select Window 1                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 2                      | Select Window 2                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 3                      | Select Window 3                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 4                      | Select Window 4                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 5                      | Select Window 5                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 6                      | Select Window 6                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 7                      | Select Window 7                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 8                      | Select Window 8                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then 9                      | Select Window 9                    |
++--------------------------------------+------------------------------------+
+| CTRL + a then A                      | Set the name of the current window |
++--------------------------------------+------------------------------------+
+| CTRL + D                             | Close the current Window           |
++--------------------------------------+------------------------------------+
+
+config file .screenrc
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+   # term vt100
+   # termcap sun-color bc=
+   # terminfo sun-color bc=
+   
+   defscrollback 3000
+   startup_message off
+   bind '^\'
+   
+   termcapinfo xterm ti@:te@
+   
+   termcap  vt100 'AF=\E[3%dm:AB=\E[4%dm'
+   terminfo vt100 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
+   termcap  xterm 'AF=\E[3%dm:AB=\E[4%dm'
+   terminfo xterm 'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
+   
+   # test
+   hardstatus alwayslastline "%{bw}x: %-Lw%{= bw}%50>%n%f* %t%{-}%+Lw%< %>"
+   
+   # Bind F11 and F12 (NOT F1 and F2) to previous and next screen window
+   bindkey -k F1 prev
+   bindkey -k F2 next
+   
+   # Produce a bell sound even when a background window is belling
+   bell_msg 'Bell in %^G'
+
+MD5
+---
+
+``md5sum`` stands for **Compute and Check MD5 Message Digest**
+
+md5 checksum (commonly called hash) is used to match or verify integrity of files that may have changed as a result of a faulty file transfer, a disk error or non-malicious interference.
+
+.. code-block:: shell
+
+   $ md5sum file
+
+dd
+--
+
+``dd`` stands for **Convert and Copy a file**
+
+Can be used to convert and copy a file and most of the times is used to copy a iso file (or any other file) to a usb device (or any other location), thus can be used to make a ‘Bootlable‘ Usb Stick.
+
+.. code-block:: shell
+
+   $ dd if=/home/user/Downloads/debian.iso of=/dev/sdb1 bs=512M; sync
+
+Calendar
+--------
+
+.. code-block:: shell
+
+   $ cal 02 1835
+      February 1835      
+   Su Mo Tu We Th Fr Sa  
+    1  2  3  4  5  6  7  
+    8  9 10 11 12 13 14  
+   15 16 17 18 19 20 21  
+   22 23 24 25 26 27 28
+
+Date
+----
+
+.. code-block:: shell
+
+   $ date
+   Fri May 17 14:13:29 IST 2013

@@ -286,8 +286,8 @@ The lzo file is kept by default.
 
    $ lzop -dv file.lzo
 
-Archive all text files *.txt to a lzo tarball
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Archive all text files to a lzo tarball
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 

@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 17, 2015}
+\date{April 24, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -2901,8 +2901,8 @@ The lzo file is kept by default.
 \end{Verbatim}
 
 
-\subsubsection{Archive all text files {\color{red}\bfseries{}*}.txt to a lzo tarball}
-\label{system/linux/archive:archive-all-text-files-txt-to-a-lzo-tarball}
+\subsubsection{Archive all text files to a lzo tarball}
+\label{system/linux/archive:archive-all-text-files-to-a-lzo-tarball}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}use\PYGZhy{}compress\PYGZhy{}program\PYG{o}{=}lzop \PYGZhy{}cf files.tar.lzo *.txt
 \end{Verbatim}
@@ -3567,6 +3567,178 @@ Displaying RAW Network Statistics
 
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}\PYGZhy{}statistics \PYGZhy{}\PYGZhy{}raw
+\end{Verbatim}
+
+
+\subsection{screen}
+\label{system/linux/tools:screen}
+
+\subsubsection{To use screen}
+\label{system/linux/tools:to-use-screen}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }screen
+\end{Verbatim}
+
+
+\subsubsection{When connection lost or crash, to restore previous sessions (very useful !)}
+\label{system/linux/tools:when-connection-lost-or-crash-to-restore-previous-sessions-very-useful}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }screen \PYGZhy{}r
+\end{Verbatim}
+
+
+\subsubsection{Remove dead screen}
+\label{system/linux/tools:remove-dead-screen}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }screen \PYGZhy{}wipe
+\end{Verbatim}
+
+
+\subsubsection{Short-cuts}
+\label{system/linux/tools:short-cuts}
+\begin{tabulary}{\linewidth}{|L|L|L|}
+\hline
+
+CTRL + a then CTRL + c
+ & 
+CTRL + a, c
+ & 
+Create new window
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 0
+} & 
+Select Window 0
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 1
+} & 
+Select Window 1
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 2
+} & 
+Select Window 2
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 3
+} & 
+Select Window 3
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 4
+} & 
+Select Window 4
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 5
+} & 
+Select Window 5
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 6
+} & 
+Select Window 6
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 7
+} & 
+Select Window 7
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 8
+} & 
+Select Window 8
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then 9
+} & 
+Select Window 9
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + a then A
+} & 
+Set the name of the current window
+\\
+\hline \multicolumn{2}{|l|}{
+CTRL + D
+} & 
+Close the current Window
+\\
+\hline\end{tabulary}
+
+
+
+\subsubsection{config file .screenrc}
+\label{system/linux/tools:config-file-screenrc}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZsh{} term vt100
+\PYGZsh{} termcap sun\PYGZhy{}color bc=
+\PYGZsh{} terminfo sun\PYGZhy{}color bc=
+
+defscrollback 3000
+startup\PYGZus{}message off
+bind \PYGZsq{}\PYGZca{}\PYGZbs{}\PYGZsq{}
+
+termcapinfo xterm ti@:te@
+
+termcap  vt100 \PYGZsq{}AF=\PYGZbs{}E[3\PYGZpc{}dm:AB=\PYGZbs{}E[4\PYGZpc{}dm\PYGZsq{}
+terminfo vt100 \PYGZsq{}AF=\PYGZbs{}E[3\PYGZpc{}p1\PYGZpc{}dm:AB=\PYGZbs{}E[4\PYGZpc{}p1\PYGZpc{}dm\PYGZsq{}
+termcap  xterm \PYGZsq{}AF=\PYGZbs{}E[3\PYGZpc{}dm:AB=\PYGZbs{}E[4\PYGZpc{}dm\PYGZsq{}
+terminfo xterm \PYGZsq{}AF=\PYGZbs{}E[3\PYGZpc{}p1\PYGZpc{}dm:AB=\PYGZbs{}E[4\PYGZpc{}p1\PYGZpc{}dm\PYGZsq{}
+
+\PYGZsh{} test
+hardstatus alwayslastline \PYGZdq{}\PYGZpc{}\PYGZob{}bw\PYGZcb{}x: \PYGZpc{}\PYGZhy{}Lw\PYGZpc{}\PYGZob{}= bw\PYGZcb{}\PYGZpc{}50\PYGZgt{}\PYGZpc{}n\PYGZpc{}f* \PYGZpc{}t\PYGZpc{}\PYGZob{}\PYGZhy{}\PYGZcb{}\PYGZpc{}+Lw\PYGZpc{}\PYGZlt{} \PYGZpc{}\PYGZgt{}\PYGZdq{}
+
+\PYGZsh{} Bind F11 and F12 (NOT F1 and F2) to previous and next screen window
+bindkey \PYGZhy{}k F1 prev
+bindkey \PYGZhy{}k F2 next
+
+\PYGZsh{} Produce a bell sound even when a background window is belling
+bell\PYGZus{}msg \PYGZsq{}Bell in \PYGZpc{}\PYGZca{}G\PYGZsq{}
+\end{Verbatim}
+
+
+\subsection{MD5}
+\label{system/linux/tools:md5}
+\code{md5sum} stands for \textbf{Compute and Check MD5 Message Digest}
+
+md5 checksum (commonly called hash) is used to match or verify integrity of files that may have changed as a result of a faulty file transfer, a disk error or non-malicious interference.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }md5sum file
+\end{Verbatim}
+
+
+\subsection{dd}
+\label{system/linux/tools:dd}
+\code{dd} stands for \textbf{Convert and Copy a file}
+
+Can be used to convert and copy a file and most of the times is used to copy a iso file (or any other file) to a usb device (or any other location), thus can be used to make a ‘Bootlable‘ Usb Stick.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }dd \PYG{k}{if}\PYG{o}{=}/home/user/Downloads/debian.iso \PYG{n+nv}{of}\PYG{o}{=}/dev/sdb1 \PYG{n+nv}{bs}\PYG{o}{=}512M\PYG{p}{;} sync
+\end{Verbatim}
+
+
+\subsection{Calendar}
+\label{system/linux/tools:calendar}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cal \PYG{l+m}{02} 1835
+   February 1835
+Su Mo Tu We Th Fr Sa
+ \PYG{l+m}{1}  \PYG{l+m}{2}  \PYG{l+m}{3}  \PYG{l+m}{4}  \PYG{l+m}{5}  \PYG{l+m}{6}  7
+ \PYG{l+m}{8}  \PYG{l+m}{9} \PYG{l+m}{10} \PYG{l+m}{11} \PYG{l+m}{12} \PYG{l+m}{13} 14
+\PYG{l+m}{15} \PYG{l+m}{16} \PYG{l+m}{17} \PYG{l+m}{18} \PYG{l+m}{19} \PYG{l+m}{20} 21
+\PYG{l+m}{22} \PYG{l+m}{23} \PYG{l+m}{24} \PYG{l+m}{25} \PYG{l+m}{26} \PYG{l+m}{27} 28
+\end{Verbatim}
+
+
+\subsection{Date}
+\label{system/linux/tools:date}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }date
+Fri May \PYG{l+m}{17} 14:13:29 IST 2013
 \end{Verbatim}
 
 
