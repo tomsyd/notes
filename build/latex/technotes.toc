@@ -100,48 +100,62 @@
 \contentsline {subsection}{\numberline {4.4.2}Navigation}{27}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}Search}{27}{subsection.4.4.3}
 \contentsline {chapter}{\numberline {5}System}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}Archive and Compression}{29}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}tar (Tape ARchiver)}{29}{subsection.5.1.1}
-\contentsline {subsubsection}{tar options}{29}{subsubsection*.60}
-\contentsline {subsubsection}{tarball}{29}{subsubsection*.61}
-\contentsline {subsubsection}{creation}{30}{subsubsection*.62}
-\contentsline {subsubsection}{extraction}{30}{subsubsection*.63}
-\contentsline {subsubsection}{other operations}{30}{subsubsection*.64}
-\contentsline {subsection}{\numberline {5.1.2}parallel gzip}{31}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}bz2}{31}{subsection.5.1.3}
-\contentsline {subsubsection}{Compression to bz2}{31}{subsubsection*.65}
-\contentsline {subsubsection}{Decompression from bz2}{31}{subsubsection*.66}
-\contentsline {subsubsection}{Archive to tarball .tar.bz2}{31}{subsubsection*.67}
-\contentsline {subsubsection}{Restore from tarball .tar.bz2}{31}{subsubsection*.68}
-\contentsline {subsection}{\numberline {5.1.4}zip}{32}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}lzma}{32}{subsection.5.1.5}
-\contentsline {subsubsection}{Restore from lzma tarball}{32}{subsubsection*.69}
-\contentsline {subsection}{\numberline {5.1.6}lzo}{32}{subsection.5.1.6}
-\contentsline {subsubsection}{Compression to lzo}{32}{subsubsection*.70}
-\contentsline {subsubsection}{Decompression from lzo}{32}{subsubsection*.71}
-\contentsline {subsubsection}{Archive all text files to a lzo tarball}{33}{subsubsection*.72}
-\contentsline {subsubsection}{Restore from lzo tarball}{33}{subsubsection*.73}
-\contentsline {section}{\numberline {5.2}Daily Tools}{33}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}find}{33}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}grep}{34}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}sort}{35}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}sed}{36}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}cat}{36}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}top / htop}{37}{subsection.5.2.6}
-\contentsline {subsection}{\numberline {5.2.7}lsof}{37}{subsection.5.2.7}
-\contentsline {subsection}{\numberline {5.2.8}netstat}{38}{subsection.5.2.8}
-\contentsline {subsection}{\numberline {5.2.9}screen}{39}{subsection.5.2.9}
-\contentsline {subsubsection}{To use screen}{39}{subsubsection*.74}
-\contentsline {subsubsection}{When connection lost or crash, to restore previous sessions (very useful !)}{40}{subsubsection*.75}
-\contentsline {subsubsection}{Remove dead screen}{40}{subsubsection*.76}
-\contentsline {subsubsection}{Short-cuts}{40}{subsubsection*.77}
-\contentsline {subsubsection}{config file .screenrc}{40}{subsubsection*.78}
-\contentsline {subsection}{\numberline {5.2.10}MD5}{41}{subsection.5.2.10}
-\contentsline {subsection}{\numberline {5.2.11}dd}{41}{subsection.5.2.11}
-\contentsline {subsection}{\numberline {5.2.12}Calendar}{41}{subsection.5.2.12}
-\contentsline {subsection}{\numberline {5.2.13}Date}{41}{subsection.5.2.13}
-\contentsline {section}{\numberline {5.3}Windows}{41}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Connect to Internet via Ethernet cable (from PC/laptop)}{41}{subsection.5.3.1}
-\contentsline {chapter}{\numberline {6}Mathmatics}{43}{chapter.6}
-\contentsline {section}{\numberline {6.1}Algebra}{43}{section.6.1}
-\contentsline {section}{\numberline {6.2}Geometry}{43}{section.6.2}
+\contentsline {section}{\numberline {5.1}System Administration}{29}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}CPU}{29}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}System}{29}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}File system}{29}{subsection.5.1.3}
+\contentsline {subsubsection}{Creation}{30}{subsubsection*.60}
+\contentsline {subsubsection}{Deletion}{30}{subsubsection*.61}
+\contentsline {subsubsection}{Troubleshooting : argument list too long}{30}{subsubsection*.62}
+\contentsline {subsubsection}{Links}{31}{subsubsection*.63}
+\contentsline {subsubsection}{Folders}{31}{subsubsection*.64}
+\contentsline {section}{\numberline {5.2}Archive and Compression}{31}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}tar (Tape ARchiver)}{31}{subsection.5.2.1}
+\contentsline {subsubsection}{tar options}{32}{subsubsection*.65}
+\contentsline {subsubsection}{tarball}{32}{subsubsection*.66}
+\contentsline {subsubsection}{creation}{32}{subsubsection*.67}
+\contentsline {subsubsection}{extraction}{32}{subsubsection*.68}
+\contentsline {subsubsection}{other operations}{33}{subsubsection*.69}
+\contentsline {subsection}{\numberline {5.2.2}parallel gzip}{33}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}bz2}{34}{subsection.5.2.3}
+\contentsline {subsubsection}{Compression to bz2}{34}{subsubsection*.70}
+\contentsline {subsubsection}{Decompression from bz2}{34}{subsubsection*.71}
+\contentsline {subsubsection}{Archive to tarball .tar.bz2}{34}{subsubsection*.72}
+\contentsline {subsubsection}{Restore from tarball .tar.bz2}{34}{subsubsection*.73}
+\contentsline {subsection}{\numberline {5.2.4}zip}{34}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}lzma}{34}{subsection.5.2.5}
+\contentsline {subsubsection}{Restore from lzma tarball}{34}{subsubsection*.74}
+\contentsline {subsection}{\numberline {5.2.6}lzo}{34}{subsection.5.2.6}
+\contentsline {subsubsection}{Compression to lzo}{35}{subsubsection*.75}
+\contentsline {subsubsection}{Decompression from lzo}{35}{subsubsection*.76}
+\contentsline {subsubsection}{Archive all text files to a lzo tarball}{35}{subsubsection*.77}
+\contentsline {subsubsection}{Restore from lzo tarball}{35}{subsubsection*.78}
+\contentsline {section}{\numberline {5.3}Network}{35}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Transfer}{36}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}SSH}{36}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Remote host}{37}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Connections}{37}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}Daily Tools}{37}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}find}{37}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}grep}{39}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}sort}{40}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}sed}{40}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}cat}{40}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}top / htop}{41}{subsection.5.4.6}
+\contentsline {subsection}{\numberline {5.4.7}lsof}{41}{subsection.5.4.7}
+\contentsline {subsection}{\numberline {5.4.8}netstat}{42}{subsection.5.4.8}
+\contentsline {subsection}{\numberline {5.4.9}screen}{44}{subsection.5.4.9}
+\contentsline {subsubsection}{To use screen}{44}{subsubsection*.79}
+\contentsline {subsubsection}{When connection lost or crash, to restore previous sessions (very useful !)}{44}{subsubsection*.80}
+\contentsline {subsubsection}{Remove dead screen}{44}{subsubsection*.81}
+\contentsline {subsubsection}{Short-cuts}{44}{subsubsection*.82}
+\contentsline {subsubsection}{config file .screenrc}{44}{subsubsection*.83}
+\contentsline {subsection}{\numberline {5.4.10}MD5}{45}{subsection.5.4.10}
+\contentsline {subsection}{\numberline {5.4.11}dd}{45}{subsection.5.4.11}
+\contentsline {subsection}{\numberline {5.4.12}Calendar}{45}{subsection.5.4.12}
+\contentsline {subsection}{\numberline {5.4.13}Date}{46}{subsection.5.4.13}
+\contentsline {section}{\numberline {5.5}Windows}{46}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Connect to Internet via Ethernet cable (from PC/laptop)}{46}{subsection.5.5.1}
+\contentsline {chapter}{\numberline {6}Mathmatics}{47}{chapter.6}
+\contentsline {section}{\numberline {6.1}Algebra}{47}{section.6.1}
+\contentsline {section}{\numberline {6.2}Geometry}{47}{section.6.2}

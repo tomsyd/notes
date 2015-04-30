@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>System Administration &mdash; Tech for fun! 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Tech for fun! 1 documentation" href="../../index.html"/>
+        <link rel="next" title="Archive and Compression" href="archive.html"/>
+        <link rel="prev" title="NANO (Nano’s ANOther editor)" href="../../editor/nano.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> Tech for fun!</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+<!--script type="text/javascript">google_ad_client="pub-9773499175713006";
+google_ad_slot="0210049774";
+google_ad_width=200;
+google_ad_height=200;
+</script> <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script-->
+        <!--script type="text/javascript">google_ad_client="pub-9773499175713006";
+google_ad_slot="0210049774";
+google_ad_width=200;
+google_ad_height=200;
+</script> <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script-->
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kid/minecraft.html">Minecraft Pi Edition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../kid/minecraft.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kid/minecraft.html#available-blocks-in-minecraft-pi-edition">Available blocks in Minecraft Pi Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../kid/minecraft.html#list-of-python-programs">List of python programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../kid/pygame.html">Pygame</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../kid/pygame.html#list-of-pygame-programs">List of pygame programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../kid/scratch.html">Scratch</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/raspberrypi.html">Raspberry Pi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#default-settings">Default settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#information">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#short-cuts">Short-cuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#setup-keyboard">Setup Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware/raspberrypi.html#utilities-softwares">Utilities / Softwares</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/arduino.html">Arduino</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../language/shell.html">Shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../language/python.html">Python</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/vi.html">Vi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vi.html#cursor-movement-commands">Cursor Movement Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vi.html#inserting-text">Inserting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vi.html#deleting-text">Deleting Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vi.html#change-commands">Change Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vi.html#file-manipulation">File Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/vim.html">VIM (Vi IMproved)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#multi-files-multi-windows">Multi-files, multi-windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/vim.html#search-and-replace">Search and Replace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/joe.html">JOE (Joe’s Own Editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/joe.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/joe.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/joe.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/joe.html#search">Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/nano.html">NANO (Nano’s ANOther editor)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/nano.html#basic-commands">Basic commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/nano.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../editor/nano.html#search">Search</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">System Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cpu">CPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system">System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-system">File system</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="archive.html">Archive and Compression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#tar-tape-archiver">tar (Tape ARchiver)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#parallel-gzip">parallel gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#bz2">bz2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#zip">zip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#lzma">lzma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive.html#lzo">lzo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">Network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network.html#transfer">Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#ssh">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#remote-host">Remote host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network.html#connections">Connections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Daily Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#find">find</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#grep">grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#sort">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#sed">sed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#cat">cat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#top-htop">top / htop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#lsof">lsof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#netstat">netstat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#screen">screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#md5">MD5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#dd">dd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#calendar">Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#date">Date</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../windows.html">Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../windows.html#connect-to-internet-via-ethernet-cable-from-pc-laptop">Connect to Internet via Ethernet cable (from PC/laptop)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/geometry.html">Geometry</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Tech for fun!</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>System Administration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/system/linux/admin.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="system-administration">
+<h1>System Administration<a class="headerlink" href="#system-administration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cpu">
+<h2>CPU<a class="headerlink" href="#cpu" title="Permalink to this headline">¶</a></h2>
+<p>Show CPU usage per process</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>top
+</pre></div>
+</div>
+<p>Show number of CPU and their details</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>cat /proc/cpuinfo
+</pre></div>
+</div>
+</div>
+<div class="section" id="system">
+<h2>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>Show the operating system</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>uname -a
+</pre></div>
+</div>
+<p>Check if your system is 32 bit or 64 bit</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>uname -a
+<span class="nv">$ </span>arch
+</pre></div>
+</div>
+<p>Check server is up for how many days</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>uptime
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-system">
+<h2>File system<a class="headerlink" href="#file-system" title="Permalink to this headline">¶</a></h2>
+<p>Show available space</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>df -h .
+</pre></div>
+</div>
+<p>Find which directory is taking how much space</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>du -sh . <span class="p">|</span> grep G
+</pre></div>
+</div>
+<div class="section" id="creation">
+<h3>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<p>Soft link creation</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ln -s object link
+</pre></div>
+</div>
+<p>Hard link creation</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ln object link
+</pre></div>
+</div>
+<p>Create a read-only file</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>touch file
+<span class="nv">$ </span>chmod <span class="m">400</span> file
+</pre></div>
+</div>
+</div>
+<div class="section" id="deletion">
+<h3>Deletion<a class="headerlink" href="#deletion" title="Permalink to this headline">¶</a></h3>
+<p>The deletion is an easy task in general.</p>
+<p>You could delete a file with</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rm file
+</pre></div>
+</div>
+<p>and delete an empty folder with</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rmdir folder
+</pre></div>
+</div>
+<p>It will be slightly complicated when the folder is not empty. In this case, you need to delete the folder recursively with</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rm -r folder
+</pre></div>
+</div>
+<p>To avoid the default pompt question, you could use the option -f. For example, for the last command, we could use</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rm -rf folder
+</pre></div>
+</div>
+<p>Be careful, it is a hard task to recover the deleted file in general, and often it is impossible when you want to do it one day later. You need to contact your system administrator for the recovery as soon as possible.</p>
+</div>
+<div class="section" id="troubleshooting-argument-list-too-long">
+<h3>Troubleshooting : argument list too long<a class="headerlink" href="#troubleshooting-argument-list-too-long" title="Permalink to this headline">¶</a></h3>
+<p>Due to system limitation, the provided commands may not be able to work correctly when there are too many items in the concerned folder. For example,</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rm -rf folder/*
+zsh: sure you want to delete all the files in /folder <span class="o">[</span>yn<span class="o">]</span>? y
+zsh: argument list too long: rm
+</pre></div>
+</div>
+<p>In this case, you have several workarounds. The easiest way is to delete the whole folder and recreate the folder</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>rm -rf folder
+<span class="nv">$ </span>mkdir folder
+</pre></div>
+</div>
+<p>You could also use the command find to do it as follows</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>find folder -type f -name <span class="s1">&#39;*&#39;</span> -exec rm <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="links">
+<h3>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<p>There are two link types : soft link and hard link.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>soft link <span class="classifier-delimiter">:</span> <span class="classifier">also called symbolic link / symlink</span></dt>
+<dd><ul class="first last simple">
+<li>inherit the permission of the pointed directory</li>
+<li>points to program, file or directory</li>
+<li>broken if pointed object is renamed, moved or deleted (in red, when displaying with <code class="docutils literal"><span class="pre">ls</span> <span class="pre">-ltr</span> <span class="pre">--color</span></code>)</li>
+<li>ending with &#64; when displaying with <code class="docutils literal"><span class="pre">ls</span> <span class="pre">-F</span></code></li>
+<li>soft link can point to a network mounted directory</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>hard link</dt>
+<dd><ul class="first last simple">
+<li>points to program and file, not to directory</li>
+<li>not broken if pointed object is renamed, moved or deleted</li>
+<li>hard link can not span disk drives</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>N.B. Use <code class="docutils literal"><span class="pre">pwd</span></code> to know where you are!</p>
+<p>Updating soft link</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ln -nsf new_object link
+</pre></div>
+</div>
+<p>List all soft/hard links in a folder</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ls -ltr <span class="p">|</span> grep <span class="s2">&quot;^l&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="folders">
+<h3>Folders<a class="headerlink" href="#folders" title="Permalink to this headline">¶</a></h3>
+<p>List all sub directories in a folder</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>ls -ltr <span class="p">|</span> grep <span class="s2">&quot;^d&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="archive.html" class="btn btn-neutral float-right" title="Archive and Compression">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../editor/nano.html" class="btn btn-neutral" title="NANO (Nano’s ANOther editor)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2015, Tom.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

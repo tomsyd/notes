@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 24, 2015}
+\date{April 30, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -2575,6 +2575,204 @@ search and replace one text
 \chapter{System}
 \label{index:system}
 
+\section{System Administration}
+\label{system/linux/admin:system-administration}\label{system/linux/admin::doc}
+
+\subsection{CPU}
+\label{system/linux/admin:cpu}
+Show CPU usage per process
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }top
+\end{Verbatim}
+
+Show number of CPU and their details
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }cat /proc/cpuinfo
+\end{Verbatim}
+
+
+\subsection{System}
+\label{system/linux/admin:system}
+Show the operating system
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }uname \PYGZhy{}a
+\end{Verbatim}
+
+Check if your system is 32 bit or 64 bit
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }uname \PYGZhy{}a
+\PYG{n+nv}{\PYGZdl{} }arch
+\end{Verbatim}
+
+Check server is up for how many days
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }uptime
+\end{Verbatim}
+
+
+\subsection{File system}
+\label{system/linux/admin:file-system}
+Show available space
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }df \PYGZhy{}h .
+\end{Verbatim}
+
+Find which directory is taking how much space
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }du \PYGZhy{}sh . \PYG{p}{\textbar{}} grep G
+\end{Verbatim}
+
+
+\subsubsection{Creation}
+\label{system/linux/admin:creation}
+Soft link creation
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ln \PYGZhy{}s object link
+\end{Verbatim}
+
+Hard link creation
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ln object link
+\end{Verbatim}
+
+Create a read-only file
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }touch file
+\PYG{n+nv}{\PYGZdl{} }chmod \PYG{l+m}{400} file
+\end{Verbatim}
+
+
+\subsubsection{Deletion}
+\label{system/linux/admin:deletion}
+The deletion is an easy task in general.
+
+You could delete a file with
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rm file
+\end{Verbatim}
+
+and delete an empty folder with
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rmdir folder
+\end{Verbatim}
+
+It will be slightly complicated when the folder is not empty. In this case, you need to delete the folder recursively with
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rm \PYGZhy{}r folder
+\end{Verbatim}
+
+To avoid the default pompt question, you could use the option -f. For example, for the last command, we could use
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rm \PYGZhy{}rf folder
+\end{Verbatim}
+
+Be careful, it is a hard task to recover the deleted file in general, and often it is impossible when you want to do it one day later. You need to contact your system administrator for the recovery as soon as possible.
+
+
+\subsubsection{Troubleshooting : argument list too long}
+\label{system/linux/admin:troubleshooting-argument-list-too-long}
+Due to system limitation, the provided commands may not be able to work correctly when there are too many items in the concerned folder. For example,
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rm \PYGZhy{}rf folder/*
+zsh: sure you want to delete all the files in /folder \PYG{o}{[}yn\PYG{o}{]}? y
+zsh: argument list too long: rm
+\end{Verbatim}
+
+In this case, you have several workarounds. The easiest way is to delete the whole folder and recreate the folder
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }rm \PYGZhy{}rf folder
+\PYG{n+nv}{\PYGZdl{} }mkdir folder
+\end{Verbatim}
+
+You could also use the command find to do it as follows
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }find folder \PYGZhy{}type f \PYGZhy{}name \PYG{l+s+s1}{\PYGZsq{}*\PYGZsq{}} \PYGZhy{}exec rm \PYG{o}{\PYGZob{}}\PYG{o}{\PYGZcb{}} \PYG{l+s+se}{\PYGZbs{};}
+\end{Verbatim}
+
+
+\subsubsection{Links}
+\label{system/linux/admin:links}
+There are two link types : soft link and hard link.
+\begin{itemize}
+\item {} \begin{description}
+\item[{soft link}] \leavevmode{[}also called symbolic link / symlink{]}\begin{itemize}
+\item {} 
+inherit the permission of the pointed directory
+
+\item {} 
+points to program, file or directory
+
+\item {} 
+broken if pointed object is renamed, moved or deleted (in red, when displaying with \code{ls -ltr -{-}color})
+
+\item {} 
+ending with @ when displaying with \code{ls -F}
+
+\item {} 
+soft link can point to a network mounted directory
+
+\end{itemize}
+
+\end{description}
+
+\item {} \begin{description}
+\item[{hard link}] \leavevmode\begin{itemize}
+\item {} 
+points to program and file, not to directory
+
+\item {} 
+not broken if pointed object is renamed, moved or deleted
+
+\item {} 
+hard link can not span disk drives
+
+\end{itemize}
+
+\end{description}
+
+\end{itemize}
+
+N.B. Use \code{pwd} to know where you are!
+
+Updating soft link
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ln \PYGZhy{}nsf new\PYGZus{}object link
+\end{Verbatim}
+
+List all soft/hard links in a folder
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ls \PYGZhy{}ltr \PYG{p}{\textbar{}} grep \PYG{l+s+s2}{\PYGZdq{}\PYGZca{}l\PYGZdq{}}
+\end{Verbatim}
+
+
+\subsubsection{Folders}
+\label{system/linux/admin:folders}
+List all sub directories in a folder
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ls \PYGZhy{}ltr \PYG{p}{\textbar{}} grep \PYG{l+s+s2}{\PYGZdq{}\PYGZca{}d\PYGZdq{}}
+\end{Verbatim}
+
+
 \section{Archive and Compression}
 \label{system/linux/archive:archive-and-compression}\label{system/linux/archive::doc}
 
@@ -2912,6 +3110,197 @@ The lzo file is kept by default.
 \label{system/linux/archive:restore-from-lzo-tarball}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{n+nv}{\PYGZdl{} }tar \PYGZhy{}\PYGZhy{}use\PYGZhy{}compress\PYGZhy{}program\PYG{o}{=}lzop \PYGZhy{}xf files.tar.lzo
+\end{Verbatim}
+
+
+\section{Network}
+\label{system/linux/network::doc}\label{system/linux/network:network}
+There are many network dedicated tools. Here are several ones among the most common ones:
+
+\begin{tabulary}{\linewidth}{|L|L|}
+\hline
+
+\code{hostname}
+ & 
+finding host/domain name and IP address
+\\
+\hline
+\code{ping}
+ & 
+test network connectionng
+\\
+\hline
+\code{ifconfig}
+ & 
+getting network configuration
+\\
+\hline
+\code{netstat}
+ & 
+network connections, routing tables, interface statistics
+\\
+\hline
+\code{nslookup}
+ & 
+query DNS lookup name
+\\
+\hline
+\code{telnet}
+ & 
+communicate with other hostname
+\\
+\hline
+\code{traceroute}
+ & 
+outing steps that packets take to get to network host
+\\
+\hline
+\code{finger}
+ & 
+view user information
+\\
+\hline
+\code{telnet}
+ & 
+checking status of destination host
+\\
+\hline\end{tabulary}
+
+
+Some examples are given below.
+
+Show the hostname
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }hostname
+\end{Verbatim}
+
+Show the domain
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }hostname \PYGZhy{}d
+\end{Verbatim}
+
+Show the full host and domain name
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }hostname \PYGZhy{}f
+\end{Verbatim}
+
+Show the IP
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }hostname \PYGZhy{}i
+\end{Verbatim}
+
+Show process id of applications using the given port
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}nap \PYG{p}{\textbar{}} grep port\PYGZus{}number
+\end{Verbatim}
+
+Show multicast network subscribed by the host
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}g
+\end{Verbatim}
+
+Show IP
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }nslookup host.domain
+\end{Verbatim}
+
+Show name
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }nslookup IP\PYGZus{}address
+\end{Verbatim}
+
+Use mount for accessing a NFS file system
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }mount \PYGZhy{}t nfs host:path\PYGZus{}to\PYGZus{}your\PYGZus{}mountpoint
+\end{Verbatim}
+
+
+\subsection{Transfer}
+\label{system/linux/network:transfer}
+\code{scp} is one of tools for the file transfer.
+
+Transfer (multi) files
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }scp djiang@remote\PYGZus{}host:/path/to/folder/*.py .
+\end{Verbatim}
+
+Transfer a folder
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }scp \PYGZhy{}r djiang@remote\PYGZus{}host:/path/to/folder .
+\end{Verbatim}
+
+There exist many other tools which permit the transfer from one host to another : \code{rsync}, \code{sftp}, etc.
+
+
+\subsection{SSH}
+\label{system/linux/network:ssh}
+ssh is used to connect a remote host
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ssh login@remote\PYGZus{}host
+\end{Verbatim}
+
+
+\subsection{Remote host}
+\label{system/linux/network:remote-host}
+Check if a remote host is alive
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }ping host
+\PYG{n+nv}{\PYGZdl{} }telnet host
+\end{Verbatim}
+
+Find remote hosts which are connecting to your host on a particular port?
+
+using \code{netstat} command, execute
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}a \PYG{p}{\textbar{}} grep port\PYGZus{}number
+\end{Verbatim}
+
+How to check if a particular process is listening on a particular port on remote host?
+
+By using \code{telnet} command for example
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }telnet hostname port
+\end{Verbatim}
+
+if it is able to successfully connect then some process is listening on that port.
+
+
+\subsection{Connections}
+\label{system/linux/network:connections}
+Show all connections, including TCP and UDP
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}all
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}a
+\end{Verbatim}
+
+Show TCP connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}\PYGZhy{}tcp
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}t
+\end{Verbatim}
+
+Show UDP connections
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}\PYGZhy{}udp
+\PYG{n+nv}{\PYGZdl{} }netstat \PYGZhy{}u
 \end{Verbatim}
 
 
