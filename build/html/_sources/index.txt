@@ -14,6 +14,7 @@ Kid's activity
 
    kid/minecraft
    kid/pygame
+   kid/python
    kid/scratch
 
 Hardware

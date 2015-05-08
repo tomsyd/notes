@@ -19,7 +19,7 @@
 
 
 \title{Tech for fun!}
-\date{April 30, 2015}
+\date{May 01, 2015}
 \release{1}
 \author{Tom}
 \newcommand{\sphinxlogo}{}
@@ -1138,6 +1138,60 @@ plant some random treasure
     \PYG{k}{if} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{QUIT} \PYG{o+ow}{in} \PYG{p}{[}\PYG{n}{e}\PYG{o}{.}\PYG{n}{type} \PYG{k}{for} \PYG{n}{e} \PYG{o+ow}{in} \PYG{n}{pygame}\PYG{o}{.}\PYG{n}{event}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{p}{:}
         \PYG{k}{break}
     \PYG{n}{fps}\PYG{o}{.}\PYG{n}{tick}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{)} \PYG{c}{\PYGZsh{} wait so that frame rate is 30 fps}
+\end{Verbatim}
+
+
+\section{Python Games}
+\label{kid/python:python-games}\label{kid/python::doc}
+
+\subsection{Number guessing game}
+\label{kid/python:number-guessing-game}
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{n}{secret} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{99}\PYG{p}{)}
+\PYG{n}{guess} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{tries} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{AHOY! I}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{m the Dread Pirate Roberts, and I have a secret!}\PYG{l+s}{\PYGZdq{}}
+\PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{It is a number from 1 to 99. I}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ll give you 6 tries. }\PYG{l+s}{\PYGZdq{}}
+
+\PYG{k}{while} \PYG{n}{guess} \PYG{o}{!=} \PYG{n}{secret} \PYG{o+ow}{and} \PYG{n}{tries} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{6}\PYG{p}{:}
+    \PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{What}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{s yer guess? }\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{guess} \PYG{o}{\PYGZlt{}} \PYG{n}{secret}\PYG{p}{:}
+        \PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Too low, ye scurvy dog!}\PYG{l+s}{\PYGZdq{}}
+    \PYG{k}{elif} \PYG{n}{guess} \PYG{o}{\PYGZgt{}} \PYG{n}{secret}\PYG{p}{:}
+        \PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Too high, landlubber!}\PYG{l+s}{\PYGZdq{}}
+    \PYG{n}{tries} \PYG{o}{=} \PYG{n}{tries} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{k}{if} \PYG{n}{guess} \PYG{o}{==} \PYG{n}{secret}\PYG{p}{:}
+    \PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Avast! Ye got it! Found my secret, ye did!}\PYG{l+s}{\PYGZdq{}}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{No more guesses! Better luck next time, matey!}\PYG{l+s}{\PYGZdq{}}
+    \PYG{k}{print} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{The secret number was}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{secret}
+\end{Verbatim}
+
+
+\subsection{Number guessing game using EasyGui}
+\label{kid/python:number-guessing-game-using-easygui}
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PYG{k+kn}{import} \PYG{n+nn}{random}\PYG{o}{,} \PYG{n+nn}{easygui}
+
+\PYG{n}{secret} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{99}\PYG{p}{)}
+\PYG{n}{guess} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{tries} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{easygui}\PYG{o}{.}\PYG{n}{msgbox}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{l+s}{AHOY! I}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{m the Dread Pirate Roberts, and I have a secret!}
+\PYG{l+s}{It is a number from 1 to 99. I}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{ll give you 6 tries.}\PYG{l+s}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{while} \PYG{n}{guess} \PYG{o}{!=} \PYG{n}{secret} \PYG{o+ow}{and} \PYG{n}{tries} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{6}\PYG{p}{:}
+    \PYG{n}{guess} \PYG{o}{=} \PYG{n}{easygui}\PYG{o}{.}\PYG{n}{integerbox}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{What}\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{s yer guess, matey?}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{guess}\PYG{p}{:} \PYG{k}{break}
+    \PYG{k}{if} \PYG{n}{guess} \PYG{o}{\PYGZlt{}} \PYG{n}{secret}\PYG{p}{:}
+        \PYG{n}{easygui}\PYG{o}{.}\PYG{n}{msgbox}\PYG{p}{(}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{guess}\PYG{p}{)} \PYG{o}{+} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ is too low, ye scurvy dog!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{k}{elif} \PYG{n}{guess} \PYG{o}{\PYGZgt{}} \PYG{n}{secret}\PYG{p}{:}
+        \PYG{n}{easygui}\PYG{o}{.}\PYG{n}{msgbox}\PYG{p}{(}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{guess}\PYG{p}{)} \PYG{o}{+} \PYG{l+s}{\PYGZdq{}}\PYG{l+s}{ is too high, landlubber!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{tries} \PYG{o}{=} \PYG{n}{tries} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{k}{if} \PYG{n}{guess} \PYG{o}{==} \PYG{n}{secret}\PYG{p}{:}
+    \PYG{n}{easygui}\PYG{o}{.}\PYG{n}{msgbox}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{Avast! Ye got it! Found my secret, ye did!}\PYG{l+s}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{n}{easygui}\PYG{o}{.}\PYG{n}{msgbox}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s}{No more guesses! The number was }\PYG{l+s}{\PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{secret}\PYG{p}{)}\PYG{p}{)}
 \end{Verbatim}
 
 

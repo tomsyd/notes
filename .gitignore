@@ -1,0 +1,9 @@
+*.pyc
+*.tex
+*.out
+*.toc
+*.log
+*.aux
+*.pdf
+*.geany
+*.html
